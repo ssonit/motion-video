@@ -29,7 +29,7 @@ motion/
 │    ├─ grok-bot-ui/         real Grok Bot app screenshots, tokens, bot mark
 │    └─ _external/           cloned third-party repos, idea sources only (NOT in git)
 ├─ output/                   finished mp4 files, named <topic>-<lang>[_<voice>].mp4  (NOT in git)
-└─ archive/                  older experiments (demo, grok3min, huashu-grok), kept on purpose
+└─ archive/                  older experiments (demo, grok3min, huashu-grok), kept locally  (NOT in git)
 ```
 
 ## What is not in git (see `.gitignore`)
@@ -39,6 +39,7 @@ motion/
 | `output/*.mp4` | large rendered videos | `python tools/render.py <CompId> <name>` |
 | `references/*/source.mp4` and any other video | large downloaded references | `python tools/analyze.py "<url-or-file>" <slug>` |
 | `references/_external/` | cloned third-party repos (huashu-motion, awesome-opus5-5-videos, openmotion), idea sources only | `git clone` them again into this folder |
+| `archive/` | old experiments (html demos, 3-min narration/music wavs, frames, huashu vendor files, ~59 MB); local only, still in git history up to `b6f9f4a` | keep your local copy; `git show b6f9f4a:archive/...` restores any file |
 | `studio/node_modules/` | dependencies | `cd studio && npm install` |
 | `.tmp/`, `output/_preview/` | render temp files and preview frames | generated automatically |
 

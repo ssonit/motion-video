@@ -26,3 +26,6 @@ Thumbs.db
 .env.*
 
 !output/.gitkeep
+
+# older experiments, kept locally only
+archive/
