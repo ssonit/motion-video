@@ -1,0 +1,42 @@
+{
+  "scenes": [
+    { "id": "intro", "lines": [
+      "You've probably heard of Grok Bot.",
+      "But here is what actually makes it different from every other personal agent." ] },
+    { "id": "threads", "lines": [
+      "Most personal agents work the same way. You talk to one agent.",
+      "It can spin off different threads or channels, but everything still happens through a single conversation.",
+      "Talk about ads, email and projects all at once, and things get convoluted and confusing." ] },
+    { "id": "team", "lines": [
+      "With Grok Bot, you get a separate bot for every job.",
+      "Instead of one assistant, you build a whole team of bots.",
+      "Each one has its own role." ] },
+    { "id": "define", "lines": [
+      "Creating one is simple. Give it a name, pick an avatar, and define its role.",
+      "Whatever you want it to be." ] },
+    { "id": "roles", "lines": [
+      "Say you run ads. One bot only handles your Meta Ads.",
+      "Another is your Google Ads manager. Another is your project manager.",
+      "When a topic comes up, you already know exactly who to talk to.",
+      "Segmenting your bots like this keeps every conversation clean." ] },
+    { "id": "chief", "lines": [
+      "Still prefer a single thread? There's a chief of staff bot.",
+      "It's the most proactive of the group, and it delegates work out to all the other bots.",
+      "So you talk to one bot, and still get a whole team working." ] },
+    { "id": "access", "lines": [
+      "Every bot can have its own mailbox.",
+      "And when it needs access to something, it asks for your approval through one password, instead of asking you to paste secrets into a chat." ] },
+    { "id": "connectors", "lines": [
+      "It also plugs into a large library of connectors, so your bots can work inside the tools you already use." ] },
+    { "id": "calls", "lines": [
+      "Here's a standout feature. Grok Bot can make phone calls for you.",
+      "Need a restaurant reservation? Or want to change your internet plan without sitting on hold for forty five minutes?",
+      "Your bot makes the call, waits on the line, and dials you in only when a real person answers." ] },
+    { "id": "car", "lines": [
+      "It even reaches your car. Connect your Tesla, and the same bot from your app comes along for the ride.",
+      "Ask about your emails, or check on a workflow, without ever opening your laptop." ] },
+    { "id": "outro", "lines": [
+      "Grok Bot. A team of bots, one for every job.",
+      "Based on a review by Thomas Bekkers." ] }
+  ]
+}

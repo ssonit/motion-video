@@ -1,0 +1,207 @@
+[
+  {
+    "id": "intro",
+    "vo": "Welcome. In the next few minutes, I'll walk you through setting up your very first Bot employee, step by step.",
+    "frames": 240
+  },
+  {
+    "id": "zero",
+    "vo": "You don't need to code. Start from zero, watch this once, and follow along.",
+    "frames": 196
+  },
+  {
+    "id": "evolve",
+    "vo": "AI agents have evolved. First came the chat box. Then came coding agents, powerful, but hard to start. Now there's a personal agent that works inside your own business.",
+    "frames": 406
+  },
+  {
+    "id": "aha",
+    "vo": "And it really isn't hype. It's an all-day team of Bots, and the real work goes to them.",
+    "frames": 199
+  },
+  {
+    "id": "install",
+    "vo": "Step one: install. Just download it from the official site, open it, and sign in.",
+    "frames": 216
+  },
+  {
+    "id": "what",
+    "vo": "It's not another chat box, and it's not a coding agent either. Think of it as a truly smart assistant.",
+    "frames": 224
+  },
+  {
+    "id": "first",
+    "vo": "Create your first Bot in four steps. New, pick an avatar, give it a name, and set its rules. I named mine Translator.",
+    "frames": 299
+  },
+  {
+    "id": "directory",
+    "vo": "There's a big directory of ready-made Bots for marketing, design, hiring, and operations. You can also connect your tools, like Notion, your calendar, or your mail.",
+    "frames": 350
+  },
+  {
+    "id": "tangled",
+    "vo": "Before this, none of my devices talked to each other. Every phone and computer was its own little world.",
+    "frames": 227
+  },
+  {
+    "id": "ring",
+    "vo": "Now they're all linked, and there are no walls between them.",
+    "frames": 126
+  },
+  {
+    "id": "devices",
+    "vo": "The same Bot works everywhere. Log in on your phone, and one sentence is all it takes.",
+    "frames": 214
+  },
+  {
+    "id": "ch05",
+    "vo": "Now, real business.",
+    "frames": 88
+  },
+  {
+    "id": "company",
+    "vo": "My company has three real business departments, and every department is a team of Bots.",
+    "frames": 188
+  },
+  {
+    "id": "job",
+    "vo": "Every Bot gets one job. A job description is simply a skill. For example, a topic picker that sends me the best ideas every morning.",
+    "frames": 316
+  },
+  {
+    "id": "footage",
+    "vo": "Another Bot finds footage for my edits, and puts it into an editing project.",
+    "frames": 175
+  },
+  {
+    "id": "handoff",
+    "vo": "Jobs hand work to each other. Pick a topic, write, design, then edit. Each role is a mature skill, like an employee handbook. Use it first, add rules, add limits, and it gets sharper every time.",
+    "frames": 464
+  },
+  {
+    "id": "covers",
+    "vo": "The design Bot makes the covers directly, in every size I need.",
+    "frames": 151
+  },
+  {
+    "id": "opensource",
+    "vo": "That design skill is open source, and I wrote beginner docs to go with it.",
+    "frames": 163
+  },
+  {
+    "id": "manager",
+    "vo": "For important departments, you can assign a manager Bot. You can't direct every employee yourself, so scheduling is the key.",
+    "frames": 267
+  },
+  {
+    "id": "toolwin",
+    "vo": "On my Windows computer, a fixed script handles the editing.",
+    "frames": 142
+  },
+  {
+    "id": "work",
+    "vo": "Every day at five thirty, it cuts the video from my desktop assets, publishes it, and fills the links back in.",
+    "frames": 232
+  },
+  {
+    "id": "solo",
+    "vo": "Put it together and you have a one-person company. A chief Bot, an editor, a copywriter, a publisher, and an asset manager, each reporting back when the job is done.",
+    "frames": 335
+  },
+  {
+    "id": "key",
+    "vo": "Some people say its code isn't top-tier, or its images aren't the best. But think like a boss. You don't need the best at everything. You need to orchestrate.",
+    "frames": 358
+  },
+  {
+    "id": "ch06",
+    "vo": "A few quick-launch tips.",
+    "frames": 89
+  },
+  {
+    "id": "neontwo",
+    "vo": "There are two quick ways to call it. Bind it to your side button, or just say, Hey Bot.",
+    "frames": 210
+  },
+  {
+    "id": "neonreq",
+    "vo": "For the side button, check two things: the latest app version, and an iPhone with an Action button.",
+    "frames": 198
+  },
+  {
+    "id": "shortcut",
+    "vo": "Open Shortcuts, create Start Voice Chat, and select the Bot you just made.",
+    "frames": 172
+  },
+  {
+    "id": "backtap",
+    "vo": "Prefer taps? Go to Accessibility, then Touch, then Back Tap, and pick a double or triple tap.",
+    "frames": 240
+  },
+  {
+    "id": "hey",
+    "vo": "For voice, say Hey Bot three times to record it. It can even handle your calendar, reminders, and alarms.",
+    "frames": 256
+  },
+  {
+    "id": "ch07",
+    "vo": "Now, a few pitfalls.",
+    "frames": 92
+  },
+  {
+    "id": "issue1",
+    "vo": "First, it tends to over-correct. A small edit turns into a rewrite. My fix: hand code changes to a coding tool, or use a script I've already tuned.",
+    "frames": 355
+  },
+  {
+    "id": "issue2",
+    "vo": "Second, there's no separate window for each Bot yet. I've sent the feedback, and I hope it arrives soon.",
+    "frames": 230
+  },
+  {
+    "id": "trap",
+    "vo": "And the biggest trap of all: spending more time designing the org chart than doing real work.",
+    "frames": 186
+  },
+  {
+    "id": "roi",
+    "vo": "Be rational, and do the math first. You invest a subscription and some setup time. You should get back saved time and real results. Otherwise, it's meaningless.",
+    "frames": 373
+  },
+  {
+    "id": "tokens",
+    "vo": "I use coding tools constantly, and the usage adds up fast. But they always felt bloated.",
+    "frames": 222
+  },
+  {
+    "id": "after",
+    "vo": "Now it's minimal. Simple interaction, a digital company structure, and everything driven by your real business.",
+    "frames": 248
+  },
+  {
+    "id": "waterill",
+    "vo": "Think about drinking water. Swap a heavy jug for a case of bottled water, and it gets easier.",
+    "frames": 218
+  },
+  {
+    "id": "water",
+    "vo": "Habits work the same way. Shorten the chain. Have an idea, call your Bot from anywhere, and hand it off. The smoother it feels, the more you use it.",
+    "frames": 356
+  },
+  {
+    "id": "beach",
+    "vo": "Even on a business trip, or on a beach, it's one tap away.",
+    "frames": 147
+  },
+  {
+    "id": "dream",
+    "vo": "My dream is a scene like this: commanding a whole team, planning from far away, like a strategist.",
+    "frames": 208
+  },
+  {
+    "id": "outro",
+    "vo": "So start small. One Bot, one real task. Build everything around your real business, and let it work for you.",
+    "frames": 278
+  }
+]

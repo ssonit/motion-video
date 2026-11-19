@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grok Bot - 3 min</title>
+<style>
+  html,body{margin:0;height:100%;background:#000;overflow:hidden}
+  canvas{display:block;width:min(100vw,177.78vh);height:auto;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+</style>
+</head>
+<body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+window.addEventListener('error', e => { document.title = 'ERR ' + e.message + ' L' + e.lineno; });
+window.addEventListener('unhandledrejection', e => { document.title = 'REJ ' + (e.reason && e.reason.message); });
+(() => {
+const W = 1280, H = 720, FPS = 30;
+const cv = document.getElementById('c'), c = cv.getContext('2d');
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const sm = t => { t = cl(t); return t * t * (3 - 2 * t); };
+const eo = t => 1 - Math.pow(1 - cl(t), 3);
+const back = t => { t = cl(t); const s = 1.7; return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); };
+const hh = n => { const s = Math.sin(n * 12.9898) * 43758.5453; return s - Math.floor(s); };
+const FONT = '"Segoe UI",system-ui,-apple-system,Arial,sans-serif';
+const GOLD = '#f5b942', INK = '#15151b', MUTED = '#9a9aa6', GREY = '#3a3a48';
+const COL = { inbox: '#ff4d3d', x: '#f4f4f6', meta: '#8b7bff', goog: '#4da3ff', proj: '#35c2a1', chief: GOLD };
+
+/* ---------- drawing helpers ---------- */
+function rr(x, y, w, h, r) { c.beginPath(); c.roundRect(x, y, w, h, r); }
+function txt(s, x, y, size, col = '#fff', weight = 600, align = 'left', a = 1) {
+  c.globalAlpha = a; c.font = `${weight} ${size}px ${FONT}`; c.fillStyle = col; c.textAlign = align; c.textBaseline = 'alphabetic'; c.fillText(s, x, y); c.globalAlpha = 1;
+}
+const tw = (s, size, weight = 600) => { c.font = `${weight} ${size}px ${FONT}`; return c.measureText(s).width; };
+function star(x, y, r, col) { c.fillStyle = col; c.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr_ = i % 2 ? r * .45 : r; c.lineTo(x + Math.cos(a) * rr_, y + Math.sin(a) * rr_); } c.closePath(); c.fill(); }
+function blob(x, y, s, col, T, seed = 0, look = 0, sq = 1, badge = false) {
+  s = Math.max(.01, s); if (s < .5) return;
+  c.save(); c.translate(x, y); c.scale(1, sq); c.fillStyle = col;
+  c.beginPath(); c.arc(0, 0, s, 0, Math.PI * 2); c.fill();
+  const bl = ((T + seed * 1.7) % 3.4) < .12 ? .15 : 1; c.fillStyle = INK;
+  for (const [ex, ey] of [[.09, -.33], [.58, -.54]]) { c.save(); c.translate((ex + look * .06) * s, ey * s); c.rotate(-.64);
+    const hw = .095 * s, hgt = .23 * s * bl; c.beginPath(); c.roundRect(-hw, -hgt, 2 * hw, 2 * hgt, hw); c.fill(); c.restore(); }
+  if (badge) { const bx = .74 * s, by = .74 * s, br = .3 * s; c.beginPath(); c.arc(bx, by, br + s * .06, 0, 7); c.fillStyle = '#1d1d24'; c.fill(); c.beginPath(); c.arc(bx, by, br, 0, 7); c.fillStyle = '#f59e0b'; c.fill(); star(bx, by, br * .6, '#fff'); }
+  c.restore();
+}
+function card(x, y, w, h, fill = '#1d1d24', stroke = '#2c2c36', r = 22) { rr(x, y, w, h, r); c.fillStyle = fill; c.fill(); c.lineWidth = 2; c.strokeStyle = stroke; c.stroke(); }
+function bubble(x, y, s, fill, tcol, size = 22, align = 'left', a = 1) {
+  const w = tw(s, size) + 40, h = size + 26, x0 = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x;
+  c.globalAlpha = a; rr(x0, y, w, h, h / 2); c.fillStyle = fill; c.fill(); txt(s, x0 + 20, y + h / 2 + size * .35, size, tcol, 600, 'left', 1); c.globalAlpha = 1; return w;
+}
+function check(x, y, r, col = '#4ade80') { c.beginPath(); c.arc(x, y, r, 0, 7); c.fillStyle = col; c.fill(); c.strokeStyle = '#0c0c10'; c.lineWidth = r * .22; c.lineCap = 'round'; c.lineJoin = 'round';
+  c.beginPath(); c.moveTo(x - r * .4, y); c.lineTo(x - r * .1, y + r * .32); c.lineTo(x + r * .45, y - r * .32); c.stroke(); }
+function spinner(x, y, r, T, col = GOLD) { c.strokeStyle = col; c.lineWidth = r * .25; c.lineCap = 'round'; c.beginPath(); c.arc(x, y, r, T * 8, T * 8 + 4); c.stroke(); }
+function wrap(s, maxW, size, weight = 600) { const words = s.split(' '), lines = []; let cur = '';
+  for (const w of words) { const t = cur ? cur + ' ' + w : w; if (tw(t, size, weight) > maxW && cur) { lines.push(cur); cur = w; } else cur = t; } lines.push(cur); return lines; }
+function arrowDots(x1, y1, x2, y2, T, col = GOLD, n = 3, spd = .7) {
+  for (let i = 0; i < n; i++) { const k = ((T * spd + i / n) % 1), x = lerp(x1, x2, k), y = lerp(y1, y2, k);
+    c.globalAlpha = Math.sin(k * Math.PI); c.fillStyle = col; c.beginPath(); c.arc(x, y, 6, 0, 7); c.fill(); c.globalAlpha = 1; }
+}
+function line(x1, y1, x2, y2, p, col = GREY, w = 3, dash = null) { if (p <= 0) return; c.strokeStyle = col; c.lineWidth = w; c.lineCap = 'round'; if (dash) c.setLineDash(dash);
+  c.beginPath(); c.moveTo(x1, y1); c.lineTo(lerp(x1, x2, cl(p)), lerp(y1, y2, cl(p))); c.stroke(); c.setLineDash([]); }
+function bg(T) {
+  const g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#0c0c10'); g.addColorStop(1, '#17171d'); c.fillStyle = g; c.fillRect(0, 0, W, H);
+  const r = c.createRadialGradient(W / 2 + Math.sin(T * .35) * 120, 300, 0, W / 2, 300, 640); r.addColorStop(0, 'rgba(245,185,66,.09)'); r.addColorStop(1, 'rgba(245,185,66,0)'); c.fillStyle = r; c.fillRect(0, 0, W, H);
+}
+// headline that swaps in exact sync with the spoken phrase: items = [[text, time, color?], ...]
+function head(t, items) {
+  let idx = -1; items.forEach((it, i) => { if (t >= it[1]) idx = i; }); if (idx < 0) return;
+  const cur = items[idx], k = sm((t - cur[1]) / .4);
+  if (idx > 0 && k < 1) txt(items[idx - 1][0], W / 2, 92 - 26 * k, 46, items[idx - 1][2] || '#fff', 800, 'center', 1 - k);
+  c.save(); c.translate(0, (1 - k) * 22); txt(cur[0], W / 2, 92, 46, cur[2] || '#fff', 800, 'center', k); c.restore();
+}
+const pop = (t, at, d = .45) => back((t - at) / d);
+const appear = (t, at, d = .35) => sm((t - at) / d);
+
+/* ---------- scenes: fn(t, q, T, D)   t = local time, q(lineIndex, 'word') = local time that word is spoken ---------- */
+function sIntro(t, q, T) {
+  head(t, [['Grok Bot', q(0, 'Grok') - .1], ['What makes it different', q(1, 'different')]]);
+  const k = pop(t, q(0, 'Grok') - .2, .6), shift = sm((t - q(1, 'different')) / .8);
+  c.save(); c.translate(0, -50 * shift); c.globalAlpha = cl(k * 2);
+  if (t > q(1, 'different')) { c.strokeStyle = GOLD; c.lineWidth = 4; c.shadowColor = GOLD; c.shadowBlur = 24 * shift; c.globalAlpha = shift; c.beginPath(); c.arc(640, 300, 110, 0, 7); c.stroke(); c.shadowBlur = 0; c.globalAlpha = cl(k * 2); }
+  blob(640, 300, 82 * k, COL.x, T, 1, 0, 1 + Math.sin(T * 2) * .012, true);
+  txt('Grok Bot', 640, 478, 64, '#fff', 800, 'center', appear(t, q(0, 'Grok') + .1)); c.restore();
+  const t0 = q(1, 'every'), names = ['Agent', 'Agent', 'Agent', 'Agent', 'Agent', 'Agent'];
+  names.forEach((n, i) => { const kk = pop(t, t0 + i * .18, .4), x = 340 + i * 120; if (kk <= 0) return;
+    c.save(); c.globalAlpha = cl(kk * 2) * .85; c.translate(x, 540); c.scale(kk, kk); rr(-34, -34, 68, 68, 20); c.fillStyle = '#23232b'; c.fill(); c.strokeStyle = GREY; c.lineWidth = 2; c.stroke();
+    c.fillStyle = MUTED; for (const ex of [-10, 10]) { c.beginPath(); c.arc(ex, -4, 5, 0, 7); c.fill(); } c.restore(); });
+  if (t > t0) txt('other personal agents', 640, 600, 20, MUTED, 600, 'center', appear(t, t0 + 1.0));
+}
+function person(x, y, col = '#d8d8e0') { c.fillStyle = col; c.beginPath(); c.arc(x, y - 14, 15, 0, 7); c.fill(); c.beginPath(); c.arc(x, y + 30, 28, Math.PI, 0); c.fill(); }
+function agentIcon(x, y, T, col = '#c9c9d3') { c.save(); c.translate(x, y); rr(-34, -34, 68, 68, 20); c.fillStyle = '#23232b'; c.fill(); c.strokeStyle = col; c.lineWidth = 3; c.stroke(); c.fillStyle = col; for (const ex of [-10, 10]) { c.beginPath(); c.arc(ex, -2, 5, 0, 7); c.fill(); } c.restore(); }
+function sThreads(t, q, T) {
+  head(t, [['A lot of personal agents', .3], ['Convoluted & confusing', q(2, 'convoluted'), '#ff8a65']]);
+  const you = pop(t, q(0, 'You') - .1), ag = pop(t, q(0, 'one'));
+  if (you > 0) { c.save(); c.globalAlpha = cl(you * 2); person(170, 330); txt('You', 170, 410, 22, MUTED, 600, 'center'); c.restore(); }
+  line(205, 330, 395, 330, (t - q(0, 'talk')) / .7, GOLD, 4);
+  if (ag > 0) { c.save(); c.globalAlpha = cl(ag * 2); c.translate(430, 330); c.scale(ag, ag); c.translate(-430, -330); agentIcon(430, 330, T); c.restore(); txt('One agent', 430, 395, 22, MUTED, 600, 'center', cl(ag * 2)); }
+  // threads / channels spawn, then everything funnels back into one conversation
+  const tq = q(1, 'threads'), cq = q(1, 'channels'), sq = q(1, 'single'), merge = sm((t - sq) / .9);
+  const boxes = [[700, 215, 'Thread', tq], [700, 325, 'Thread', tq + .25], [700, 435, 'Thread', tq + .5], [880, 270, 'Channel', cq], [880, 380, 'Channel', cq + .3]];
+  boxes.forEach(([x, y, lab, at]) => { const k = pop(t, at, .4); if (k <= 0) return; const a = (1 - merge);
+    line(465, 330, x - 70, y, (t - at) / .4, GREY, 3);
+    c.save(); c.globalAlpha = cl(k * 2) * a; c.translate(x, y); c.scale(k, k); rr(-62, -28, 124, 56, 14); c.fillStyle = '#23232b'; c.fill(); c.strokeStyle = GREY; c.lineWidth = 2; c.stroke(); txt(lab, 0, 8, 20, '#d8d8e0', 600, 'center'); c.restore(); });
+  // the single big thread box
+  const bk = pop(t, sq + .3, .5);
+  if (bk > 0) {
+    const shake = t > q(2, 'convoluted') ? Math.sin(T * 30) * 1.5 : 0;
+    c.save(); c.globalAlpha = cl(bk * 2); c.translate(0, 0);
+    line(465, 330, 640, 330, 1, GOLD, 4);
+    card(640 + shake, 180, 440, 300); txt('One thread', 662 + shake, 214, 20, MUTED, 600);
+    const msgs = [['Ads report?', COL.meta, q(2, 'ads')], ['Reply to Sam', COL.inbox, q(2, 'email')], ['Project status', COL.proj, q(2, 'projects')],
+      ['Invoice #204', GOLD, q(2, 'once')], ['Hiring plan', COL.goog, q(2, 'once') + .25], ['New ad idea', COL.meta, q(2, 'once') + .5]];
+    const chaos = sm((t - q(2, 'convoluted')) / 1.2), pts = [];
+    msgs.forEach((m, i) => { const ap = pop(t, m[2], .35); if (ap <= 0) return; const w = tw(m[0], 19) + 30,
+      nx = 665 + (i % 2) * 150, ny = 240 + Math.floor(i / 2) * 76 + (i % 2) * 34, cx = 860 + (hh(i * 3.1) - .5) * 300, cy = 340 + (hh(i * 5.7) - .5) * 200,
+      x = lerp(nx, cx - w / 2, chaos) + Math.sin(T * 7 + i) * 3 * chaos, y = lerp(ny, cy, chaos) + Math.cos(T * 6 + i) * 3 * chaos; pts.push([x + w / 2, y + 16]);
+      c.save(); c.translate(x + w / 2, y + 16); c.rotate(chaos * (hh(i * 9.1) - .5) * .7); c.scale(ap, ap); rr(-w / 2, -16, w, 32, 16); c.fillStyle = m[1]; c.fill();
+      txt(m[0], 0, 6, 19, m[1] === GOLD || m[1] === COL.proj ? INK : '#fff', 600, 'center'); c.restore(); });
+    if (chaos > 0) { c.strokeStyle = 'rgba(255,138,101,.65)'; c.lineWidth = 2.5; for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) if ((i + j) % 2 === 0) { c.globalAlpha = chaos; c.beginPath(); c.moveTo(pts[i][0], pts[i][1]);
+      c.bezierCurveTo(pts[i][0] + 60, pts[j][1], pts[j][0] - 60, pts[i][1], pts[j][0], pts[j][1]); c.stroke(); } c.globalAlpha = 1; }
+    c.restore();
+  }
+}
+function sTeam(t, q, T) {
+  head(t, [['With Grok Bot', q(0, 'With') - .1], ['A separate bot for every job', q(0, 'separate')]]);
+  const names = ['Inbox Manager', 'X Radar', 'Meta Ads', 'Project Lead', 'Chief of Staff'], cols = [COL.inbox, COL.x, COL.meta, COL.proj, COL.chief], roles = ['mail', 'news', 'ads', 'tasks', 'delegates'];
+  const fp = eo((t - q(1, 'whole')) / 1.0), per = 2 * (760 + 240), y0 = 300;
+  if (fp > 0) { rr(240, y0 - 130, 800, 280, 44); c.setLineDash([per * fp, per]); c.lineWidth = 5; c.strokeStyle = GOLD; c.shadowColor = GOLD; c.shadowBlur = 24 * fp; c.stroke(); c.setLineDash([]); c.shadowBlur = 0; }
+  cols.forEach((col, i) => { const x = 320 + i * 160, at = q(0, 'separate') + .15 + i * .3, k = pop(t, at, .5); if (k <= 0) return;
+    c.globalAlpha = cl(k * 2); blob(x, y0 + Math.sin(T * 2 + i) * 4, 52 * k, col, T, i, 0); c.globalAlpha = 1;
+    const nk = appear(t, q(2, 'role') + i * .22); txt(names[i], x, y0 + 88, 19, '#e6e6ee', 700, 'center', nk); txt(roles[i], x, y0 + 112, 16, MUTED, 500, 'center', nk); });
+  const k1 = appear(t, q(1, 'assistant')); const k2 = appear(t, q(1, 'team'));
+  txt('not one assistant', W / 2, 520, 34, MUTED, 600, 'center', k1 * (1 - k2)); txt('a whole team of bots', W / 2, 520, 40, GOLD, 800, 'center', k2);
+}
+function sDefine(t, q, T) {
+  head(t, [['Define the roles', q(0, 'Creating') - .1]]);
+  const ck = pop(t, .3, .6); c.save(); c.globalAlpha = cl(ck * 2); c.translate(640, 350); c.scale(.92 + .08 * ck, .92 + .08 * ck); c.translate(-640, -350);
+  card(330, 125, 620, 440, '#f3f3f6', '#cfcfd8', 26); txt('Create new bot', 640, 170, 22, '#15151b', 800, 'center');
+  const colsA = ['#8b7bff', '#ffb347', '#ff6b4a', '#35c2a1', '#4da3ff', '#ff7aa8', '#f5b942', '#a0e060'], sel = t > q(0, 'avatar') + .5 ? 3 : -1;
+  blob(640, 245, 46, sel >= 0 ? colsA[sel] : '#c9c9d3', T, 3, 0);
+  txt('Name', 370, 330, 16, '#6c6c7a', 700); rr(370, 340, 540, 44, 12); c.fillStyle = '#e4e4ea'; c.fill();
+  const nm = 'Security Bot', np = cl((t - q(0, 'name')) / (q(0, 'pick') - q(0, 'name') - .1)); txt(nm.slice(0, Math.floor(np * nm.length)) + (np > 0 && np < 1 && Math.floor(T * 3) % 2 ? '|' : ''), 386, 370, 22, '#15151b', 600);
+  const ak = appear(t, q(0, 'pick')); c.globalAlpha = ak; colsA.forEach((col, i) => { const x = 392 + i * 68; c.beginPath(); c.arc(x, 432, 22 + (i === sel ? 4 : 0), 0, 7); c.fillStyle = col; c.fill(); if (i === sel) { c.strokeStyle = '#15151b'; c.lineWidth = 3; c.stroke(); } }); c.globalAlpha = 1;
+  txt('Role', 370, 484, 16, '#6c6c7a', 700, 'left', ak); rr(370, 494, 540, 44, 12); c.fillStyle = '#e4e4ea'; c.fill();
+  const rl = 'Watches for risky logins', rp = cl((t - q(0, 'define')) / 1.5); txt(rl.slice(0, Math.floor(rp * rl.length)), 386, 524, 22, '#15151b', 600);
+  c.restore();
+  const wk = appear(t, q(1, 'Whatever')); if (wk > 0) { c.save(); c.translate((1 - wk) * 30, 0); txt('whatever you want', 1110, 340, 28, GOLD, 700, 'center', wk); c.restore(); }
+  const bk = pop(t, q(1, 'want') + .4, .5); if (bk > 0) { c.save(); c.translate(1110, 450); c.scale(bk, bk); blob(0, 0, 44, COL.proj, T, 5, 0); txt('Security Bot', 0, 76, 20, '#e6e6ee', 700, 'center'); c.restore(); }
+}
+function roleCard(x, y, col, name, rows, k, T, seed) {
+  if (k <= 0) return; c.save(); c.globalAlpha = cl(k * 2); c.translate(x + 170, y + 130); c.scale(.85 + .15 * k, .85 + .15 * k); c.translate(-x - 170, -y - 130);
+  card(x, y, 340, 280); blob(x + 64, y + 66, 36, col, T, seed, 0); txt(name, x + 118, y + 62, 25, '#fff', 700); txt('Handles', x + 118, y + 88, 17, MUTED, 500);
+  c.fillStyle = '#2c2c36'; c.fillRect(x + 24, y + 126, 292, 2);
+  rows.forEach((r, i) => { c.beginPath(); c.arc(x + 40, y + 168 + i * 50, 7, 0, 7); c.fillStyle = col; c.fill(); txt(r, x + 62, y + 176 + i * 50, 22, '#e6e6ee', 500); });
+  c.restore();
+}
+function sRoles(t, q, T) {
+  head(t, [['One bot, one job', q(0, 'Say')], ['Know who to ask', q(2, 'topic')], ['Segment the bots', q(3, 'Segmenting')]]);
+  roleCard(70, 150, COL.meta, 'Meta Ads Bot', ['Campaign reports', 'Budget alerts'], pop(t, q(0, 'Meta'), .5), T, 1);
+  roleCard(470, 150, COL.goog, 'Google Ads Manager', ['Search campaigns', 'Keyword changes'], pop(t, q(1, 'Google'), .5), T, 2);
+  roleCard(870, 150, COL.proj, 'Project Manager', ['Tasks & deadlines', 'Weekly status'], pop(t, q(1, 'project'), .5), T, 3);
+  const bq = q(2, 'topic'), bk = pop(t, bq, .4);
+  if (bk > 0) { c.save(); c.translate(0, (1 - cl(bk)) * 20); bubble(120, 505, 'How is the Meta spend?', '#26262f', '#fff', 22, 'left', cl(bk)); c.restore(); }
+  const hq = q(2, 'who'); if (t > hq) { const p = sm((t - hq) / .4); c.strokeStyle = COL.meta; c.lineWidth = 5; c.shadowColor = COL.meta; c.shadowBlur = 22 * p; rr(70, 150, 340, 280, 22); c.globalAlpha = p; c.stroke(); c.globalAlpha = 1; c.shadowBlur = 0; arrowDots(260, 505, 240, 430, T, COL.meta, 2, 1.2); }
+  const rk = pop(t, q(2, 'talk') + .3, .4); if (rk > 0) { c.save(); c.translate(0, (1 - cl(rk)) * 16); bubble(430, 505, 'On track: 82% of budget used.', COL.meta, '#fff', 22, 'left', cl(rk)); c.restore(); }
+  const sq = q(3, 'Segmenting'); [70, 470, 870].forEach((x, i) => { const k = pop(t, sq + .4 + i * .5, .4); if (k > 0) { c.save(); c.translate(x + 170, 460); c.scale(k, k); rr(-90, -20, 180, 40, 20); c.fillStyle = 'rgba(74,222,128,.15)'; c.fill(); c.strokeStyle = '#4ade80'; c.lineWidth = 2; c.stroke(); txt('✓ clean thread', 0, 7, 19, '#4ade80', 700, 'center'); c.restore(); } });
+}
+function sChief(t, q, T) {
+  head(t, [['Chief of Staff', q(0, 'chief') - .2], ['It delegates', q(1, 'delegates')], ['One bot. A whole team.', q(2, 'one')]]);
+  const cx = 640, cy = 330, others = [['Meta Ads', COL.meta, 300, 250], ['Google Ads', COL.goog, 980, 250], ['Projects', COL.proj, 300, 430], ['Inbox', COL.inbox, 980, 430]];
+  const ck = pop(t, q(0, 'chief') - .1, .6);
+  const pq = q(1, 'proactive'); if (t > pq) { const p = (T * 1.2) % 1; c.globalAlpha = (1 - p) * .6 * appear(t, pq); c.strokeStyle = GOLD; c.lineWidth = 4; c.beginPath(); c.arc(cx, cy, 70 + p * 50, 0, 7); c.stroke(); c.globalAlpha = 1; }
+  const dq = q(1, 'delegates');
+  others.forEach(([n, col, x, y], i) => { const k = pop(t, dq + i * .2, .5); line(cx, cy, x, y, (t - dq - i * .2) / .5, '#3a3a48', 3, [8, 8]);
+    if (k > 0) { c.globalAlpha = cl(k * 2); blob(x, y, 40 * k, col, T, i + 1, 0); txt(n, x, y + 72, 20, '#d8d8e0', 600, 'center', cl(k * 2)); c.globalAlpha = 1; } });
+  const uq = q(2, 'talk'), uk = pop(t, uq, .45);
+  if (uk > 0) { c.save(); c.translate(0, (1 - cl(uk)) * 16); bubble(640, 480, 'Plan my launch week', '#26262f', '#fff', 24, 'center', cl(uk)); c.restore();
+    others.forEach(([n, col, x, y], i) => { if (t > uq + .6) arrowDots(cx, cy, x, y, T + i * .3, GOLD, 3, .9); const dk = pop(t, q(2, 'whole') + i * .45, .4);
+      if (t < q(2, 'whole') + i * .45) { if (t > uq + .6) spinner(x + 56, y - 28, 11, T); } else { c.save(); c.translate(x + 56, y - 28); c.scale(cl(dk), cl(dk)); check(0, 0, 14); c.restore(); } }); }
+  blob(cx, cy, 62 * ck, COL.chief, T, 9, 0, 1 + Math.sin(T * 3) * .015);
+  c.globalAlpha = cl(ck * 2); rr(cx - 100, cy + 82, 200, 38, 19); c.fillStyle = 'rgba(245,185,66,.18)'; c.fill(); c.strokeStyle = GOLD; c.lineWidth = 2; c.stroke(); txt('Chief of Staff', cx, cy + 108, 22, GOLD, 700, 'center'); c.globalAlpha = 1;
+}
+function envelope(x, y, w, h, col) { rr(x, y, w, h, 10); c.fillStyle = col; c.fill(); c.strokeStyle = INK; c.lineWidth = 4; c.lineJoin = 'round'; c.beginPath(); c.moveTo(x + 6, y + 8); c.lineTo(x + w / 2, y + h * .58); c.lineTo(x + w - 6, y + 8); c.stroke(); }
+function sAccess(t, q, T) {
+  head(t, [['Its own mailbox', q(0, 'mailbox') - .2], ['Access, with your approval', q(1, 'approval') - .1]]);
+  const mk = pop(t, q(0, 'mailbox') - .1, .5); c.save(); c.globalAlpha = cl(mk * 2); card(110, 160, 480, 380);
+  blob(170, 220, 28, COL.inbox, T, 0, 0); txt('Inbox Manager', 214, 216, 24, '#fff', 700); txt('bot-inbox@yourteam', 214, 242, 17, MUTED, 500);
+  [['Sam Lee', 'Contract draft', '#8b7bff'], ['Billing', 'Invoice #204', GOLD], ['Alex', 'Launch plan', '#35c2a1']].forEach((m, i) => { const k = pop(t, q(0, 'mailbox') + .5 + i * .45, .45);
+    if (k > 0) { c.save(); c.globalAlpha = cl(k * 2); c.translate((1 - cl(k)) * -40, 0); rr(135, 282 + i * 78, 430, 64, 14); c.fillStyle = '#26262f'; c.fill();
+      envelope(152, 298 + i * 78, 38, 30, m[2]); txt(m[0], 208, 312 + i * 78, 21, '#fff', 700); txt(m[1], 208, 336 + i * 78, 18, MUTED, 500); c.restore(); } });
+  c.restore();
+  const aq = q(1, 'approval') - .2, rk = pop(t, aq, .5); if (rk <= 0) return;
+  c.save(); c.globalAlpha = cl(rk * 2); c.translate(0, (1 - cl(rk)) * 24); card(680, 160, 490, 380);
+  c.beginPath(); c.arc(925, 236, 38, 0, 7); c.fillStyle = 'rgba(245,185,66,.16)'; c.fill();
+  rr(905, 232, 40, 30, 7); c.fillStyle = GOLD; c.fill(); c.strokeStyle = GOLD; c.lineWidth = 6; c.beginPath(); c.arc(925, 232, 12, Math.PI, 0); c.stroke();
+  txt('Access request', 925, 312, 28, '#fff', 800, 'center'); txt('Inbox Manager wants to open', 925, 348, 20, MUTED, 500, 'center'); txt('Billing portal', 925, 380, 26, GOLD, 700, 'center');
+  const apq = q(1, 'one'), ap = t > apq, pk = ap ? sm((t - apq) / .3) : 0;
+  rr(715, 428, 200, 54, 27); c.fillStyle = '#2c2c36'; c.fill(); txt('Deny', 815, 463, 22, '#d8d8e0', 700, 'center');
+  c.save(); c.translate(1035, 455); const sc = 1 - .08 * Math.sin(pk * Math.PI); c.scale(sc, sc); rr(-100, -27, 200, 54, 27); c.fillStyle = ap ? '#4ade80' : GOLD; c.fill(); txt(ap ? 'Approved' : 'Approve', 0, 8, 22, INK, 800, 'center'); c.restore();
+  if (ap) txt('✓  via 1Password', 925, 520, 18, '#4ade80', 600, 'center', pk);
+  c.restore();
+  const pq = q(1, 'paste'), pk2 = pop(t, pq, .4); if (pk2 > 0) { c.save(); c.translate(925, 562); c.scale(cl(pk2), cl(pk2)); rr(-150, -22, 300, 40, 20); c.fillStyle = 'rgba(255,138,101,.15)'; c.fill(); c.strokeStyle = '#ff8a65'; c.lineWidth = 2; c.stroke(); txt('✕  no pasting secrets in chat', 0, 6, 18, '#ff8a65', 700, 'center'); c.restore(); }
+}
+function sConn(t, q, T) {
+  head(t, [['A big library of connectors', q(0, 'library') - .2]]);
+  const names = ['Calendar', 'Email', 'Docs', 'Sheets', 'Ads', 'Chat', 'Tasks', 'CRM', 'Drive', 'Payments'], cols = [COL.goog, COL.inbox, COL.proj, '#4ade80', COL.meta, GOLD, COL.proj, COL.goog, COL.meta, GOLD];
+  const cx = 640, cy = 330, rx = 430, ry = 180, t0 = q(0, 'library'), dt = Math.max(.2, (q(0, 'tools') - t0) / names.length);
+  names.forEach((n, i) => { const a = i / names.length * Math.PI * 2 - Math.PI / 2, x = cx + Math.cos(a) * rx, y = cy + Math.sin(a) * ry, k = pop(t, t0 + i * dt, .5);
+    if (k <= 0) return; c.globalAlpha = .45 * cl(k); c.strokeStyle = '#3a3a48'; c.lineWidth = 3; c.beginPath(); c.moveTo(cx, cy); c.lineTo(x, y); c.stroke(); c.globalAlpha = 1;
+    if (t > q(0, 'tools')) arrowDots(x, y, cx, cy, T + i * .17, cols[i], 1, .5);
+    c.save(); c.translate(x, y); c.scale(k, k); rr(-70, -32, 140, 64, 18); c.fillStyle = '#23232b'; c.fill(); c.strokeStyle = cols[i]; c.lineWidth = 3; c.stroke(); txt(n, 0, 8, 22, '#fff', 700, 'center'); c.restore(); });
+  blob(cx, cy, 56 * pop(t, .2, .5), COL.chief, T, 4, 0, 1 + Math.sin(T * 3) * .015);
+}
+function sCalls(t, q, T) {
+  head(t, [['Phone calls', q(0, 'phone') - .1], ['No more hold music', q(1, 'hold') - .2]]);
+  const px = 500, py = 118, pw = 280, ph = 440, cx = px + pw / 2;
+  card(px, py, pw, ph, '#14141a', '#3a3a48', 40);
+  const reqs = [['Book a table for two, 8pm', COL.proj, q(1, 'reservation')], ['Change my internet plan', COL.goog, q(1, 'internet')]];
+  const cq = q(2, 'makes'), wq = q(2, 'waits'), dq = q(2, 'dials'), rq = q(2, 'real'), lq = q(2, 'answers') + .2;
+  reqs.forEach((r, i) => { const k = pop(t, r[2], .45); if (k <= 0) return; const out = sm((t - cq - i * .15) / .4);
+    c.save(); c.globalAlpha = cl(k) * (1 - out); c.translate(lerp(0, 330, out), (1 - cl(k)) * 16); bubble(60, 230 + i * 80, r[0], r[1], r[1] === COL.proj ? INK : '#fff', 21, 'left'); c.restore(); });
+  const fk = pop(t, q(1, 'forty') - .2, .4), fd = sm((t - cq) / .4);
+  if (fk > 0 && fd < 1) { c.save(); c.globalAlpha = cl(fk) * (1 - fd); c.translate(960, 220); c.scale(cl(fk), cl(fk)); rr(-130, -34, 260, 68, 18); c.fillStyle = 'rgba(255,159,67,.16)'; c.fill(); c.strokeStyle = '#ff9f43'; c.lineWidth = 3; c.stroke(); txt('45 min on hold', 0, 9, 26, '#ff9f43', 800, 'center'); c.restore(); }
+  blob(cx, py + 130, 52, COL.inbox, T, 2, 0, 1 + (t > cq ? Math.sin(T * 6) * .015 : 0));
+  let st = 'Ready', stc = MUTED, l2 = '', big = false;
+  if (t > cq) { st = 'Calling…'; stc = GOLD; l2 = 'Bella Italia'; }
+  if (t > wq) { st = 'On hold'; stc = '#ff9f43'; const p = sm((t - wq) / Math.max(.5, rq - wq)), m = Math.floor(p * 44), s = Math.floor(p * 59); l2 = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; big = true; }
+  if (t > rq) { st = 'A person answered'; stc = '#4ade80'; l2 = 'Dialing you in…'; big = false; }
+  if (t > lq) { st = 'You are live'; stc = '#4ade80'; l2 = 'Your bot connected you'; }
+  txt(st, cx, py + 250, 30, stc, 800, 'center'); txt(l2, cx, py + 292, big ? 42 : 22, big ? '#fff' : MUTED, big ? 700 : 500, 'center');
+  if (t > cq && t < rq) for (let i = 0; i < 3; i++) { const k = ((T * .8 + i / 3) % 1); c.globalAlpha = (1 - k) * .5; c.strokeStyle = stc; c.lineWidth = 3; c.beginPath(); c.arc(cx, py + 130, 56 + k * 60, 0, 7); c.stroke(); c.globalAlpha = 1; }
+  if (t > wq && t < rq) { c.globalAlpha = .8; for (let i = 0; i < 4; i++) txt('♪', cx - 60 + i * 40, py + 350 + Math.sin(T * 3 + i) * 8, 32, '#ff9f43', 600, 'center'); c.globalAlpha = 1; }
+  if (t > lq) { const k = pop(t, lq, .5); c.save(); c.translate(cx, py + 390); c.scale(cl(k), cl(k)); check(0, 0, 34); c.restore(); }
+  [['Waits on hold for you', wq], ['Dials you in when a human answers', dq]].forEach(([s, at], i) => { const k = appear(t, at, .5); if (k > 0) { c.save(); c.translate((1 - k) * 30, 0); c.globalAlpha = k; rr(830, 300 + i * 80, 400, 56, 16); c.fillStyle = '#23232b'; c.fill(); check(858, 328 + i * 80, 13); txt(s, 884, 335 + i * 80, 18, '#e6e6ee', 600); c.restore(); } });
+}
+function wheel(x, y, T) { c.beginPath(); c.arc(x, y, 40, 0, 7); c.fillStyle = '#1b1b22'; c.fill(); c.beginPath(); c.arc(x, y, 24, 0, 7); c.fillStyle = '#9a9aa6'; c.fill();
+  c.strokeStyle = '#1b1b22'; c.lineWidth = 5; for (let i = 0; i < 5; i++) { const a = T * 6 + i * Math.PI * 2 / 5; c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a) * 24, y + Math.sin(a) * 24); c.stroke(); } }
+function sCar(t, q, T) {
+  head(t, [['It even reaches your car', q(0, 'car') - .3], ['Check in from the road', q(1, 'emails') - .5]]);
+  c.fillStyle = '#1f1f27'; c.fillRect(0, 468, W, 70); c.fillStyle = '#3a3a48'; for (let i = -1; i < 14; i++) c.fillRect(((i * 120 - T * 260) % 1560 + 1560) % 1560 - 140, 500, 70, 8);
+  const k = pop(t, q(0, 'car') - .2, .7); c.save(); c.translate(0, -50 + Math.sin(T * 9) * 1.5 + (1 - cl(k)) * 40); c.globalAlpha = cl(k * 2);
+  rr(330, 410, 560, 92, 40); c.fillStyle = '#d8d8e0'; c.fill();
+  c.beginPath(); c.moveTo(470, 412); c.lineTo(540, 350); c.lineTo(720, 350); c.lineTo(790, 412); c.closePath(); c.fillStyle = '#d8d8e0'; c.fill();
+  c.beginPath(); c.moveTo(490, 410); c.lineTo(548, 362); c.lineTo(630, 362); c.lineTo(630, 410); c.closePath(); c.fillStyle = '#2a3347'; c.fill();
+  c.beginPath(); c.moveTo(642, 410); c.lineTo(642, 362); c.lineTo(712, 362); c.lineTo(772, 410); c.closePath(); c.fill();
+  c.fillStyle = '#ff4d3d'; c.fillRect(884, 440, 12, 22); c.fillStyle = '#fff8d0'; c.fillRect(326, 442, 14, 18);
+  wheel(470, 506, T); wheel(752, 506, T); c.restore();
+  txt('Your Tesla', 610, 566, 22, MUTED, 600, 'center', appear(t, q(0, 'Tesla')));
+  const sq = q(0, 'same'), a = appear(t, sq); if (a > 0) { arrowDots(210, 300, 560, 380, T, GOLD, 3, .8); c.globalAlpha = a; card(70, 220, 190, 150); blob(165, 278, 30, COL.inbox, T, 3, 0); txt('Your app', 165, 342, 20, '#d8d8e0', 600, 'center'); c.globalAlpha = 1; }
+  const dk = pop(t, q(1, 'Ask') - .1, .5);
+  if (dk > 0) { c.save(); c.globalAlpha = cl(dk * 2); c.translate(0, (1 - cl(dk)) * 20); card(800, 150, 440, 200, '#14141a', '#3a3a48', 26);
+    blob(852, 200, 24, COL.inbox, T, 4, 0); txt('Inbox Manager', 890, 205, 20, '#fff', 700);
+    bubble(830, 232, 'You have 3 urgent emails.', '#26262f', '#fff', 19, 'left', appear(t, q(1, 'emails')));
+    bubble(830, 284, 'Weekly report workflow: done.', COL.chief, INK, 19, 'left', appear(t, q(1, 'workflow'))); c.restore(); }
+}
+function sOutro(t, q, T) {
+  const names = ['Inbox Manager', 'X Radar', 'Meta Ads', 'Project Lead', 'Chief of Staff'], cols = [COL.inbox, COL.x, COL.meta, COL.proj, COL.chief], y0 = 270;
+  const fp = eo((t - .8) / 1.0), per = 2 * (760 + 240); if (fp > 0) { rr(240, y0 - 130, 800, 240, 44); c.setLineDash([per * fp, per]); c.lineWidth = 5; c.strokeStyle = GOLD; c.shadowColor = GOLD; c.shadowBlur = 24 * fp; c.stroke(); c.setLineDash([]); c.shadowBlur = 0; }
+  cols.forEach((col, i) => { const k = pop(t, .2 + i * .12, .5); c.globalAlpha = cl(k * 2); blob(320 + i * 160, y0 + Math.sin(T * 2 + i) * 4, 52 * k, col, T, i, 0, 1, i === 1); c.globalAlpha = 1; });
+  txt('Grok Bot', W / 2, 470, 90, '#fff', 800, 'center', appear(t, q(0, 'Grok') - .1, .5));
+  txt('A team of bots, one for every job.', W / 2, 528, 32, GOLD, 600, 'center', appear(t, q(0, 'team')));
+}
+const SC = { intro: sIntro, threads: sThreads, team: sTeam, define: sDefine, roles: sRoles, chief: sChief, access: sAccess, connectors: sConn, calls: sCalls, car: sCar, outro: sOutro };
+
+/* ---------- compositor ---------- */
+let TL;
+function mkCue(sc) {
+  return (i, word) => { const ws = sc.lines[i].words, re = new RegExp('^' + word + '$', 'i');
+    const w = ws.find(x => re.test(x.w.replace(/[^A-Za-z0-9']/g, ''))); return (w ? w.s : sc.lines[i].start) - sc.start; };
+}
+function draw(T) {
+  c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; bg(T);
+  const si = TL.scenes.findIndex(s => T >= s.start && T < s.end), sc = TL.scenes[si >= 0 ? si : TL.scenes.length - 1];
+  const fi = si === 0 ? 1 : sm((T - sc.start) / .3), fo = si === TL.scenes.length - 1 ? 1 : sm((sc.end - T) / .3), al = Math.min(fi, fo);
+  c.save(); c.globalAlpha = al; c.translate(0, (1 - al) * 10);
+  SC[sc.id](T - sc.start, mkCue(sc), T, sc.end - sc.start); c.restore(); c.globalAlpha = 1;
+  for (const s of TL.scenes) for (const l of s.lines) if (T >= l.start - .15 && T < l.end + .45) {
+    const k = Math.min(sm((T - l.start + .15) / .25), sm((l.end + .45 - T) / .25)), ls = wrap(l.text, 1080, 32);
+    c.save(); c.globalAlpha = k; const y0 = 640 - (ls.length - 1) * 20;
+    rr(W / 2 - 560, y0 - 38, 1120, ls.length * 42 + 22, 18); c.fillStyle = 'rgba(8,8,12,.62)'; c.fill();
+    ls.forEach((x, i) => txt(x, W / 2, y0 + 4 + i * 42, 32, '#fff', 600, 'center')); c.restore();
+  }
+  c.fillStyle = GOLD; c.fillRect(0, 0, W * T / TL.total, 4);
+  if (T < .5) { c.fillStyle = `rgba(0,0,0,${1 - T / .5})`; c.fillRect(0, 0, W, H); }
+  const e = TL.total - T; if (e < 1.8) { c.fillStyle = `rgba(0,0,0,${1 - e / 1.8})`; c.fillRect(0, 0, W, H); }
+}
+const params = new URLSearchParams(location.search);
+fetch('timeline.json').then(r => r.json()).then(async j => { try {
+  TL = j; document.title = 'LOADED'; const n = Math.floor(TL.total * FPS);
+  if (params.get('export')) {
+    const from = parseInt(params.get('from') || '0'), to = Math.min(n, parseInt(params.get('to') || n));
+    for (let i = from; i < to; i++) { draw(i / FPS); const b = await new Promise(r => cv.toBlob(r, 'image/jpeg', .9)); await fetch('/frame/f' + String(i).padStart(5, '0') + '.jpg', { method: 'POST', body: b }); }
+    document.title = 'EXPORT DONE';
+  } else if (params.get('still')) {
+    for (const s of params.get('still').split(',')) { document.title = 'DRAW ' + s; draw(parseFloat(s)); document.title = 'DREW ' + s; const b = await new Promise(r => cv.toBlob(r, 'image/jpeg', .9)); await fetch('/frame/still_' + s + '.jpg', { method: 'POST', body: b }); }
+    document.title = 'STILLS DONE';
+  } else { const t0 = performance.now(); (function loop() { draw(((performance.now() - t0) / 1000) % TL.total); requestAnimationFrame(loop); })(); }
+} catch (e) { document.title = 'ERR ' + e.message + ' @' + (e.stack || '').split('\n')[1]; } });
+})();
+</script>
+</body>
+</html>

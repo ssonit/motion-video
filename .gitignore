@@ -1,0 +1,28 @@
+# dependencies / build
+node_modules/
+studio/node_modules/
+studio/out/
+studio/.remotion/
+
+# temp and scratch (render temp files, preview frames)
+.tmp/
+output/_preview/
+
+# finished and downloaded videos (large; keep locally, share via SendUserFile)
+output/*.mp4
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# cloned third-party repos (idea sources only)
+references/_external/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+!output/.gitkeep

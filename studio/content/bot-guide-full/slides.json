@@ -1,0 +1,97 @@
+[
+  {
+    "id": "intro",
+    "vo": "Welcome. In the next few minutes, I'll walk you through setting up your very first Bot employee, step by step.",
+    "frames": 240
+  },
+  {
+    "id": "what",
+    "vo": "This is not another chat box, and it's not a coding agent either. Think of it as a truly smart assistant.",
+    "frames": 232
+  },
+  {
+    "id": "install",
+    "vo": "Step one: install. Just download it from the official site, open it, and sign in. It really is that simple.",
+    "frames": 283
+  },
+  {
+    "id": "first",
+    "vo": "Getting started takes four steps. Create a new Bot, pick an avatar, give it a name, and set its rules. I named my first one Translator.",
+    "frames": 323
+  },
+  {
+    "id": "directory",
+    "vo": "Inside, there's a big directory of ready-made Bots for marketing, design, hiring, and operations. You can also connect your own tools, like Notion, your calendar, or your mail.",
+    "frames": 381
+  },
+  {
+    "id": "devices",
+    "vo": "The same Bot works across all your devices. Log in on your phone, and one sentence is all it takes.",
+    "frames": 237
+  },
+  {
+    "id": "job",
+    "vo": "Every Bot gets one job. The job description is simply a skill. For example, a topic picker that sends me the best ideas every morning.",
+    "frames": 317
+  },
+  {
+    "id": "handoff",
+    "vo": "Jobs can hand work to each other. Pick a topic, write, design, then edit. Each role is a mature skill, like an employee handbook. Use it first, add rules, add limits, and it gets sharper every time.",
+    "frames": 469
+  },
+  {
+    "id": "manager",
+    "vo": "For important departments, you can assign a manager. You can't direct every employee yourself, so scheduling is the key.",
+    "frames": 259
+  },
+  {
+    "id": "work",
+    "vo": "Here's a real example. A Bot on my own computer cuts videos from my desktop assets, publishes them, then fills the links back in. Every day at five thirty, on schedule.",
+    "frames": 378
+  },
+  {
+    "id": "solo",
+    "vo": "Put it together and you have a one-person company. A chief Bot, an editor, a copywriter, a publisher, and an asset manager, each reporting back when the job is done.",
+    "frames": 335
+  },
+  {
+    "id": "personal",
+    "vo": "Why is this the new way out? Before, AI agents were strong at one task, in the cloud. Now, a personal agent lands inside your own business. The key is scheduling. You don't need the best at everything. Think like a boss, and orchestrate.",
+    "frames": 561
+  },
+  {
+    "id": "launch",
+    "vo": "There are two quick ways to call it. Bind it to your side button, or just say, Hey Bot.",
+    "frames": 210
+  },
+  {
+    "id": "launchsetup",
+    "vo": "To set it up, check two things. You need the latest app version, and an iPhone with an action button. Then create the shortcut. For voice, say Hey Bot three times. It can even handle your calendar, reminders, and alarms.",
+    "frames": 511
+  },
+  {
+    "id": "pitfalls",
+    "vo": "A few pitfalls to watch for. Bots tend to over-correct. There's no separate window for each Bot yet. And the biggest trap of all: spending more time designing roles than doing real work.",
+    "frames": 414
+  },
+  {
+    "id": "roi",
+    "vo": "Be rational, and do the math first. You invest a subscription and some setup time. You should get back saved time and real results. Otherwise, it's meaningless.",
+    "frames": 373
+  },
+  {
+    "id": "after",
+    "vo": "Before, powerful tools felt bloated. Now it's minimal. Simple interaction, a digital company structure, and everything driven by your real business.",
+    "frames": 339
+  },
+  {
+    "id": "water",
+    "vo": "Here's the secret to making it a habit: shorten the chain. Have an idea, call your Bot from anywhere, and hand it off. The smoother it feels, the more you use it, even on a business trip.",
+    "frames": 380
+  },
+  {
+    "id": "outro",
+    "vo": "So start small. One Bot, one real task. Build everything around your real business, and let it work for you.",
+    "frames": 278
+  }
+]
