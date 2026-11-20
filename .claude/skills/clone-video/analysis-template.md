@@ -39,6 +39,17 @@ Voice style, music bed, sfx pattern. (Audio not heard unless the user said so.)
 |---|---|
 | names, wording, palette, mascot, examples | structure, pacing, density, shot variety, closing frame |
 
+## Keep / Replace / Invariants
+Keep: the decisions that must survive the content change (hook order, reveal rhythm, final reading hold).
+Replace: text, subject, data, brand, assets, with real capacity limits (longer copy → split the beat, don't shrink).
+Label every line observed / inferred / unknown. Deviations from the reference are listed on purpose.
+
+## Measurements
+Output of `tools/measure.py` (cuts, shot lengths, look grid at 3+ moments). Unverified intervals and why.
+
+## Review log (filled after render)
+Moments compared (ref t → ours t), measure.py flags, defects fixed, defects left, what was NOT checked (audio not heard).
+
 ## Script (translated to English)
 Per scene: id, line, approx. seconds.
 ```
