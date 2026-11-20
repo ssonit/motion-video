@@ -1,0 +1,6 @@
+# Reference: Grok Bot zero-basics tutorial (Chinese, 3:24)
+Source: SaveTik mp4, 1280x720, 30 fps, stereo AAC. Analysed from 9 contact sheets (1 frame/4 s) + burned-in subtitles; speech NOT heard/transcribed.
+Structure: title -> "3 things: download / pay / use" -> my media pipeline (5 bots) -> UI like a chat app -> one agent per job -> Skill vs Bot -> one job each -> preferences stay in the job -> download (mac/win/linux) -> pricing tiers -> payment dialog -> phone install -> "3 features: job Bot / cloud computer / group work" -> create Bot (+ icon, avatar, name) -> options A-D + rewrite description = prompt -> cloud computer -> group chat -> relay -> pipeline -> send one task.
+Style: dark #0A0A0A, glass teal-edged cards, yellow headline keywords, real screen recordings with step tag top-left, presenter PiP bottom-left (dropped in our clone).
+Music: side channel (L-R) is a steady -35 dB stereo bed uncorrelated with the voice (env corr 0.02) = background music; extracted as studio/public/shared/sfx/ref_music.wav and reused. Centre-panned music parts stay buried under the voice and could not be separated.
+Clone: studio/content/bot-basics (19 shots, 157 s), studio/src/videos/BotBasics.tsx + real/ScenesC.tsx; pricing numbers are example values, product claims kept generic.

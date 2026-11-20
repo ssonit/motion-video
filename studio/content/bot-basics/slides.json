@@ -1,0 +1,97 @@
+[
+  {
+    "id": "title",
+    "vo": "So what exactly is Grok Bot? In this episode I'll break it down from start to finish.",
+    "frames": 203
+  },
+  {
+    "id": "three",
+    "vo": "We'll cover three things. First, how to download it. Then how to pay. And finally, how to actually use it.",
+    "frames": 296
+  },
+  {
+    "id": "line",
+    "vo": "I'll use my own real example, a one-person media production line: topics, scripts, clips, directing, and editing.",
+    "frames": 233
+  },
+  {
+    "id": "rail",
+    "vo": "First, the interface works a lot like the chat app you use every day. The column on the left is your team. The chat on the right is the actual work.",
+    "frames": 314
+  },
+  {
+    "id": "agent",
+    "vo": "Its core idea is one agent per job. You give every position its own persona: topics, writing, editing.",
+    "frames": 242
+  },
+  {
+    "id": "skillbot",
+    "vo": "If you've used Codex, think of a Skill as a reusable ability, and a Bot as a colleague who is always online and owns one kind of problem.",
+    "frames": 245
+  },
+  {
+    "id": "onejob",
+    "vo": "Each Bot only does one thing, so delivery is clearer. The editor just edits. The splitter just breaks clips down.",
+    "frames": 279
+  },
+  {
+    "id": "prefs",
+    "vo": "Your preferences stay in the job, so it fits the way you work better and better, instead of being one do-everything chat window.",
+    "frames": 218
+  },
+  {
+    "id": "download",
+    "vo": "To download on a computer, pick the version for your system. Mac, Windows, and Linux are all supported.",
+    "frames": 236
+  },
+  {
+    "id": "pricing",
+    "vo": "Next, payment. There are a few paid plans, from light use to heavy use. Pick the one that matches how much you'll run.",
+    "frames": 278
+  },
+  {
+    "id": "pay",
+    "vo": "Check out with a payment method your region supports, and once it's paid, you can start using it right away.",
+    "frames": 198
+  },
+  {
+    "id": "phone",
+    "vo": "On a phone, search for the app in your store and sign in with the same account. But I'd run the whole flow on the computer first.",
+    "frames": 245
+  },
+  {
+    "id": "feat",
+    "vo": "Now let's go through three features you will definitely use. One, build a job Bot. Two, the cloud computer. Three, group collaboration.",
+    "frames": 347
+  },
+  {
+    "id": "first",
+    "vo": "Tap the plus at the top of the list, pick an avatar, and give your Bot a name.",
+    "frames": 161
+  },
+  {
+    "id": "rules",
+    "vo": "It will usually ask what you want it to do first. Then it rewrites your description into rules. That description is simply its prompt.",
+    "frames": 297
+  },
+  {
+    "id": "cloud",
+    "vo": "Second is the cloud computer. Close your laptop, and the task keeps running. The Bot carries on working in the cloud.",
+    "frames": 274
+  },
+  {
+    "id": "group",
+    "vo": "Third, several Bots can work together in one group chat, and each one claims the part that is its own duty.",
+    "frames": 206
+  },
+  {
+    "id": "relay",
+    "vo": "They hand work to each other, like chaining a few specialist Skills together. That's exactly how I run my own line.",
+    "frames": 234
+  },
+  {
+    "id": "outro",
+    "vo": "Then all you do is drop in one task, and the right Bots pick it up. That's the whole idea.",
+    "frames": 209
+  }
+]

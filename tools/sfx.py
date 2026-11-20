@@ -191,6 +191,32 @@ def bed() -> np.ndarray:
     return out / np.max(np.abs(out)) * 0.85
 
 
+def bed_calm() -> np.ndarray:
+    """Quiet ambient bed (no kick/snare): slow pad + soft bell arpeggio + low sub, 72 bpm. Sits under a voice-over."""
+    bpm = 72
+    beat = 60 / bpm
+    bars = 16
+    total = bars * 4 * beat
+    out = np.zeros(int(SR * total) + SR)
+    prog = [(45, [57, 60, 64]), (41, [53, 57, 60]), (48, [55, 60, 64]), (43, [55, 59, 62])]
+    for bar in range(bars):
+        root, tones = prog[(bar // 2) % 4]
+        b0 = bar * 4 * beat
+        t = t_(4 * beat + 0.6)
+        env = np.minimum(1, t / 1.2) * np.minimum(1, (t[-1] - t) / 1.2)
+        pad = sum(np.sin(2 * np.pi * midi(n) * t) + 0.3 * np.sin(2 * np.pi * midi(n) * 2.003 * t) for n in tones) * 0.05 * env
+        place(out, pad, b0, 1.0)
+        place(out, np.sin(2 * np.pi * midi(root) * t) * 0.16 * env, b0, 1.0)
+        for e in range(8):  # soft bell, every half beat on 8 slots
+            n = tones[[0, 2, 1, 2, 0, 1, 2, 1][e]] + 12
+            place(out, pluck(midi(n), 0.9, 0.6) * 0.55, b0 + e * beat / 2 * 1.0, 0.11)
+    out = out[: int(SR * total)]
+    f = int(SR * 0.05)
+    out[:f] *= np.linspace(0, 1, f)
+    out[-f:] *= np.linspace(1, 0, f)
+    return out / np.max(np.abs(out)) * 0.85
+
+
 save("tick1", click(1500))
 save("tick2", click(1900, 1.15))
 save("tick3", click(1250, 0.9))
@@ -200,4 +226,5 @@ save("whoosh", whoosh())
 save("ding", sparkle())
 save("typing", typing())
 save("bed", bed())
+save("bed_calm", bed_calm())
 print(sorted(p.name for p in OUT.iterdir()))

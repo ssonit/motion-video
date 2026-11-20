@@ -5,6 +5,7 @@ import {BotGuide, BOT_GUIDE_FRAMES} from './videos/BotGuide';
 import {BotGuideFull, BOT_GUIDE_FULL_FRAMES} from './videos/BotGuideFull';
 import {BotGuideRich, BOT_GUIDE_RICH_FRAMES} from './videos/BotGuideRich';
 import {BotGuideReal, BOT_GUIDE_REAL_FRAMES} from './videos/BotGuideReal';
+import {BotBasics, BOT_BASICS_FRAMES} from './videos/BotBasics';
 import {NightStudio, NIGHT_STUDIO_FRAMES} from './videos/NightStudio';
 import {TemplateDemo, TEMPLATE_DEMO_FRAMES} from './videos/TemplateDemo';
 
@@ -47,6 +48,14 @@ export const Root: React.FC = () => (
       id="BotGuideReal"
       component={BotGuideReal}
       durationInFrames={BOT_GUIDE_REAL_FRAMES}
+      fps={FPS}
+      width={1280}
+      height={720}
+    />
+    <Composition
+      id="BotBasics"
+      component={BotBasics}
+      durationInFrames={BOT_BASICS_FRAMES}
       fps={FPS}
       width={1280}
       height={720}
