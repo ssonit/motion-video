@@ -15,6 +15,16 @@ python tools/analyze.py "<url-or-file>" <slug>
 - URL fails (login/captcha)? Ask the user to download it and send the file path; rerun with the path.
 - Long video (>10 min)? The default sampling (≈48 frames) is fine; use `--every` for finer detail on a section.
 
+### 1b. Optional: script, tempo and stems (only if the reference has speech or burned-in subtitles)
+```bash
+python tools/rea.py references/<slug>/source.mp4 <slug>     # run in the BACKGROUND, ~5 min; never with a short timeout
+```
+Then read only `references/<slug>/rea/packaging/subtitles.srt` (burned-in subtitles + timings = the script),
+`rea/video/content.md` (speech transcript + timings) and `rea/video/sound.md` (BPM, sections); stems are in `rea/stems/`.
+Put them in analysis.md labelled **observed, auto-recognised, unchecked**. **Ignore its live/AI/3D/code shot labels**
+(pixel statistics only, wrong on screen-recording tutorials); our own frame reading decides CODE-ONLY vs NEEDS MEDIA.
+Skip this step for music-only or silent references.
+
 ## 2. Read it
 Read every `sheets/sNN.png` with the image viewer (6 frames each, left→right, top→bottom; time = (k-1)·6·every + index·every).
 Reference videos burn subtitles into the picture, so the frames usually carry the whole script.

@@ -29,3 +29,8 @@ Thumbs.db
 
 # older experiments, kept locally only
 archive/
+
+# rea-video venv + models (local tooling)
+.venv-rea/
+.rea-models/
+references/*/rea/
