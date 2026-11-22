@@ -1,0 +1,612 @@
+1
+00:00:00,000 --> 00:00:03,761
+Bạn có tin hay không? Đây là
+video dựng cho mình. Và đây
+
+2
+00:00:03,761 --> 00:00:06,701
+cũng là video đó nhưng cái này
+là sau khi mình đã góp ý chỉnh
+
+3
+00:00:06,701 --> 00:00:08,881
+sửa
+
+4
+00:00:18,541 --> 00:00:23,481
+cả hai đều do AI dựng trực tiếp
+trong mình không tự tay đặt một
+
+5
+00:00:23,481 --> 00:00:27,021
+nào vậy mà nhìn vẫn khác nhau
+rõ đúng không khác biệt giữa
+
+6
+00:00:27,021 --> 00:00:29,721
+hai bản này không nằm ở phần
+mềm nó nằm ở con mắt của người
+
+7
+00:00:29,721 --> 00:00:33,501
+làm nghề ở những thứ như một cú
+va chạm chưa đủ mạnh một chuyển
+
+8
+00:00:33,501 --> 00:00:36,861
+cảnh bị khựng hay một nhịp chậm
+nửa giây AI làm theo rất nhanh
+
+9
+00:00:36,861 --> 00:00:40,041
+nhưng nó không tự biết chỗ nào
+chưa ổn và người nói cho nó
+
+10
+00:00:40,041 --> 00:00:44,421
+biết là mình trên thị trường
+một video khoảng ba mươi giây
+
+11
+00:00:44,421 --> 00:00:49,041
+như thế này có thể kiếm về cho
+hàng triệu đồng và có thể lên
+
+12
+00:00:49,041 --> 00:00:53,721
+cả tuần. Còn video này từ ý
+tưởng đến file rander, mình chỉ
+
+13
+00:00:53,721 --> 00:00:56,301
+mất đâu đó khoảng năm tiếng,
+tính luôn cả lúc ngồi xem và
+
+14
+00:00:56,301 --> 00:00:59,961
+chỉnh sửa. Với quy trình này,
+khi biết kết hợp cùng thời gian
+
+15
+00:00:59,961 --> 00:01:03,021
+đã được rút ngắn đi rất rất rất
+nhiều lần. Làm xong video này,
+
+16
+00:01:03,021 --> 00:01:05,661
+điều mình nghĩ nhiều nhất không
+phải là AI giỏi đến đâu mà là
+
+17
+00:01:05,661 --> 00:01:08,721
+cách làm việc của mình là khác
+đi thế nào. Trước đây phần lớn
+
+18
+00:01:08,721 --> 00:01:13,041
+thời gian của một là kéo chỉnh
+đồ thị, tìm từng tiếng sau vân
+
+19
+00:01:13,041 --> 00:01:16,581
+vân. Còn ở video này phần lớn
+thời gian của mình là xem. Nhận
+
+20
+00:01:16,581 --> 00:01:19,861
+ra chỗ chưa ổn và nói cho rõ
+mình tay nghề thực chất nó
+
+21
+00:01:19,861 --> 00:01:23,281
+không mất đi. Nó chỉ chuyển từ
+đôi tay lên đôi mắt mình biết
+
+22
+00:01:23,281 --> 00:01:26,341
+sẽ có người nghĩ là phải tự tay
+làm từng chút thì video nó mới
+
+23
+00:01:26,341 --> 00:01:30,061
+có chất. Mình hiểu vì mình cũng
+tự hào về những giờ ngồi kéo đó
+
+24
+00:01:30,061 --> 00:01:33,061
+mà. Nhưng nếu mình giữ cái tour
+đó mà đứng yên thì không phải
+
+25
+00:01:33,061 --> 00:01:35,521
+ai ai loại mình ra. Mà chính
+cái tour đó sẽ bỏ mình lại phía
+
+26
+00:01:35,521 --> 00:01:39,301
+sau á. Trong video này mình sẽ
+cho bạn xem mình đã tạo ra
+
+27
+00:01:39,301 --> 00:01:42,421
+video đó như thế nào và quy
+trình ra sao. Từ đoạn ý tưởng
+
+28
+00:01:42,421 --> 00:01:46,561
+đầu tiên story boss khách dựng
+trong đến từng lần mình góp ý
+
+29
+00:01:46,561 --> 00:01:51,761
+luôn. Bạn đã sẵn sàng bắt đầu
+nhé. Okay! Mình bắt đầu với
+
+30
+00:01:51,761 --> 00:01:55,541
+việc chọn mục thư mục làm không
+gian làm việc cho cloud. Rồi!
+
+31
+00:01:55,541 --> 00:01:58,841
+Giờ bắt đầu bước đầu tiên thôi.
+Xây dựng ý tưởng cho video.
+
+32
+00:01:58,841 --> 00:02:02,801
+Okay! Bước này chỉ là trình bày
+ý tưởng của mình thôi. AI nó
+
+33
+00:02:02,801 --> 00:02:07,121
+chưa can thiệp vô gì cả. Và của
+mỗi người là khác nhau. Nên
+
+34
+00:02:07,121 --> 00:02:09,221
+bước này mình không có gì để
+chia sẻ nhiều với mọi người
+
+35
+00:02:09,221 --> 00:02:13,241
+luôn. Nhưng mình sẽ tua tốc độ
+vừa đủ để mọi người có thể theo
+
+36
+00:02:13,241 --> 00:02:16,361
+dõi xem. Mình đã nghĩ ra những
+ý tưởng gì? Và trao đổi với
+
+37
+00:02:16,361 --> 00:02:19,741
+clock như thế nào? Mình tua
+nhanh thôi. Chế độ này mất đâu
+
+38
+00:02:19,741 --> 00:02:22,861
+đó cũng tầm hơn mười phút á. Và
+tất nhiên là nếu mọi người
+
+39
+00:02:22,861 --> 00:02:25,861
+không có ý tưởng nào thì việc
+tham khảo các video khác trên
+
+40
+00:02:25,861 --> 00:02:29,281
+hay các trang mạng xã hội khác
+là điều rất cần thiết luôn nha.
+
+41
+00:02:29,281 --> 00:02:32,641
+Ở đây mình hay dùng Shopee nên
+thường bật lên là cái quảng cáo
+
+42
+00:02:32,641 --> 00:02:35,281
+nó đặt ngay vô mắt luôn. Với
+thêm kinh nghiệm làm nghề nữa.
+
+43
+00:02:35,281 --> 00:02:38,761
+Vì vậy việc mình viết ra những
+ý tưởng này là điều không có gì
+
+44
+00:02:38,761 --> 00:02:41,941
+khó khăn cả. Còn với người mới
+mình khuyên nên có bước tham
+
+45
+00:02:41,941 --> 00:02:44,521
+khảo các sản phẩm tương tự để
+lấy ý tưởng trước khi bắt đầu
+
+46
+00:02:44,521 --> 00:02:48,301
+bước này. Tránh tình trạng vắt
+ốc mix mà kết quả thì lại không
+
+47
+00:02:48,301 --> 00:02:51,641
+được như mong muốn. Rồi mọi
+người theo dõi nội dung trình
+
+48
+00:02:51,641 --> 00:02:55,301
+bày của mình nha. Mình không
+giấu gì hết và ở đây mục đích
+
+49
+00:02:55,301 --> 00:02:59,881
+của mình là kêu nó tự chia cảnh
+và làm cho mình
+
+50
+00:03:17,541 --> 00:03:21,001
+enter một cái
+
+51
+00:03:28,621 --> 00:03:32,521
+nó chia ý tưởng của mình thành
+mười ba cảnh như thế này và
+
+52
+00:03:32,521 --> 00:03:37,201
+thời gian dự kiến là bốn mươi
+lăm giây mình sơ qua ý tưởng
+
+53
+00:03:37,201 --> 00:03:40,741
+một lần rồi tiếp tục kêu nó vẽ
+luôn mười ba cảnh đó ra cho
+
+54
+00:03:40,741 --> 00:03:45,361
+mình xem đã đúng ý hay chưa
+khoảng tám phút sau là nó trả
+
+55
+00:03:45,361 --> 00:03:50,981
+kết quả bản đầu tiên tuy nó
+đúng hết với các ý tưởng mà
+
+56
+00:03:50,981 --> 00:03:54,161
+mình đưa ra nhưng giao diện
+chẳng có gì liên quan đến
+
+57
+00:03:54,161 --> 00:03:59,581
+Shopee hết á nên là mình mới
+lấy điện thoại chụp lại giao
+
+58
+00:03:59,581 --> 00:04:05,721
+diện Shopee rồi mình cho nó coi
+nha sẵn đó. Thì mình chỉnh các
+
+59
+00:04:05,721 --> 00:04:08,661
+cảnh lại luôn. Cái này là góc
+nhìn cá nhân của mình. Và có
+
+60
+00:04:08,661 --> 00:04:12,081
+thể các từ khóa mình dùng trong
+khung chat. Nó dạng làm nhiều
+
+61
+00:04:12,081 --> 00:04:15,881
+mới biết á. Mọi người chịu khó
+xem qua nha.
+
+62
+00:04:54,541 --> 00:05:00,641
+Và Bờm mọi người đã thấy sự
+khác biệt sau khi chỉnh chưa
+
+63
+00:05:03,041 --> 00:05:06,481
+nhìn cái là thấy anh giao hàng
+Shopee tới liền luôn. Đúng
+
+64
+00:05:06,481 --> 00:05:08,721
+không?
+
+65
+00:05:13,541 --> 00:05:16,681
+Nhưng mà mình vẫn tiếp tục
+chỉnh nó tiếp nha. Vì cái story
+
+66
+00:05:16,681 --> 00:05:21,661
+box này nó ảnh hưởng rất nhiều
+đến kết quả. Lần này mình lại
+
+67
+00:05:21,661 --> 00:05:24,601
+nảy thêm ra ý tưởng mới luôn.
+Cái đoạn mình yêu cầu nó làm mô
+
+68
+00:05:24,601 --> 00:05:27,201
+hình ba D á
+
+69
+00:05:58,541 --> 00:06:02,461
+gần hai mươi phút sau hay là
+hơn nữa mình không nhớ nữa vì
+
+70
+00:06:02,461 --> 00:06:07,461
+nó chạy ngầm là mình có như thế
+này
+
+71
+00:06:32,041 --> 00:06:35,901
+xem qua thấy ổn rồi mình chốt
+luôn trong lúc đợi nó phản hồi
+
+72
+00:06:35,901 --> 00:06:43,461
+thì mình mở sẵn AE lên luôn nha
+trong mình mở một cái tên là
+
+73
+00:06:43,461 --> 00:06:47,001
+MCP cái này nó là cầu nối giúp
+cho có thể trực tiếp sử dụng
+
+74
+00:06:47,001 --> 00:06:50,781
+rất là tiện lợi và nếu mọi
+người có muốn tải cái này về để
+
+75
+00:06:50,781 --> 00:06:55,161
+cài thì lên Edator nghiệp dư
+chấm VN nha rồi ở đây mình chọn
+
+76
+00:06:55,161 --> 00:06:59,001
+cho Cloud nó dựng video này
+bằng A E cho mình ở đây nó tự
+
+77
+00:06:59,001 --> 00:07:03,201
+động kết nối MCB với A E luôn
+nha có thể nó đã đọc lại hôm
+
+78
+00:07:03,201 --> 00:07:06,501
+trước mình trước video này mình
+có làm một video nữa về dựng
+
+79
+00:07:06,501 --> 00:07:11,341
+video trên A E nhưng mà để cho
+trong lúc nó đang dựng mình
+
+80
+00:07:11,341 --> 00:07:15,421
+thêm một lệnh nữa bắt nó phải
+thao tác với các trong bằng chứ
+
+81
+00:07:15,421 --> 00:07:18,781
+không dùng Express mục đích của
+mình là để sau khi nó làm xong
+
+82
+00:07:18,781 --> 00:07:21,901
+chỉnh sửa các kiểu luôn không
+được nữa thì tới lượt mình làm
+
+83
+00:07:21,901 --> 00:07:25,441
+bằng tay và mọi người thấy mình
+bắt đúng bệnh luôn không thật
+
+84
+00:07:25,441 --> 00:07:28,381
+sự nó đã dùng Express rồi nè
+sau lệnh này nó mới chuyển về
+
+85
+00:07:28,381 --> 00:07:34,261
+xài rồi để cho nó tự làm đi nha
+và nói tới chuyện để AI lo phần
+
+86
+00:07:34,261 --> 00:07:36,961
+việc lặp lại còn mình dành thời
+gian cho sáng tạo thì đây cũng
+
+87
+00:07:36,961 --> 00:07:41,401
+chính là lý do mình mở khóa với
+mười năm làm mình gom hết những
+
+88
+00:07:41,401 --> 00:07:44,041
+gì mình đang làm hằng ngày vào
+đúng một khóa duy nhất từ dựng
+
+89
+00:07:44,041 --> 00:07:49,801
+video tự động với và cho video
+sự kiện video cưới hay video
+
+90
+00:07:49,801 --> 00:07:58,621
+YouTube dài tới chỉnh màu với
+làm TVC ba D với và với và cả
+
+91
+00:07:58,621 --> 00:08:01,861
+cách huấn luyện AI tự làm SCO
+YouTube cho riêng chủ đề của
+
+92
+00:08:01,861 --> 00:08:04,981
+bạn khóa học dự kiến khai giảng
+ngày hai mươi ba tháng mười một
+
+93
+00:08:04,981 --> 00:08:10,321
+học vào tối thứ hai thứ tư và
+thứ sáu gồm bảy buổi lớp chỉ có
+
+94
+00:08:10,321 --> 00:08:13,561
+ba mươi thôi nên bạn nào quan
+tâm thì xem thông tin đăng ký ở
+
+95
+00:08:13,561 --> 00:08:17,501
+phần mô tả bên dưới nhé gặp một
+chút sự cố A E nó không phản
+
+96
+00:08:17,501 --> 00:08:21,161
+hồi và giờ vô check kết quả
+được rồi nha đây mọi người xem
+
+97
+00:08:21,161 --> 00:08:25,121
+thử một đoạn của bản đầu tiên
+nó làm ra nha vẽ thì đúng đó
+
+98
+00:08:25,121 --> 00:08:29,621
+nhưng mà Animation và nhịp thì
+rõ chán luôn cho nên là bước
+
+99
+00:08:29,621 --> 00:08:34,141
+tiếp theo là mình sẽ yêu cầu nó
+chỉnh sửa lại nha
+
+100
+00:08:36,541 --> 00:08:40,761
+đây là cách góp ý chỉnh sửa với
+góc nhìn và kinh nghiệm của
+
+101
+00:08:40,761 --> 00:08:44,001
+mình mọi người có thể tham khảo
+và đương nhiên là không phải
+
+102
+00:08:44,001 --> 00:08:47,781
+một lần mà được kết quả luôn
+đâu á rất nhiều lần và mình
+
+103
+00:08:47,781 --> 00:08:51,141
+cũng khá là kỹ nha mình vào
+từng của nó để với đồ thị
+
+104
+00:08:51,141 --> 00:08:53,661
+chuyển động luôn nên là mọi
+người phải có một chút kiến
+
+105
+00:08:53,661 --> 00:08:57,621
+thức về thì mới làm tốt được
+bước này nha đó mọi người thấy
+
+106
+00:08:57,621 --> 00:09:02,301
+mình đúng ngay chỗ nào cần sửa
+luôn nha ở đây cũng vậy luôn
+
+107
+00:09:02,301 --> 00:09:05,721
+nha bước này tốn thời gian của
+mình nhiều nhất luôn nên là tua
+
+108
+00:09:05,721 --> 00:09:09,501
+nhanh qua cho video nó gọn với
+lại nhìn của mỗi người khác
+
+109
+00:09:09,501 --> 00:09:12,261
+nhau ví dụ với trường hợp của
+bạn làm thử thì cách chỉnh sửa
+
+110
+00:09:12,261 --> 00:09:14,901
+nó cũng khác mình rồi mà mình
+chỉ muốn nhấn mạnh rằng mọi
+
+111
+00:09:14,901 --> 00:09:18,081
+người phải ghi đúng mốc thời
+gian cần chỉnh và chỉnh cái gì
+
+112
+00:09:18,081 --> 00:09:21,761
+như vậy thì độ hiệu quả mới cao
+
+113
+00:09:27,041 --> 00:09:30,781
+mình dự định là chừa một đường
+lui cuối cùng là nếu nó làm
+
+114
+00:09:30,781 --> 00:09:33,841
+không ổn thì mình sẽ chỉnh bằng
+tay nhưng mà kết quả vượt ngoài
+
+115
+00:09:33,841 --> 00:09:36,381
+dự kiến luôn
+
+116
+00:09:41,041 --> 00:09:44,841
+tuy nhiên không phải ai cũng có
+thể làm ra được kết quả giống
+
+117
+00:09:44,841 --> 00:09:48,921
+như vậy nha vì đó là còn phải
+nhờ vào kiến thức kinh nghiệm
+
+118
+00:09:48,921 --> 00:09:54,501
+và trải nghiệm rồi mình cùng
+xem lại bản có đầy đủ nhạc và
+
+119
+00:09:54,501 --> 00:09:57,521
+cuối cùng nha
+
+120
+00:10:18,541 --> 00:10:22,101
+okay như vậy là hoàn thành xong
+một video. Mọi người đang cảm
+
+121
+00:10:22,101 --> 00:10:24,261
+thấy như thế nào? Hãy để lại ý
+kiến dưới phần bình luận nhé.
+
+122
+00:10:24,261 --> 00:10:27,441
+Cám ơn mọi người đã theo dõi
+hết video này. Nếu thấy nó hữu
+
+123
+00:10:27,441 --> 00:10:31,461
+ích thì hãy nhấn like nhé. Đừng
+quên kênh mình để đón chờ những
+
+124
+00:10:31,461 --> 00:10:35,441
+nội dung hấp dẫn khác nha. Xin
+cảm ơn.

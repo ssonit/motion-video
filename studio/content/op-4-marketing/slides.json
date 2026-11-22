@@ -1,0 +1,57 @@
+[
+  {
+    "id": "intro",
+    "vo": "Part four: marketing. It comes third on purpose. Most people start here, and then get overwhelmed by customers they can't look after.",
+    "frames": 244
+  },
+  {
+    "id": "order",
+    "vo": "We built inbox and delivery first, so a flood of new clients doesn't break anything. There's no point winning customers who aren't happy, because they won't refer anyone.",
+    "frames": 294
+  },
+  {
+    "id": "daily",
+    "vo": "The problem with most marketing is that it depends on you. You do it when you have time, and when you get busy with calls, it stops. So build a Bot that runs every day. Consistency is the foundation.",
+    "frames": 345
+  },
+  {
+    "id": "data",
+    "vo": "Your data is the intake form from delivery. Use it to describe your best-fit customers: people who already knew they had a problem and liked your solution. Everyone like them is a target.",
+    "frames": 316
+  },
+  {
+    "id": "blueprint",
+    "vo": "For the playbook, tell the Bot: every day, find me new people like my best clients, with this problem, in this city, at this size of business. It can search public posts and groups, and bring you the best matches.",
+    "frames": 365
+  },
+  {
+    "id": "consumer",
+    "vo": "If you sell to consumers, say a gym or a local spa, have it look for people publicly complaining about the problem, and suggest a reply that offers something genuinely helpful.",
+    "frames": 312
+  },
+  {
+    "id": "leads",
+    "vo": "The schedule is easy. Every morning, ten new leads in your inbox. If they aren't good enough, tell it what's wrong with them, and it learns.",
+    "frames": 252
+  },
+  {
+    "id": "funnel",
+    "vo": "The signal is the whole funnel. Did it find leads? Were they qualified? Did they book a call? Did they buy? Show that every day, and feed the winners back in so it finds more like them.",
+    "frames": 322
+  },
+  {
+    "id": "home",
+    "vo": "One example: a home builder scans local groups for people talking about house projects, and reaches out gently. If you ever want to design your dream home, just say.",
+    "frames": 289
+  },
+  {
+    "id": "content",
+    "vo": "Marketing can also make content. Ask the Bot to act as a topic finder for your niche, and give you ten topics based on real, specific problems, easy to explain in plain words. Then write short video scripts in your voice.",
+    "frames": 383
+  },
+  {
+    "id": "iterate",
+    "vo": "If the list feels broad or familiar, ask for a more specific, observable problem. That small push makes the topics novel. Then you just pick up the camera, talk, and publish.",
+    "frames": 303
+  }
+]

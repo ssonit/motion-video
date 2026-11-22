@@ -7,9 +7,11 @@ Goal: the user sends a **video link or file**; Claude watches it, then builds a 
 Use the `clone-video` skill (`.claude/skills/clone-video/SKILL.md`). Short version:
 1. `python tools/analyze.py "<url-or-file>" <slug>` → `references/<slug>/` (video + contact sheets)
 2. Read the sheets, write `references/<slug>/analysis.md` (structure, style, script).
-3. Write the new script `studio/content/<new-slug>/slides.json`.
-4. `python tools/tts.py <new-slug> --voice ...` then build `studio/src/videos/<Name>.tsx`, register it in `studio/src/Root.tsx`.
-5. `python tools/render.py <CompId> <output-name>` → `output/<output-name>.mp4`.
+3. Write the new script `studio/content/<new-slug>/slides.json`, then a light `storyboard.md` (one line per shot: what is seen + look), **then STOP and show it**
+   (user wants to review before the build, 2026-11-22; skill §4b). Feedback comes back by timecode (§4c).
+4. After OK: `python tools/tts.py <new-slug> --voice ...`, build `studio/src/videos/<Name>.tsx`, register it in `studio/src/Root.tsx`,
+   then **show a preview** (Remotion Studio in the built-in browser, or a `--scale 0.5` mp4) and wait for notes.
+5. Only after the preview is accepted: `python tools/render.py <CompId> <output-name>` → `output/<output-name>.mp4`.
 
 ## Folder map
 ```
@@ -47,7 +49,25 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
 - **No human photos / presenter** unless the user supplies their own footage. References are hybrids (motion graphics + real
   talking-head PiP + real screen recordings): use the footage-slot templates (`studio/LIBRARY.md` §4b, `lib/Slot.tsx`,
   `content/<slug>/footage.json`) and say which shots need the user's clips. Otherwise use the orb mascot (`Mascot`).
-- **Lively voice**: edge-tts neural voices, never the offline Windows voices (too flat). Default en-US-GuyNeural;
+- **Real evidence images (user asked 2026-11-22):** a video of only motion graphics feels "just ok"; real images raise credibility.
+  For each video, search the web / X / social for real material about the topic (product pages, announcement posts, charts,
+  logos, news screenshots, public screen captures) and put 3-6 of them in as shots (framed screenshot with source tag).
+  Save under `references/<slug>/assets/` with a `sources.md` (url + what it shows). Prefer screenshots of public pages and
+  official press/brand material; no photos of private people; show the source name on screen. Say at delivery which shots use
+  real images and where they came from; copyright is the user's call, so flag anything not clearly free to reuse.
+- **Lively voice**: edge-tts neural voices sound like a speech (flat prosody), so the preferred engine is local
+  **OmniVoice** (`python tools/tts.py <slug> --engine omnivoice --instruct "male, american accent"`, or `--ref clip.wav
+  --ref-text "<exact words>"` to clone a voice: most stable, keeps one voice across all slides). OmniVoice is shared with
+  other projects: repo + own venv + model cache live in `D:\Project\repo\OmniVoice` (override with env `OMNIVOICE_DIR`);
+  it needs torch 2.8 cu128 + transformers 5.x, so never install it into the system python. Inline `[laughter]`/`[sigh]`
+  tags work in `vo`. 8 GB RTX 4060 is enough. We cannot listen to it: ask the user to judge the voice.
+  **Voice for Grok Bot videos (chosen by the user 2026-11-22): `--clone bot-narrator --speed 1.25`**, an original,
+  machine-designed friendly male voice (design "male, young adult, moderate pitch, american accent" frozen as a clone
+  prompt) stored in `D:\Project\repo\OmniVoice\voices\bot-narrator\` (`prompt.pt`, shared by all projects).
+  `--clone <name>` loads `voices/<name>/prompt.pt` (built from `ref_audio.wav` + `ref_text.txt` on first use).
+  **Never publish with `voices/grokbot-gta6`**: it is cloned from a real YouTuber and kept for private reference only.
+  Don't clone real people's voices without their consent, and don't "tweak" one to disguise it.
+  Fallback / default: edge-tts (`--voice`), never the offline Windows voices (too flat). Default en-US-GuyNeural;
   female en-US-AriaNeural. Vietnamese: vi-VN-HoaiMyNeural / vi-VN-NamMinhNeural.
 - **Sound design matters**: whoosh at each scene start, tick on every card/chip, typing sound on typed text,
   ding on key moments, quiet beat music bed. Always finish with loudnorm (render.py does it).
@@ -76,4 +96,6 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
   and leftover `%LOCALAPPDATA%\Temp\remotion-*` folders. Write scratch images to `.tmp/`, not C:.
 - **APPROVED (2026-11-19): `BotGuideReal` (output/bot-guide-real-en_female-aria.mp4) is the standard look for Grok Bot videos.**
   For any new Grok Bot video, copy `BotGuideReal.tsx` + reuse `src/videos/real/` (ui.tsx, ScenesA/B, BotMark) and LIBRARY.md §9b; never go back to the orb Mascot or generic windows.
+- **Want a UI to look exact? Capture the real interface first** (screenshots/screen recording of each needed screen, saved in
+  `references/<ui-name>/`) and rebuild from them; without captures we only make a loose, generic version.
 - Grok Bot visuals: the real UI is only a loose reference (user said "không cần quá sát"); keep our own look, borrow layout/colours/mark from `references/grok-bot-ui/`.

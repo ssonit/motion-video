@@ -1,0 +1,72 @@
+[
+  {
+    "id": "hook",
+    "vo": "The biggest companies of the next decade may not be built with big teams. They may be built by one person, leading a team of agents.",
+    "frames": 241
+  },
+  {
+    "id": "small",
+    "vo": "A business that once needed twenty people can now run on a founder, a couple of part-timers, and Bots handling the routine work.",
+    "frames": 200
+  },
+  {
+    "id": "map",
+    "vo": "In this series, we'll go through it in six moves. This first part is about the most important one: choosing what problem to solve.",
+    "frames": 220
+  },
+  {
+    "id": "ideaprob",
+    "vo": "Before you build anything, decide what you're building. And start with the problem, not the idea. Your idea may sound great. But what pain does it fix?",
+    "frames": 273
+  },
+  {
+    "id": "pain",
+    "vo": "Think of a vitamin versus a painkiller. A vitamin is nice to have. A painkiller is something people need right now.",
+    "frames": 213
+  },
+  {
+    "id": "migraine",
+    "vo": "When you have a migraine, you'll pay almost anything for the pill. With no pain, even a cheap vitamin is a hard sell. The bigger the pain, the bigger the money.",
+    "frames": 276
+  },
+  {
+    "id": "gym",
+    "vo": "Now let the Bot do the searching. Say you run a gym. Tell it your background, and ask for fifty specific, observable problems gym owners face right now.",
+    "frames": 266
+  },
+  {
+    "id": "research",
+    "vo": "Read the list and ask: are people already trying to pay to fix these? Keep the top three. Those become the problems your offer will solve.",
+    "frames": 251
+  },
+  {
+    "id": "message",
+    "vo": "Next, have the Bot write a short message about those three pains, and send it to ten people in that market. Not a pitch. Just a question.",
+    "frames": 243
+  },
+  {
+    "id": "advice",
+    "vo": "Don't ask for the sale, ask for advice. Ask for the sale and you get advice. Ask for advice, and you get the sale.",
+    "frames": 207
+  },
+  {
+    "id": "call",
+    "vo": "On the call, they'll often ask what you're building. That's your moment. Present your offer, and invite them to be your first customer.",
+    "frames": 229
+  },
+  {
+    "id": "existing",
+    "vo": "Already have a business? Then you know your customer. Run the same search anyway, to sharpen your message around the pain you solve.",
+    "frames": 231
+  },
+  {
+    "id": "pile",
+    "vo": "Now you're solving the right problem, and customers start to arrive. But your time piles up fast. Calls, delivery, everything lands on you. That's when you need agents.",
+    "frames": 303
+  },
+  {
+    "id": "order",
+    "vo": "Most people automate the wrong thing first, and end up busier without earning more. The right problem in the wrong order costs money. So next, we climb in order.",
+    "frames": 282
+  }
+]

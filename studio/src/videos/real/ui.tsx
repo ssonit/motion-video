@@ -38,9 +38,10 @@ export const RSlide: React.FC<{
   const {durationInFrames} = useVideoConfig();
   const o = interpolate(frame, [0, 8, durationInFrames - 8, durationInFrames], [0, 1, 1, 0], clamp);
   return (
-    <AbsoluteFill style={{opacity: o, background: bg, fontFamily: inter.fontFamily, color: R.text}}>
+    <AbsoluteFill style={{opacity: o, background: bg === R.bg ? `var(--op-bg, ${R.bg})` : bg, fontFamily: inter.fontFamily, color: R.text}}>
       <Sfx at={0} name="whoosh" vol={0.3} dur={30} />
       {children}
+      <Footer />
       {captions && <Captions text={vo} />}
     </AbsoluteFill>
   );
@@ -79,7 +80,7 @@ export const Pill: React.FC<{
   const k = {
     white: {background: '#fff', color: R.bg},
     active: {background: '#fff', color: R.bg},
-    dark: {background: R.card, color: '#fff'},
+    dark: {background: `var(--op-card, ${R.card})`, color: '#fff'},
     ghost: {background: 'transparent', color: R.mute, border: `1.5px solid ${R.line}`},
   }[kind];
   return (
@@ -102,18 +103,41 @@ export const Pill: React.FC<{
   );
 };
 
-export const Label: React.FC<{children: React.ReactNode; color?: string}> = ({children, color = R.dim}) => (
+export const Label: React.FC<{children: React.ReactNode; color?: string}> = ({children, color = `var(--op-dim, ${R.dim})`}) => (
   <div style={{fontFamily: mono.fontFamily, fontSize: 16, letterSpacing: 2, color, textTransform: 'uppercase'}}>{children}</div>
 );
+
+/** `*word*` inside a string headline = accent-coloured keyword (orange in the series theme). */
+const kw = (c: React.ReactNode) =>
+  typeof c === 'string'
+    ? c.split(/\*([^*]+)\*/).map((part, i) =>
+        i % 2 ? (
+          <span key={i} style={{color: 'var(--op-accent, inherit)'}}>
+            {part}
+          </span>
+        ) : (
+          part
+        ),
+      )
+    : c;
+
+/** Footer text (set by a part wrapper), bottom-left like the reference. */
+export const FooterCtx = React.createContext('');
+const Footer: React.FC = () => {
+  const t = React.useContext(FooterCtx);
+  return t ? (
+    <div style={{position: 'absolute', left: 44, bottom: 30, fontFamily: mono.fontFamily, fontSize: 13, letterSpacing: 2, color: 'rgba(255,255,255,0.35)'}}>{t}</div>
+  ) : null;
+};
 
 /** Scene headline: small label + big title, top-left. */
 export const Head: React.FC<{label: string; children: React.ReactNode; size?: number}> = ({label, children, size = 54}) => (
   <>
     <Pop at={2} style={{position: 'absolute', left: 72, top: 40}}>
-      <Label>{label}</Label>
+      <Label color="var(--op-eyebrow, rgba(255,255,255,0.42))">{label}</Label>
     </Pop>
     <Pop at={6} style={{position: 'absolute', left: 72, top: 68}}>
-      <div style={{fontSize: size, fontWeight: 500, lineHeight: 1.08, letterSpacing: -1.2}}>{children}</div>
+      <div style={{fontSize: size, fontWeight: 'var(--op-hw, 500)' as unknown as number, lineHeight: 1.08, letterSpacing: -1.2}}>{kw(children)}</div>
     </Pop>
   </>
 );

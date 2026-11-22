@@ -1,0 +1,67 @@
+[
+  {
+    "id": "intro",
+    "vo": "Part five: sales. This is where many people get stuck, because buyers still buy from a person. So the close stays human.",
+    "frames": 219
+  },
+  {
+    "id": "around",
+    "vo": "What the Bot does is everything around the sale. It can even coach you. For strong salespeople, it adds bandwidth, and lets them improve in a learning loop.",
+    "frames": 262
+  },
+  {
+    "id": "story",
+    "vo": "One company's CEO spent about fifty hours a week on sales. Plenty of leads, a managed inbox, and a calendar packed with calls. Most of those calls never turned into customers.",
+    "frames": 312
+  },
+  {
+    "id": "voice",
+    "vo": "So we built a voice Bot that phones every new lead first. It says it's an AI assistant calling on his behalf, asks qualifying questions, touches on their pain, and follows his own process. If it's not a fit, it cancels the invite.",
+    "frames": 399
+  },
+  {
+    "id": "result",
+    "vo": "People still answered, and still talked to it. He got roughly twenty hours of his week back, and the calls he kept were with people who showed up ready to buy.",
+    "frames": 259
+  },
+  {
+    "id": "practice",
+    "vo": "Not sure how to sell? Make the Bot call you and play the buyer. You practice, and after the call it rates you and gives you tips for next time.",
+    "frames": 249
+  },
+  {
+    "id": "past",
+    "vo": "Or study your past calls. Find your ideal buyers, collect the questions and objections they raise, and turn them into talk tracks. Then the Bot reviews every new call too.",
+    "frames": 299
+  },
+  {
+    "id": "data",
+    "vo": "Your data is your sales calls. Record them, especially the best ones, where people bought quickly. That's unique to you. If you have none, feed it public videos and materials from someone you trust.",
+    "frames": 344
+  },
+  {
+    "id": "jobs",
+    "vo": "For the playbook, give it two jobs, in this order. First, coach you with mock calls. Second, take over everything except the close: qualifying before anyone books, same-day follow-ups, rebooking no-shows, updating your records.",
+    "frames": 396
+  },
+  {
+    "id": "prompt",
+    "vo": "Here's the prompt. Call me and run a sales call as my ideal client. Then review the transcript: how much did I talk versus listen, which steps did I skip, and which objections did I fumble?",
+    "frames": 325
+  },
+  {
+    "id": "after",
+    "vo": "The schedule is simple: review after every call, fast enough that you get a tweak before the next one, and try it right away.",
+    "frames": 230
+  },
+  {
+    "id": "signal",
+    "vo": "Two signals. Your win rate, so you can see yourself improving. And clean records, with every detail saved to your CRM, so delivery never has to ask the client to repeat themselves.",
+    "frames": 316
+  },
+  {
+    "id": "objections",
+    "vo": "One more prompt. Analyze these call transcripts, pull out every objection, group the common ones, and propose the best way to handle each. Give it both won and lost calls, so the script reflects what really moved a deal.",
+    "frames": 375
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "intro",
+    "vo": "Part three: delivery. Winning more clients is only good if you can serve them. Otherwise more customers just means more work, slower results, and fewer referrals.",
+    "frames": 296
+  },
+  {
+    "id": "role",
+    "vo": "A delivery Bot can run onboarding, answer every client question, prepare documents for you to review with them, and often even do the work you sold. Your client doesn't need to know how it's done.",
+    "frames": 333
+  },
+  {
+    "id": "story",
+    "vo": "A software founder sold plenty of licenses, but each customer needed ten hours of onboarding with his team. As sales grew, buyers waited ten, then twenty days. Then they cancelled and asked for refunds.",
+    "frames": 348
+  },
+  {
+    "id": "fix",
+    "vo": "Once a Bot took over onboarding, calling customers, running intake forms, scheduling, and following up by text, the backlog cleared. He'd been using people for work a Bot could do.",
+    "frames": 313
+  },
+  {
+    "id": "simplify",
+    "vo": "To do this, simplify. What's the one thing you sell? What's the one path from payment to a happy customer? Write those steps down. That's how you train the Bot.",
+    "frames": 285
+  },
+  {
+    "id": "firstwin",
+    "vo": "The moment someone pays, move fast to their first win. Once they've had it, you can ask who else they know who'd like the same result. That's how this makes money and gives you time back.",
+    "frames": 322
+  },
+  {
+    "id": "goal",
+    "vo": "The goal isn't to get better at tasks. It's to stop doing the tasks that technology can already do for you. Today, that's nearly all of them.",
+    "frames": 243
+  },
+  {
+    "id": "data",
+    "vo": "Start with data. What do you already have that shows what great looks like? What do you log into to get results, what will the client see, and what do they need from you?",
+    "frames": 299
+  },
+  {
+    "id": "talk",
+    "vo": "Then the playbook. The easiest way is to talk. Record yourself explaining how you work with a customer, with any recorder or any AI, and ask it to turn that into a step-by-step process.",
+    "frames": 328
+  },
+  {
+    "id": "interview",
+    "vo": "Or let it interview you. One question at a time, about how you deliver from the moment a client pays to their first win. Then list every step, and mark which ones really need you.",
+    "frames": 301
+  },
+  {
+    "id": "flow",
+    "vo": "Picture the result. Payment clears, and a welcome email goes out with an intake form. Their answers set up a client folder, and the Bot builds an FAQ for that client, all in one place.",
+    "frames": 323
+  },
+  {
+    "id": "teach",
+    "vo": "Another move: do a task once on your computer to teach the Bot, save it as a skill, and let your delivery Bot reuse it whenever that step comes up.",
+    "frames": 256
+  },
+  {
+    "id": "board",
+    "vo": "The schedule is simple: run whenever a deal closes, and whenever a client asks something. The signal is a board of every client by stage, green, yellow or red, and how long they've been stuck. You only fix the red.",
+    "frames": 375
+  },
+  {
+    "id": "tip",
+    "vo": "One last tip. Have the Bot read your support emails, find the questions that keep coming back, and fix your onboarding so those questions never come up again.",
+    "frames": 288
+  }
+]

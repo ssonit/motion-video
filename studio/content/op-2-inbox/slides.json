@@ -1,0 +1,82 @@
+[
+  {
+    "id": "admin",
+    "vo": "Part two: the inbox Bot. This is the first rung of the ladder. Admin means your inbox, your calendar, every message, all in one place. You used to hire a person for this. Now you configure a Bot.",
+    "frames": 338
+  },
+  {
+    "id": "room",
+    "vo": "Even in a room of a thousand people learning AI, most hadn't connected their inbox and calendar to a Bot. They still sorted every email and managed every meeting by hand, because letting go felt risky.",
+    "frames": 349
+  },
+  {
+    "id": "story",
+    "vo": "One support teammate was buried in customer emails. She wanted to over-deliver, so she lived in her inbox. We gave a Bot her past replies and the steps she followed. By ten the next morning, her whole support inbox was clear.",
+    "frames": 387
+  },
+  {
+    "id": "review",
+    "vo": "The goal is to give the Bot the whole inbox and calendar, and let it work out your rules. Start in review mode: it prepares everything, you check it, then you approve. Over time, you let it run.",
+    "frames": 340
+  },
+  {
+    "id": "recipe",
+    "vo": "You didn't start a business to become the bottleneck. Use any AI tool, as long as it can reach your mail and calendar. Then give it four things: data, a playbook, a schedule, and a signal.",
+    "frames": 325
+  },
+  {
+    "id": "edge",
+    "vo": "Every company uses AI now, so AI alone is no edge. Your data is. The way you work, your templates, your past customers, your scripts. Your sent mail is the data for your inbox Bot.",
+    "frames": 313
+  },
+  {
+    "id": "prompt1",
+    "vo": "Here's the first prompt. Scan my inbox, look at every reply I've sent, work out the rules I follow, then set up a filtered inbox using those rules.",
+    "frames": 259
+  },
+  {
+    "id": "rules",
+    "vo": "If you usually forward invoices to finance, the Bot notices, and from then on it does that every single time.",
+    "frames": 200
+  },
+  {
+    "id": "playbook",
+    "vo": "Next, the playbook. For your calendar, tell it your working hours, when you're home, and when you do deep work. Then every request lands in the right slot.",
+    "frames": 250
+  },
+  {
+    "id": "replies",
+    "vo": "For replies, ask it to research how to write clear, direct emails, with every detail included, so nobody has to write back asking for more. And sort your mail into a label system. If you don't know one, ask the Bot to find it.",
+    "frames": 384
+  },
+  {
+    "id": "loop",
+    "vo": "Now close the loop. The Bot drafts, you edit and send. Then it compares what it wrote with what you actually sent, and updates its rules. Without that loop, it isn't an agent.",
+    "frames": 310
+  },
+  {
+    "id": "cadence",
+    "vo": "The schedule. Every thirty minutes if you want real time. Or twice a day, say eleven and four, so people still expect a fast reply while you stay on your real work. A reply at three in the morning just looks strange.",
+    "frames": 375
+  },
+  {
+    "id": "signal",
+    "vo": "The signal. Each time it runs, the Bot sends you a short message: a link to your drafts, how many mails arrived, and who still hasn't replied. Then it can write the nudge for you.",
+    "frames": 300
+  },
+  {
+    "id": "day",
+    "vo": "Picture a new client emailing you. The Bot drafts a reply, you review it at eleven and send. By the end of the day, a discovery call is booked, and you weren't involved.",
+    "frames": 290
+  },
+  {
+    "id": "fullprompt",
+    "vo": "Here's the full prompt with the learning loop. Process my inbox. Draft replies as me, in my voice, from emails I've already written. Don't send anything. Leave placeholders for details you don't have.",
+    "frames": 344
+  },
+  {
+    "id": "next",
+    "vo": "That's your inbox Bot. It gives you your mornings back. Next, we climb to the second rung: delivery.",
+    "frames": 188
+  }
+]

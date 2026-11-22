@@ -1,0 +1,72 @@
+[
+  {
+    "id": "hook",
+    "vo": "Same task, same Bot. The only difference between these two results is one round of good feedback.",
+    "frames": 232
+  },
+  {
+    "id": "shift",
+    "vo": "A Bot is fast, but it doesn't know what feels off. That part is still your eye, and your eye is the skill that matters now.",
+    "frames": 258
+  },
+  {
+    "id": "map",
+    "vo": "The whole method fits in four steps: idea, plan, build, and feedback.",
+    "frames": 179
+  },
+  {
+    "id": "idea",
+    "vo": "Step one, the idea. Say it in one clear picture, not a pile of features. One sentence the Bot can see.",
+    "frames": 278
+  },
+  {
+    "id": "refs",
+    "vo": "If you have no idea yet, collect references first. Real examples beat a vague wish every time.",
+    "frames": 228
+  },
+  {
+    "id": "plan",
+    "vo": "Step two, the plan. Ask the Bot to split your idea into scenes, with a time for each one, and read it before anything gets built.",
+    "frames": 289
+  },
+  {
+    "id": "real",
+    "vo": "The first plan will look generic. So show it the real thing. A few screenshots of the real screens change the result immediately.",
+    "frames": 292
+  },
+  {
+    "id": "build",
+    "vo": "Step three, build. Let the Bot work on its own, and use that time to prepare, not to interrupt.",
+    "frames": 237
+  },
+  {
+    "id": "v1",
+    "vo": "The first draft is usually right in content and weak in motion. That is normal. This is where you come in.",
+    "frames": 253
+  },
+  {
+    "id": "time",
+    "vo": "Step four, feedback. Always give a time and a change. At zero thirty three, the transition is too slow, make it fast and sharp.",
+    "frames": 319
+  },
+  {
+    "id": "ease",
+    "vo": "Name the motion too. Ease out, a hard hit, appear on the same beat as the logo. Specific words give specific fixes.",
+    "frames": 291
+  },
+  {
+    "id": "loop",
+    "vo": "Expect several rounds. Each round fixes a few moments, and the result climbs every time.",
+    "frames": 226
+  },
+  {
+    "id": "compare",
+    "vo": "Put the first draft next to the final one. Same content, but now it has impact and rhythm.",
+    "frames": 221
+  },
+  {
+    "id": "outro",
+    "vo": "So the work moves from your hands to your eyes. Watch closely, write down the moment, say what to change, and repeat.",
+    "frames": 253
+  }
+]

@@ -44,7 +44,18 @@ Mirror craft, not branding (see CLAUDE.md).
 Default: English, no presenter, 2–2.5 min, our mascot, hand-drawn scenes, neural voice + sfx + music.
 If something only the user can supply is missing (brand/product facts, footage, language, length, voice), ask **all of it
 in a single message** and offer "you decide" for each item. If nothing is missing, don't ask: state the assumptions at delivery.
-Never ask about technical choices or intermediate approval; after the answers, work through to the finished video.
+**Accurate UI = real screenshots.** If the video must show a real app/site/product UI faithfully (layout, text, colours, icons),
+ask the user to send screenshots (or a screen recording) of exactly the screens needed, or capture them yourself in the
+built-in browser when the page is public. Save them in `references/<ui-name>/` and rebuild from them (measure colours/spacing,
+copy real labels). Without screenshots, keep the UI generic/loosely inspired and say so at delivery.
+Never ask about technical choices. Do stop at the review checkpoints in 4b (storyboard, then preview) before the final render.
+
+### 3b. Gather real evidence images (default on)
+Motion-only videos read as flat; real images add credibility. Before scripting, search the web / X / social for the topic
+(WebSearch + built-in browser; screenshot public pages with `mcp__Claude_Browser__*`). Collect 3-6 items: product/news pages,
+posts, charts, logos, UI. Save to `references/<slug>/assets/` + `sources.md` (url, what it shows, licence note).
+Use them as framed "screenshot" shots (browser/phone frame, source label, a callout or highlight animating on the key line),
+mixed between the motion shots. Skip people's photos. Downloading files: say what/where from in the delivery note.
 
 ## 4. Script
 For each shot first write one line: "what the viewer will go through" (the change they SEE, not what the text announces).
@@ -57,6 +68,10 @@ reading time; don't push the next scene in before the previous one is readable. 
 note what the old focus was and what the new one is (continue, contrast or hard cut: a hard cut is fine).
 Only rebuild what code can carry; what it cannot (real photos, footage, talking head) is marked NEEDS MEDIA, never faked
 or silently dropped. Never "recreate" by playing the reference itself.
+For long references (>10 min): rewrite the WHOLE script first, split it by the source's chapters into parts (≈2–4 min each, 11–16 shots),
+and build each part as its own composition (`studio/src/videos/OpParts.tsx` `makePart(slug, slides, scenes)`; content in
+`content/<series>-N-<name>/slides.json`, outline in `content/<series>/script.md`). Render parts separately, deliver part by part,
+join with ffmpeg concat at the end; a fix re-renders only the part that has the problem. Never squeeze 30 min into 4.
 For long videos (>2 min), do a rough full cut first (placeholders ok, real timing) and check pacing before polishing details.
 
 Create `studio/content/<new-slug>/slides.json`:
@@ -65,6 +80,30 @@ Create `studio/content/<new-slug>/slides.json`:
 ```
 One entry per scene (8–14 scenes, 1–3 sentences each). `frames` is a placeholder; tts.py overwrites it.
 Also keep a readable `script.md` next to it for the user.
+
+### 4b. Storyboard (learned from a Shopee 11.11 ad workflow: idea → storyboard → build → feedback)
+**Default (changed 2026-11-22, user wants to review before the build): checkpoints, not one run.** The user's videos are simple
+tutorials, so `storyboard.md` stays light (one line per shot: what the viewer sees + which look/template + which shots use real
+evidence images), but you STOP and show it before any voice/build work. Checkpoints, each ends with the user's OK or notes:
+1. **Storyboard** (script + light storyboard + evidence images found): send it, wait.
+2. **Rough preview**: build, then open Remotion Studio in the built-in browser (`preview_start`, `npm run dev` in `studio/`) or
+   deliver a `--scale 0.5` preview mp4 (`tools/render.py <CompId> <name> --scale 0.5`); wait for notes by timecode (§4c).
+3. **Final render** only after the preview is accepted.
+Fix notes in the same composition, re-preview only the affected range. The full timecoded table below is still opt-in
+(ad-style / precise-timing videos):
+
+| # | time | what the viewer SEES (the change) | look/template | motion + easing | sfx cue / sync point |
+|---|------|-----------------------------------|---------------|-----------------|----------------------|
+| 1 | 0:00–0:05 | … | BotGuideReal §9b scene / illustration / phone… | e.g. ease-out expo, spring pop | e.g. "logo lands at 0:03, ding on the same frame" |
+
+- Name the easing explicitly (Remotion: `Easing.out(Easing.exp)`, `spring({damping…})`) and the sync point between elements/sound.
+- Mark each shot CODE-ONLY or NEEDS MEDIA; check that no two neighbouring shots share the same look.
+- Keep a short "idea" line at the top: the one image the whole video hangs on.
+- After approval, build from this table; the timecodes are the reference for the next step.
+
+### 4c. Feedback by timecode
+User notes like "0:33 transition too slow" map to the storyboard row and its scene id; fix only that shot, re-render a
+`--scale 0.5` preview of the affected range, then the final. Keep `storyboard.md` in sync with what changed.
 
 ## 5. Voice and sounds
 ```bash

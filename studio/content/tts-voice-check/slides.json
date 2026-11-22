@@ -1,0 +1,17 @@
+[
+  {
+    "id": "a",
+    "vo": "Step one. Open the app, create your first bot, and give it a name. That's it. Seriously, it takes about thirty seconds.",
+    "frames": 148
+  },
+  {
+    "id": "b",
+    "vo": "But what happens when something goes wrong? Don't worry. Every action needs your approval first, so nothing gets sent without you.",
+    "frames": 165
+  },
+  {
+    "id": "c",
+    "vo": "And that's the whole setup. Next, let's connect your calendar, and put this bot to work.",
+    "frames": 116
+  }
+]

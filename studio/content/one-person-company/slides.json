@@ -1,0 +1,132 @@
+[
+  {
+    "id": "hook",
+    "vo": "Picture a company run by one person and a crew of Bots. No office full of staff. Just one founder, deciding what matters.",
+    "frames": 306
+  },
+  {
+    "id": "small",
+    "vo": "A business that once needed twenty people can now run on a founder, a couple of part-timers, and Bots handling the routine work.",
+    "frames": 244
+  },
+  {
+    "id": "map",
+    "vo": "Here's the plan. Find a problem worth solving, then build four Bots in a smart order, and finally connect them to one shared brain.",
+    "frames": 277
+  },
+  {
+    "id": "pain",
+    "vo": "Start with the mistake most people make: building before choosing the pain. Sell a painkiller, not a vitamin. People pay fast to stop pain.",
+    "frames": 319
+  },
+  {
+    "id": "research",
+    "vo": "Ask your Bot for fifty real problems in your market. Then keep the three that people are already paying to fix.",
+    "frames": 240
+  },
+  {
+    "id": "advice",
+    "vo": "Message ten of them, and don't pitch. Ask for advice. Advice becomes a call, and a call becomes your first customer.",
+    "frames": 286
+  },
+  {
+    "id": "ladder",
+    "vo": "Once customers arrive, your time vanishes. So automate in order, climbing one rung at a time. The first rung is your inbox.",
+    "frames": 312
+  },
+  {
+    "id": "recipe",
+    "vo": "Every Bot needs four ingredients. Your own data, a playbook to follow, a schedule, and a signal that tells you it's working.",
+    "frames": 260
+  },
+  {
+    "id": "inboxdata",
+    "vo": "For the inbox, your data is your sent mail. Tell the Bot to read every reply you wrote, find your rules, and sort new mail the same way.",
+    "frames": 294
+  },
+  {
+    "id": "calendar",
+    "vo": "Add a playbook for your calendar. Your working hours, your deep work time, your home time. Then every request lands in the right slot.",
+    "frames": 301
+  },
+  {
+    "id": "loop",
+    "vo": "Now close the loop. The Bot drafts, you edit and send, then it compares its draft with your final and updates its rules. Without that loop, it's not an agent.",
+    "frames": 358
+  },
+  {
+    "id": "cadence",
+    "vo": "Schedule it twice a day. And add a signal: a short message with your drafts, and who still hasn't replied. Start in review mode, and let go slowly.",
+    "frames": 332
+  },
+  {
+    "id": "delivery",
+    "vo": "Rung two is delivery. The moment someone pays, a Bot sends the welcome, collects the intake form, sets up the client folder, and aims for a first win that same day.",
+    "frames": 353
+  },
+  {
+    "id": "interview",
+    "vo": "To teach it, just talk. Have the Bot interview you, one question at a time, then list every step and mark which ones really need you.",
+    "frames": 283
+  },
+  {
+    "id": "board",
+    "vo": "Your signal here is a client board. Green, yellow, red, and how long each person has been stuck. You only fix the red ones.",
+    "frames": 305
+  },
+  {
+    "id": "marketing",
+    "vo": "Rung three is marketing, and it comes after delivery on purpose. New customers only help if you can look after them properly.",
+    "frames": 265
+  },
+  {
+    "id": "leads",
+    "vo": "Use your best customers as the pattern. Each morning, the Bot finds ten new people like them, and brings them to you with where they're talking about the problem.",
+    "frames": 292
+  },
+  {
+    "id": "content",
+    "vo": "It can also draft short video scripts in your voice, based on real, specific problems. If the topics feel generic, ask for something more precise.",
+    "frames": 317
+  },
+  {
+    "id": "funnel",
+    "vo": "Watch the whole funnel. How many leads it found, how many were qualified, booked, and bought. Then feed the winners back in.",
+    "frames": 290
+  },
+  {
+    "id": "sales",
+    "vo": "The last rung is sales. The close stays human. The Bot handles everything around it: qualifying, follow-ups, rebooking no-shows, and updating your records.",
+    "frames": 358
+  },
+  {
+    "id": "coach",
+    "vo": "Start with coaching. The Bot plays your ideal buyer, you practice, and it scores how much you talked, which steps you skipped, and which objections tripped you up.",
+    "frames": 316
+  },
+  {
+    "id": "winrate",
+    "vo": "Track your win rate, and keep the records clean, so delivery never has to ask the client the same question twice.",
+    "frames": 230
+  },
+  {
+    "id": "brain",
+    "vo": "But right now each Bot works alone. Give them one shared brain. Your mail, calendar, calls, customer records and documents, all in one place.",
+    "frames": 338
+  },
+  {
+    "id": "friday",
+    "vo": "Begin with a single handoff. On Friday, sales saves the top objections. On Monday, marketing turns them into next week's topics.",
+    "frames": 320
+  },
+  {
+    "id": "vision",
+    "vo": "There's one thing a Bot can't do, and that's choosing where you're heading. The vision stays yours. Hand the rest over.",
+    "frames": 269
+  },
+  {
+    "id": "outro",
+    "vo": "So find the painkiller, climb the ladder, and share one brain. This week, start with the inbox.",
+    "frames": 234
+  }
+]
