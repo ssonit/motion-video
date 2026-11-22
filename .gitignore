@@ -30,6 +30,9 @@ Thumbs.db
 # older experiments, kept locally only
 archive/
 
+# audio extracted from references (large)
+references/**/*.wav
+
 # rea-video venv + models (local tooling)
 .venv-rea/
 .rea-models/

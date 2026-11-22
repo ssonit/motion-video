@@ -15,7 +15,7 @@ Shared pieces live outside the series folders; reuse them, do not copy them:
 - `studio/src/videos/shared/`: `makePart` (slides + narration + sfx bed + footer -> one composition), `themes.ts` (EMBER_THEME CSS vars),
   `ChapterCard.tsx` (`mkChapter({kicker, num, title, bgWord})`), `mkPrompt.tsx` (typed-prompt scene with check chips).
 - `studio/src/videos/real/`: Bot UI kit (ui.tsx, BotMark, RealShot, ScenesA/B/C); `rich/`: illustrations and templates.
-- `studio/public/shared/`: sfx, music bed, cropped real screenshots. `references/`: analysed sources.
+- `studio/public/shared/`: sfx, music bed, cropped real screenshots. `references/`: analysed sources (index: `references/INDEX.md`; look: ember = one-person, BotGuideReal = grok-bot).
 
 ## Add a new series
 1. `references/<src>/analysis.md` (clone-video skill), outline `studio/content/<series>/script.md`.

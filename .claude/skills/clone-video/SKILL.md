@@ -1,6 +1,6 @@
 ---
 name: clone-video
-description: Use when the user sends a video link or file (Douyin, TikTok, YouTube, local mp4) and wants a similar video made. Reads the reference, writes an analysis and a new script, then builds the video with Remotion in D:\Project\motion/studio.
+description: Use when the user sends a video link or file (Douyin, TikTok, YouTube, local mp4) and wants a similar video made. Reads the reference, writes an analysis and a new script, then builds the video with Remotion in D:\Project\motion-video/studio.
 ---
 
 # Clone a video (read → script → build → render)
@@ -34,7 +34,7 @@ Captions from the platform (if any) are in `subs/`. No speech-to-text model is i
 Write `references/<slug>/analysis.md` from the template `analysis-template.md` (next to this file): facts, brand/assets,
 shot table with timestamps + transitions, shot mix with CODE-ONLY vs NEEDS MEDIA per shot, motion/composition, sound,
 editable choices (replace / preserve), and the script translated to English.
-See `references/bot-guide-cn/analysis.md` for a worked example of the prose parts.
+See `references/INDEX.md` for existing references and `references/bot-guide-cn/analysis.md` for a worked example of the prose parts.
 
 **Keep the reference's richness.** The new video must match its visual density (a screen full of tiles stays full),
 type scale/character, background layers and pacing, and must not look darker, flatter or sparser than the reference.
