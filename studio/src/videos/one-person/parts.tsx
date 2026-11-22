@@ -1,6 +1,4 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import {clamp} from '../../lib/kit';
 import type {P} from '../../lib/kit';
 import slides1 from '../../../content/one-person/1-problem/slides.json';
 import slides2 from '../../../content/one-person/2-inbox/slides.json';
@@ -15,54 +13,13 @@ import slides5 from '../../../content/one-person/5-sales/slides.json';
 import * as S5 from './scenes/p5';
 import slides6 from '../../../content/one-person/6-brain/slides.json';
 import * as S6 from './scenes/p6';
-import {FooterCtx} from '../real/ui';
+import {makePart as mk} from '../shared/makePart';
+import type {Slide} from '../shared/makePart';
+import {EMBER_THEME} from '../shared/themes';
 
-type Slide = {id: string; vo: string; frames: number};
-
-/** Series look = tiktok-7706 reference: charcoal + ember glow, orange eyebrow + keyword, bold headline (CSS vars read by real/ui.tsx and ScenesOP*). */
-const THEME = {
-  '--op-bg':
-    'radial-gradient(760px 480px at 90% -10%, rgba(255,110,20,0.30), transparent 62%), radial-gradient(520px 340px at -5% 108%, rgba(255,90,0,0.14), transparent 62%), #121214',
-  '--op-bg-solid': '#121214',
-  '--op-card': '#27272c',
-  '--op-card2': '#18181b',
-  '--op-panel': '#151518',
-  '--op-dim': 'rgba(255,255,255,0.58)',
-  '--op-eyebrow': '#ff7a1a',
-  '--op-accent': '#ff7a1a',
-  '--op-hw': '700',
-} as React.CSSProperties;
-
-/** A part = one slides.json + a map id → scene. Shared sfx bed, one narration mp3 per slide. */
-const makePart = (slug: string, n: number, slides: Slide[], scenes: Record<string, React.FC<P>>) => {
-  const frames = slides.reduce((a, s) => a + s.frames, 0);
-  const Comp: React.FC = () => {
-    let from = 0;
-    return (
-      <AbsoluteFill style={{background: '#121214', ...THEME}}>
-        <FooterCtx.Provider value={`ONE PERSON · PART ${n} OF 6`}>
-        <Audio
-          src={staticFile('shared/sfx/bed.wav')}
-          loop
-          volume={(f) => 0.09 * interpolate(f, [0, 30, frames - 90, frames], [0, 1, 1, 0], clamp)}
-        />
-        {slides.map((s, i) => {
-          const Scene = scenes[s.id];
-          const start = from;
-          from += s.frames;
-          return (
-            <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-              <Audio src={staticFile(`${slug}/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
-              <Scene n={i + 1} vo={s.vo} />
-            </Sequence>
-          );
-        })}
-        </FooterCtx.Provider>
-      </AbsoluteFill>
-    );
-  };
-  return {Comp, frames};
-};
+/** Series wrapper: fixed label, total and ember theme. */
+const makePart = (slug: string, n: number, slides: Slide[], scenes: Record<string, React.FC<P>>) =>
+  mk({slug, n, total: 6, label: 'ONE PERSON', slides, scenes, theme: EMBER_THEME});
 
 const p1 = makePart('one-person/1-problem', 1, slides1 as Slide[], {
   hook: S.HookOP,

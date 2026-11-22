@@ -6,6 +6,8 @@ import {mono} from '../../../lib/Art';
 import {Abs, Card, Head, In, Pill, R, RSlide} from '../../real/ui';
 import {Bot} from '../../real/BotMark';
 import {RealShot} from '../../real/RealShot';
+import {mkPrompt} from '../../shared/mkPrompt';
+import {mkChapter} from '../../shared/ChapterCard';
 
 /** Scenes for part 2 (op-2-inbox). Colours come from the series theme (CSS vars). */
 const expo = Easing.out(Easing.exp);
@@ -187,32 +189,6 @@ export const EdgeOP: React.FC<P> = ({vo}) => {
   );
 };
 
-/** Typed-prompt scene factory (prompt1, fullprompt). */
-export const mkPrompt = (eyebrow: string, title: string, prompt: string, chips: string[]): React.FC<P> => ({vo}) => {
-  const at = useAt();
-  const f = useCurrentFrame();
-  return (
-    <RSlide vo={vo}>
-      <Sfx at={at(0.1)} name="typing" vol={0.16} dur={120} />
-      <Head label={eyebrow}>{title}</Head>
-      <Card at={at(0.05)} style={{position: 'absolute', left: 110, top: 195}} box={{width: 1060}} hl={ACC}>
-        <div style={{display: 'flex', gap: 16}}>
-          <Bot shape="drop" color={R.white} size={46} />
-          <div style={{fontFamily: mono.fontFamily, fontSize: 25, lineHeight: 1.45}}>
-            {typed(prompt, f, at(0.1), 48)}
-            <span style={{opacity: f % 20 < 10 ? 1 : 0}}>▌</span>
-          </div>
-        </div>
-      </Card>
-      <Abs x={110} y={420} style={{display: 'flex', gap: 12, flexWrap: 'wrap', width: 1060}}>
-        {chips.map((c, i) => (
-          <In key={c} at={at(0.62) + i * 7}><Pill kind="dark" size={22}>✓ {c}</Pill></In>
-        ))}
-      </Abs>
-    </RSlide>
-  );
-};
-
 export const Prompt1OP = mkPrompt(
   'Rung 1 · First prompt',
   'Let it *learn your rules*',
@@ -341,25 +317,4 @@ export const DayOP: React.FC<P> = ({vo}) => {
 };
 
 /* 16 chapter card: next part */
-export const NextOP: React.FC<P> = ({vo}) => {
-  const at = useAt();
-  const f = useCurrentFrame();
-  const drift = (f * 0.4) % 80;
-  return (
-    <RSlide vo={vo}>
-      <Sfx at={at(0.2)} name="ding" vol={0.25} dur={40} />
-      <div style={{position: 'absolute', inset: 0, overflow: 'hidden', opacity: 0.12}}>
-        {Array.from({length: 9}).map((_, i) => (
-          <div key={i} style={{fontSize: 70, fontWeight: 800, letterSpacing: 6, whiteSpace: 'nowrap', transform: `translateX(${(i % 2 ? -1 : 1) * drift - 200}px)`, lineHeight: '80px'}}>
-            {'DELIVERY · DELIVERY · DELIVERY · DELIVERY'}
-          </div>
-        ))}
-      </div>
-      <Abs x={0} y={120} style={{width: 1280, textAlign: 'center', fontFamily: mono.fontFamily, color: ACC, fontSize: 24, letterSpacing: 4}}>RUNG 2</Abs>
-      <In at={at(0.12)} tick={false} style={{position: 'absolute', left: 0, right: 0, top: 170, textAlign: 'center', fontSize: 230, fontWeight: 800, letterSpacing: -8, lineHeight: 1}}>
-        <span style={{color: ACC}}>02</span>
-      </In>
-      <In at={at(0.3)} style={{position: 'absolute', left: 0, right: 0, top: 400, textAlign: 'center', fontSize: 64, fontWeight: 700}}>Next: Delivery</In>
-    </RSlide>
-  );
-};
+export const NextOP = mkChapter({kicker: 'RUNG 2', num: '02', title: 'Next: Delivery', bgWord: 'DELIVERY', t: {sfx: 0.2, num: 0.12, title: 0.3}});

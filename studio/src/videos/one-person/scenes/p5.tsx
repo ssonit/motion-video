@@ -5,7 +5,8 @@ import type {P} from '../../../lib/kit';
 import {mono} from '../../../lib/Art';
 import {Abs, Card, Head, In, Pill, R, RSlide} from '../../real/ui';
 import {Bot} from '../../real/BotMark';
-import {mkPrompt} from './p2';
+import {mkPrompt} from '../../shared/mkPrompt';
+import {mkChapter} from '../../shared/ChapterCard';
 
 /** Scenes for part 5 (op-5-sales). */
 const DIM = 'var(--op-dim, rgba(255,255,255,0.42))';
@@ -13,28 +14,7 @@ const ACC = '#ff7a1a';
 const GLASS = 'rgba(255,255,255,0.12)';
 
 /* 1 chapter card */
-export const Intro5OP: React.FC<P> = ({vo}) => {
-  const at = useAt();
-  const f = useCurrentFrame();
-  const drift = (f * 0.4) % 80;
-  return (
-    <RSlide vo={vo}>
-      <Sfx at={at(0.1)} name="ding" vol={0.25} dur={40} />
-      <div style={{position: 'absolute', inset: 0, overflow: 'hidden', opacity: 0.12}}>
-        {Array.from({length: 9}).map((_, i) => (
-          <div key={i} style={{fontSize: 70, fontWeight: 800, letterSpacing: 6, whiteSpace: 'nowrap', transform: `translateX(${(i % 2 ? -1 : 1) * drift - 200}px)`, lineHeight: '80px'}}>
-            {'SALES · SALES · SALES · SALES · SALES · SALES'}
-          </div>
-        ))}
-      </div>
-      <Abs x={0} y={120} style={{width: 1280, textAlign: 'center', fontFamily: mono.fontFamily, color: ACC, fontSize: 24, letterSpacing: 4}}>RUNG 4</Abs>
-      <In at={at(0.08)} tick={false} style={{position: 'absolute', left: 0, right: 0, top: 170, textAlign: 'center', fontSize: 230, fontWeight: 800, letterSpacing: -8, lineHeight: 1}}>
-        <span style={{color: ACC}}>05</span>
-      </In>
-      <In at={at(0.2)} style={{position: 'absolute', left: 0, right: 0, top: 390, textAlign: 'center', fontSize: 64, fontWeight: 700}}>Sales</In>
-    </RSlide>
-  );
-};
+export const Intro5OP = mkChapter({kicker: 'RUNG 4', num: '05', title: 'Sales', bgWord: 'SALES'});
 
 /* 3 story: packed calendar, few customers */
 export const Story5OP: React.FC<P> = ({vo}) => {

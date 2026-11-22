@@ -10,13 +10,17 @@ output/<series>/                                 part<N>-<name>-en_<voice>.mp4, 
 ```
 
 The *slug* passed to the tools is `<series>/<n>-<part>`, e.g. `python tools/tts.py one-person/3-delivery --engine omnivoice --clone bot-narrator --speed 0.8`.
-Shared pieces stay outside series: `studio/src/lib/` (kit, Art, Env), `studio/src/videos/real/` (Bot UI kit: ui.tsx, BotMark, RealShot),
-`studio/public/shared/` (sfx, cropped real screenshots), `references/` (analysed sources).
+Shared pieces live outside the series folders; reuse them, do not copy them:
+- `studio/src/lib/`: kit (Slide, Card, Sfx, useAt, typed), Art, Env, Slot, Pop, Mascot.
+- `studio/src/videos/shared/`: `makePart` (slides + narration + sfx bed + footer -> one composition), `themes.ts` (EMBER_THEME CSS vars),
+  `ChapterCard.tsx` (`mkChapter({kicker, num, title, bgWord})`), `mkPrompt.tsx` (typed-prompt scene with check chips).
+- `studio/src/videos/real/`: Bot UI kit (ui.tsx, BotMark, RealShot, ScenesA/B/C); `rich/`: illustrations and templates.
+- `studio/public/shared/`: sfx, music bed, cropped real screenshots. `references/`: analysed sources.
 
 ## Add a new series
 1. `references/<src>/analysis.md` (clone-video skill), outline `studio/content/<series>/script.md`.
 2. One folder per part under `studio/content/<series>/`, TTS to `studio/public/<series>/...`.
-3. `studio/src/videos/<series>/`: copy `one-person/` as the template (`parts.tsx`, `scenes/`, `index.ts`); new look = new THEME object in `parts.tsx`.
+3. `studio/src/videos/<series>/`: copy `one-person/` as the template (`parts.tsx` calls `shared/makePart`, `scenes/`, `index.ts`); new look = new theme in `shared/themes.ts`; chapter cards and prompt scenes come from `shared/`.
 4. Register: add `export const <name>Compositions` in `<series>/index.ts`, then one `.map` line in `studio/src/Root.tsx`.
 5. Render: `python tools/render.py <CompId> <series>/part1-<name>-en_<voice>` (preview: add `--scale 0.5`).
 
@@ -28,7 +32,6 @@ Shared pieces stay outside series: `studio/src/lib/` (kit, Art, Env), `studio/sr
 | Experiments | `experiments` | one-offs, not part of the workflow | mixed | `Explainer30`, `NightStudio`, `TemplateDemo` (+ voice tests `tts-test`, `tts-voice-check`) |
 
 Slugs of the Grok Bot videos: `grok-bot/{basics,feedback-loop,guide,guide-full,guide-real,guide-rich}`; single videos use `<series>/<name>` (no part number).
-Shared kits stay at `studio/src/videos/real/` (Bot UI kit, used by Grok Bot and one-person) and `rich/` (illustrations/templates).
 Registries: `src/videos/<series>/index.ts`; `src/Root.tsx` merges them.
 
 ## Voice
