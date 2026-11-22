@@ -1,11 +1,11 @@
 import React from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
-import {mono} from '../../lib/Art';
-import type {BotShape} from '../../lib/GrokBotMark';
-import {Sfx, clamp, useAt} from '../../lib/kit';
-import type {P} from '../../lib/kit';
-import {Bot} from '../real/BotMark';
-import {Abs, Card, Head, IconCheck, IconClock, In, Label, Pill, R, RSlide} from '../real/ui';
+import {mono} from '../../../lib/Art';
+import type {BotShape} from '../../../lib/GrokBotMark';
+import {Sfx, clamp, useAt} from '../../../lib/kit';
+import type {P} from '../../../lib/kit';
+import {Bot} from '../../real/BotMark';
+import {Abs, Card, Head, IconCheck, IconClock, In, Label, Pill, R, RSlide} from '../../real/ui';
 
 /** Night Studio cast: five role-bots (invented, generic). */
 export const ROLES: {name: string; job: string; shape: BotShape; color: string}[] = [

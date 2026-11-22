@@ -1,8 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/bot-feedback-loop/slides.json';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
+import slides from '../../../content/grok-bot/feedback-loop/slides.json';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
 import {
   BuildFB,
   CompareFB,
@@ -18,7 +18,7 @@ import {
   RefsFB,
   ShiftFB,
   TimeFB,
-} from './real/ScenesFB';
+} from '../real/ScenesFB';
 
 export const BOT_FEEDBACK_LOOP_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -56,7 +56,7 @@ export const BotFeedbackLoop: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-feedback-loop/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`grok-bot/feedback-loop/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

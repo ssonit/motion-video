@@ -6,7 +6,7 @@ template — assign a different "look" to every shot (about 1 shot per sentence)
 
 Every shot is a `React.FC<P>` (`P = {n: number; vo: string}`): `n` = shot number, `vo` = narration (becomes the captions).
 Length comes from `content/<slug>/slides.json`; inside a shot use `useAt()` (fractions of its length), never fixed frames.
-Register shots in a `SCENES: Record<id, React.FC<P>>` map and loop over slides.json — copy `videos/BotGuideRich.tsx`.
+Register shots in a `SCENES: Record<id, React.FC<P>>` map and loop over slides.json — copy `videos/grok-bot/BotGuideRich.tsx`.
 
 ## 1. Building blocks (`src/lib`)
 
@@ -54,7 +54,7 @@ Layout rule: keep content above y≈545 (captions occupy ≈560–660).
 | `Issue1`, `Issue2` | pitfall screens (error window / warning) |
 | `Tokens` | usage heat-map data screen |
 
-## 4. Card-style scenes (`videos/BotGuide.tsx`, `BotGuideFull.tsx`)
+## 4. Card-style scenes (`videos/grok-bot/BotGuide.tsx`, `BotGuideFull.tsx`)
 
 `Intro`, `What`, `First`, `Job`, `Handoff`, `Manager`, `Devices`, `Launch`, `Pitfalls`, `Roi` (before/after + chart), `After`,
 `Outro`; `Install` (progress bar), `Directory` (bot catalogue), `Work`, `Solo`, `Water`, `Personal`, `LaunchSetup`.
@@ -148,7 +148,7 @@ The generic `Mascot` stays for our own invented bot brands.
 - `real/ui.tsx` — kit from the tokens: `R` (colours), `RSlide` (dark page + whoosh + captions), `Pill`, `Card`, `In` (pop + tick), `Head`, `Avatar`, `InputPill` (+ · mic · wave), `AppWindow` (left rail + chat + right panel; props `threads/msgs/panel/input`), `PanelHeading/PanelRow/VoiceChatBlock` (Suggested · Computer · Voice chat), `SiteNav`, `AppIcon`.
 - `real/ScenesA.tsx` / `ScenesB.tsx` — ready shots: ZeroR, EvolveR, InstallR (website + sign-in), WhatR (app window + side panel), FirstR (4-step new-bot dialog + avatar picker), DirectoryR (marketplace grid + Add), ConnectR (Connect Apps dialog over blurred app), DevicesR, ChapterR, JobR (bot detail page, Skills tab), HandoffR, OpenSourceR (repo page), ManagerR (org chart), ComputerR ("Bot's computer" terminal), RoutineR, SoloR (app window + reports panel), KeyR, ReqR, BackTapR (iOS settings list), HeyR (voice panel), Issue1R (diff), Issue2R, RoiR, AfterR, ChainR, OutroR. `CAST`/`THREADS` = invented bots.
 - `real/BotMark.tsx` — `Bot` (bobbing `GrokBotMark`) and a `Mascot` shim (same props as `lib/Mascot`, old orange → white bot, other colours → real palette) so copied scenes get the real mark: `real/IllustrationsM.tsx` and `real/ScreensM.tsx` are `sed`-copies of `rich/` with only that import changed.
-- Footage: `content/bot-guide-real/footage.json` (`pip: null` = no presenter overlay in this render; put a path to switch it on).
+- Footage: `content/grok-bot/guide-real/footage.json` (`pip: null` = no presenter overlay in this render; put a path to switch it on).
 
 ## 10. What code can build vs what needs real media (idea from openmotion's recreate workflow)
 

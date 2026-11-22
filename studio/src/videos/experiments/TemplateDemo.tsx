@@ -1,10 +1,10 @@
 import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
-import footage from '../../content/template-demo/footage.json';
-import {FootageProvider} from '../lib/Slot';
-import type {FootageEntry} from '../lib/Slot';
-import type {P} from '../lib/kit';
-import {HeroDesk, TeamDesks} from './rich/Illustrations';
+import footage from '../../../content/experiments/template-demo/footage.json';
+import {FootageProvider} from '../../lib/Slot';
+import type {FootageEntry} from '../../lib/Slot';
+import type {P} from '../../lib/kit';
+import {HeroDesk, TeamDesks} from '../rich/Illustrations';
 import {
   bigWord,
   chatPanel,
@@ -15,7 +15,7 @@ import {
   screenRec,
   textBuild,
   withPip,
-} from './rich/Templates';
+} from '../rich/Templates';
 
 /**
  * Reference sheet + smoke test for every template. Also the copy-paste example of how a clone uses them:
@@ -56,7 +56,7 @@ export const TemplateDemo: React.FC = () => (
   <AbsoluteFill style={{background: '#0E0E11'}}>
     {SHOTS.map((s, i) => (
       <Sequence key={s.id} from={i * TEMPLATE_FRAMES_EACH} durationInFrames={TEMPLATE_FRAMES_EACH}>
-        <FootageProvider slug="template-demo" entry={(footage as Record<string, FootageEntry>)[s.id]}>
+        <FootageProvider slug="experiments/template-demo" entry={(footage as Record<string, FootageEntry>)[s.id]}>
           <s.Comp n={i + 1} vo={s.vo} />
         </FootageProvider>
       </Sequence>

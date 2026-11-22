@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/bot-guide-rich/slides.json';
-import {D} from '../lib/Art';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
+import slides from '../../../content/grok-bot/guide-rich/slides.json';
+import {D} from '../../lib/Art';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
 import {After, Devices, First, Handoff, Job, Manager, Outro, Roi, What} from './BotGuide';
 import {Directory, Install, Solo, Water, Work} from './BotGuideFull';
 import {
@@ -18,7 +18,7 @@ import {
   TeamDesks,
   TrapOffice,
   WaterIll,
-} from './rich/Illustrations';
+} from '../rich/Illustrations';
 import {
   BackTap,
   ChapterCard,
@@ -34,7 +34,7 @@ import {
   ToolWin,
   Tokens,
   Zero,
-} from './rich/Screens';
+} from '../rich/Screens';
 
 export const BOT_GUIDE_RICH_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -108,7 +108,7 @@ export const BotGuideRich: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-guide-rich/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`grok-bot/guide-rich/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

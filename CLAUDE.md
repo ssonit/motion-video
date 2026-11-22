@@ -19,7 +19,7 @@ Use the `clone-video` skill (`.claude/skills/clone-video/SKILL.md`). Short versi
 studio/        Remotion project (npm run dev = preview in browser)
   src/lib/       shared pieces: kit.tsx (Slide, Card, Chip, Sfx, useAt, typed), Art.tsx (windows, phones, icons, beams),
                  Mascot.tsx, Pop.tsx
-  src/videos/real/  real-look Grok Bot UI scenes + GrokBotMark shim (see studio/LIBRARY.md §9b); BotGuideReal.tsx = 42 shots, 5:26
+  src/videos/real/  shared real-look Grok Bot UI kit (see studio/LIBRARY.md §9b); src/videos/grok-bot/BotGuideReal.tsx = 42 shots, 5:26
   src/videos/    one file per video (Explainer30, BotGuide 2:03, BotGuideFull 3:37)  ← add new videos here.
                  BotGuide exports its scenes; BotGuideFull reuses them and adds new ones (pattern for "v2" versions)
   src/Root.tsx   registers every composition
@@ -95,8 +95,8 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
 - **C: can run out of space** (it hit 0 GB once → "ENOSPC" during render). tools/render.py already puts temp files in
   `D:\Project\motion\.tmp`; for manual `npx remotion render` set TEMP/TMP to that folder first. Safe to delete `.tmp/*`
   and leftover `%LOCALAPPDATA%\Temp\remotion-*` folders. Write scratch images to `.tmp/`, not C:.
-- **APPROVED (2026-11-19): `BotGuideReal` (output/bot-guide-real-en_female-aria.mp4) is the standard look for Grok Bot videos.**
-  For any new Grok Bot video, copy `BotGuideReal.tsx` + reuse `src/videos/real/` (ui.tsx, ScenesA/B, BotMark) and LIBRARY.md §9b; never go back to the orb Mascot or generic windows.
+- **APPROVED (2026-11-19): `BotGuideReal` (output/grok-bot/bot-guide-real-en_female-aria.mp4) is the standard look for Grok Bot videos.**
+  For any new Grok Bot video, copy `src/videos/grok-bot/BotGuideReal.tsx` + reuse `src/videos/real/` (ui.tsx, ScenesA/B, BotMark) and LIBRARY.md §9b; never go back to the orb Mascot or generic windows.
 - **Want a UI to look exact? Capture the real interface first** (screenshots/screen recording of each needed screen, saved in
   `references/<ui-name>/`) and rebuild from them; without captures we only make a loose, generic version.
 - Grok Bot visuals: the real UI is only a loose reference (user said "không cần quá sát"); keep our own look, borrow layout/colours/mark from `references/grok-bot-ui/`.

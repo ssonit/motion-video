@@ -24,11 +24,12 @@ Shared pieces stay outside series: `studio/src/lib/` (kit, Art, Env), `studio/sr
 | Series | Folder | Status | Voice | Compositions |
 |---|---|---|---|---|
 | One person, a crew of Bots (from YouTube YD8uRumP8cM) | `one-person` | 6 parts + 4:17 overview, delivered 2026-11-22 | `bot-narrator`, speed 0.8 (overview: Aria) | `OpPart1`..`OpPart6`, `OnePersonCompany` |
+| Grok Bot guides | `grok-bot` | 6 videos; `BotGuideReal` = approved standard look | Aria / Guy (edge-tts) | `BotGuide`, `BotGuideFull`, `BotGuideRich`, `BotGuideReal`, `BotFeedbackLoop`, `BotBasics` |
+| Experiments | `experiments` | one-offs, not part of the workflow | mixed | `Explainer30`, `NightStudio`, `TemplateDemo` (+ voice tests `tts-test`, `tts-voice-check`) |
 
-Legacy single videos (flat, not yet moved into a series folder; leave as is unless asked): `Explainer30`, `BotGuide`, `BotGuideFull`,
-`BotGuideRich`, `BotGuideReal` (approved Grok Bot look), `BotBasics`, `BotFeedbackLoop`, `NightStudio`, `TemplateDemo`
-(files `studio/src/videos/<Name>.tsx`, slug `content/<kebab-name>/`; mp4 in `output/` root).
-`tts-test` and `tts-voice-check` are voice experiments.
+Slugs of the Grok Bot videos: `grok-bot/{basics,feedback-loop,guide,guide-full,guide-real,guide-rich}`; single videos use `<series>/<name>` (no part number).
+Shared kits stay at `studio/src/videos/real/` (Bot UI kit, used by Grok Bot and one-person) and `rich/` (illustrations/templates).
+Registries: `src/videos/<series>/index.ts`; `src/Root.tsx` merges them.
 
 ## Voice
 Bot videos: `--engine omnivoice --clone bot-narrator`. At speed 1.25 it ran about 5.4 words/s (too fast for the user); **0.8 was chosen

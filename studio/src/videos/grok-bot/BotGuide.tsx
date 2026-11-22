@@ -8,11 +8,11 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import slides from '../../content/bot-guide/slides.json';
-import {Arrow, Card, Chip, Em, Label, Slide, Sfx, clamp, typed, useAt} from '../lib/kit';
-import type {P} from '../lib/kit';
-import {Mascot} from '../lib/Mascot';
-import {Pop} from '../lib/Pop';
+import slides from '../../../content/grok-bot/guide/slides.json';
+import {Arrow, Card, Chip, Em, Label, Slide, Sfx, clamp, typed, useAt} from '../../lib/kit';
+import type {P} from '../../lib/kit';
+import {Mascot} from '../../lib/Mascot';
+import {Pop} from '../../lib/Pop';
 import {
   At,
   AppWindow,
@@ -27,7 +27,7 @@ import {
   Phone,
   inter,
   mono,
-} from '../lib/Art';
+} from '../../lib/Art';
 
 export const BOT_GUIDE_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -984,7 +984,7 @@ export const BotGuide: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-guide/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`grok-bot/guide/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

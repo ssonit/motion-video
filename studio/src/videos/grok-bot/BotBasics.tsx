@@ -1,10 +1,10 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/bot-basics/slides.json';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
-import {FirstR, HandoffR} from './real/ScenesA';
-import {ComputerR, OutroR} from './real/ScenesB';
+import slides from '../../../content/grok-bot/basics/slides.json';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
+import {FirstR, HandoffR} from '../real/ScenesA';
+import {ComputerR, OutroR} from '../real/ScenesB';
 import {
   AgentsC,
   LineC,
@@ -19,7 +19,7 @@ import {
   RulesC,
   SkillBotC,
   TitleC,
-} from './real/ScenesC';
+} from '../real/ScenesC';
 
 export const BOT_BASICS_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -65,7 +65,7 @@ export const BotBasics: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-basics/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`grok-bot/basics/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

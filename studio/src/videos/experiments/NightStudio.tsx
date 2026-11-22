@@ -1,8 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/night-studio/slides.json';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
+import slides from '../../../content/experiments/night-studio/slides.json';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
 import {
   BannedN,
   BeatsN,
@@ -66,7 +66,7 @@ export const NightStudio: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`night-studio/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`experiments/night-studio/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

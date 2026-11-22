@@ -8,8 +8,8 @@ import {
 } from 'remotion';
 import {loadFont as loadBe} from '@remotion/google-fonts/BeVietnamPro';
 import {loadFont as loadMono} from '@remotion/google-fonts/JetBrainsMono';
-import {Pop} from '../lib/Pop';
-import {Mascot} from '../lib/Mascot';
+import {Pop} from '../../lib/Pop';
+import {Mascot} from '../../lib/Mascot';
 
 export const FPS = 30;
 export const DURATION = 30;

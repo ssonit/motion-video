@@ -1,14 +1,14 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/bot-guide-real/slides.json';
-import footage from '../../content/bot-guide-real/footage.json';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
-import {BOT_COLORS} from '../lib/GrokBotMark';
-import {FootageProvider, Pip} from '../lib/Slot';
-import type {FootageEntry} from '../lib/Slot';
-import {Beach, Command, Covers, Dream, Footage, HeroDesk, Ring, Tangled, TeamDesks, TrapOffice, WaterIll} from './real/IllustrationsM';
-import {NeonTwo, Shortcut, Tokens} from './real/ScreensM';
+import slides from '../../../content/grok-bot/guide-real/slides.json';
+import footage from '../../../content/grok-bot/guide-real/footage.json';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
+import {BOT_COLORS} from '../../lib/GrokBotMark';
+import {FootageProvider, Pip} from '../../lib/Slot';
+import type {FootageEntry} from '../../lib/Slot';
+import {Beach, Command, Covers, Dream, Footage, HeroDesk, Ring, Tangled, TeamDesks, TrapOffice, WaterIll} from '../real/IllustrationsM';
+import {NeonTwo, Shortcut, Tokens} from '../real/ScreensM';
 import {
   ChapterR,
   ConnectR,
@@ -22,7 +22,7 @@ import {
   OpenSourceR,
   WhatR,
   ZeroR,
-} from './real/ScenesA';
+} from '../real/ScenesA';
 import {
   AfterR,
   BackTapR,
@@ -38,7 +38,7 @@ import {
   RoiR,
   RoutineR,
   SoloR,
-} from './real/ScenesB';
+} from '../real/ScenesB';
 
 export const BOT_GUIDE_REAL_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -117,8 +117,8 @@ export const BotGuideReal: React.FC = () => {
         const entry = FOOT[s.id];
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-guide-real/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
-            <FootageProvider slug="bot-guide-real" entry={entry}>
+            <Audio src={staticFile(`grok-bot/guide-real/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <FootageProvider slug="grok-bot/guide-real" entry={entry}>
               <Comp n={i + 1} vo={s.vo} />
               {/* presenter picture-in-picture only where the user supplies a clip (pip: null = off) */}
               {entry?.pip ? <Pip pos="br-circle" /> : null}

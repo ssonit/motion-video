@@ -124,7 +124,7 @@ real-footage templates §4b) and reuse/restyle them. If the reference mixes real
 recordings) use `textBuild/screenRec/phoneRec/withPip…` + `content/<slug>/footage.json`, and finish by telling the user
 exactly which clips to record/send for each shot id.
 Create `studio/src/videos/<Name>.tsx`. Import the building blocks from `../lib/kit` (Slide, Card, Chip, Sfx, useAt…).
-Copy the structure of `BotGuideFull.tsx` (new scenes + reuse of exported scenes from `BotGuide.tsx` where the content matches):
+Copy the structure of `src/videos/grok-bot/BotGuideFull.tsx` (new scenes + reuse of exported scenes from `BotGuide.tsx` where the content matches):
 - scenes in a `<Sequence>` each, lengths from `slides.json`, narration `<Audio src={staticFile('<new-slug>/vo/NN.mp3')}/>`
 - `Slide` wrapper gives background, headline, footer, captions and a whoosh; `Card`/`Chip` tick on entrance
 - give each scene its own composition from `src/lib/Art.tsx` (AppWindow, Phone, Laptop, IconCard, Beams, Glow, Float)

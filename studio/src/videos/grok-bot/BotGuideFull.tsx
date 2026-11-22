@@ -8,12 +8,12 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import slides from '../../content/bot-guide-full/slides.json';
-import {Mascot} from '../lib/Mascot';
-import {Pop} from '../lib/Pop';
-import {AppWindow, At, Beams, D, Dot, Glow, IconCard, Phone, mono} from '../lib/Art';
-import {Arrow, Card, Chip, Em, Label, Sfx, Slide, clamp, useAt} from '../lib/kit';
-import type {P} from '../lib/kit';
+import slides from '../../../content/grok-bot/guide-full/slides.json';
+import {Mascot} from '../../lib/Mascot';
+import {Pop} from '../../lib/Pop';
+import {AppWindow, At, Beams, D, Dot, Glow, IconCard, Phone, mono} from '../../lib/Art';
+import {Arrow, Card, Chip, Em, Label, Sfx, Slide, clamp, useAt} from '../../lib/kit';
+import type {P} from '../../lib/kit';
 import {
   After,
   Devices,
@@ -510,7 +510,7 @@ export const BotGuideFull: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`bot-guide-full/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`grok-bot/guide-full/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );
