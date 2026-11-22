@@ -1,10 +1,10 @@
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame} from 'remotion';
-import {Sfx, clamp, useAt} from '../../lib/kit';
-import type {P} from '../../lib/kit';
-import {mono} from '../../lib/Art';
-import {Abs, Card, Head, In, Pill, R, RSlide} from './ui';
-import {Bot} from './BotMark';
+import {Sfx, clamp, useAt} from '../../../lib/kit';
+import type {P} from '../../../lib/kit';
+import {mono} from '../../../lib/Art';
+import {Abs, Card, Head, In, Pill, R, RSlide} from '../../real/ui';
+import {Bot} from '../../real/BotMark';
 
 /** Scenes for part 6 (op-6-brain). */
 const DIM = 'var(--op-dim, rgba(255,255,255,0.42))';

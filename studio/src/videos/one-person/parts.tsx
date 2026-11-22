@@ -1,21 +1,21 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
-import slides1 from '../../content/op-1-problem/slides.json';
-import slides2 from '../../content/op-2-inbox/slides.json';
-import * as S from './real/ScenesOP';
-import * as S1 from './real/ScenesOP1';
-import slides3 from '../../content/op-3-delivery/slides.json';
-import * as S2 from './real/ScenesOP2';
-import * as S3 from './real/ScenesOP3';
-import slides4 from '../../content/op-4-marketing/slides.json';
-import * as S4 from './real/ScenesOP4';
-import slides5 from '../../content/op-5-sales/slides.json';
-import * as S5 from './real/ScenesOP5';
-import slides6 from '../../content/op-6-brain/slides.json';
-import * as S6 from './real/ScenesOP6';
-import {FooterCtx} from './real/ui';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
+import slides1 from '../../../content/one-person/1-problem/slides.json';
+import slides2 from '../../../content/one-person/2-inbox/slides.json';
+import * as S from './scenes/common';
+import * as S1 from './scenes/p1';
+import slides3 from '../../../content/one-person/3-delivery/slides.json';
+import * as S2 from './scenes/p2';
+import * as S3 from './scenes/p3';
+import slides4 from '../../../content/one-person/4-marketing/slides.json';
+import * as S4 from './scenes/p4';
+import slides5 from '../../../content/one-person/5-sales/slides.json';
+import * as S5 from './scenes/p5';
+import slides6 from '../../../content/one-person/6-brain/slides.json';
+import * as S6 from './scenes/p6';
+import {FooterCtx} from '../real/ui';
 
 type Slide = {id: string; vo: string; frames: number};
 
@@ -64,7 +64,7 @@ const makePart = (slug: string, n: number, slides: Slide[], scenes: Record<strin
   return {Comp, frames};
 };
 
-const p1 = makePart('op-1-problem', 1, slides1 as Slide[], {
+const p1 = makePart('one-person/1-problem', 1, slides1 as Slide[], {
   hook: S.HookOP,
   small: S.SmallOP,
   map: S.MapOP,
@@ -83,7 +83,7 @@ const p1 = makePart('op-1-problem', 1, slides1 as Slide[], {
 export const OpPart1 = p1.Comp;
 export const OP_PART1_FRAMES = p1.frames;
 
-const p2 = makePart('op-2-inbox', 2, slides2 as Slide[], {
+const p2 = makePart('one-person/2-inbox', 2, slides2 as Slide[], {
   admin: S2.AdminOP,
   room: S2.RoomOP,
   story: S2.StoryOP,
@@ -104,7 +104,7 @@ const p2 = makePart('op-2-inbox', 2, slides2 as Slide[], {
 export const OpPart2 = p2.Comp;
 export const OP_PART2_FRAMES = p2.frames;
 
-const p3 = makePart('op-3-delivery', 3, slides3 as Slide[], {
+const p3 = makePart('one-person/3-delivery', 3, slides3 as Slide[], {
   intro: S3.Intro3OP,
   role: S3.Role3OP,
   story: S3.Story3OP,
@@ -123,7 +123,7 @@ const p3 = makePart('op-3-delivery', 3, slides3 as Slide[], {
 export const OpPart3 = p3.Comp;
 export const OP_PART3_FRAMES = p3.frames;
 
-const p4 = makePart('op-4-marketing', 4, slides4 as Slide[], {
+const p4 = makePart('one-person/4-marketing', 4, slides4 as Slide[], {
   intro: S4.Intro4OP,
   order: S4.Order4OP,
   daily: S4.Daily4OP,
@@ -139,7 +139,7 @@ const p4 = makePart('op-4-marketing', 4, slides4 as Slide[], {
 export const OpPart4 = p4.Comp;
 export const OP_PART4_FRAMES = p4.frames;
 
-const p5 = makePart('op-5-sales', 5, slides5 as Slide[], {
+const p5 = makePart('one-person/5-sales', 5, slides5 as Slide[], {
   intro: S5.Intro5OP,
   around: S.SalesOP,
   story: S5.Story5OP,
@@ -157,7 +157,7 @@ const p5 = makePart('op-5-sales', 5, slides5 as Slide[], {
 export const OpPart5 = p5.Comp;
 export const OP_PART5_FRAMES = p5.frames;
 
-const p6 = makePart('op-6-brain', 6, slides6 as Slide[], {
+const p6 = makePart('one-person/6-brain', 6, slides6 as Slide[], {
   problem: S6.Problem6OP,
   handover: S6.Handover6OP,
   surgeons: S6.Surgeons6OP,

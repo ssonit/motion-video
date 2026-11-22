@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import slides from '../../content/one-person-company/slides.json';
-import {clamp} from '../lib/kit';
-import type {P} from '../lib/kit';
-import * as S from './real/ScenesOP';
+import slides from '../../../content/one-person/overview/slides.json';
+import {clamp} from '../../lib/kit';
+import type {P} from '../../lib/kit';
+import * as S from './scenes/common';
 
 export const ONE_PERSON_FRAMES = slides.reduce((a, s) => a + s.frames, 0);
 
@@ -51,7 +51,7 @@ export const OnePersonCompany: React.FC = () => {
         from += s.frames;
         return (
           <Sequence key={s.id} from={start} durationInFrames={s.frames}>
-            <Audio src={staticFile(`one-person-company/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
+            <Audio src={staticFile(`one-person/overview/vo/${String(i + 1).padStart(2, '0')}.mp3`)} />
             <Comp n={i + 1} vo={s.vo} />
           </Sequence>
         );

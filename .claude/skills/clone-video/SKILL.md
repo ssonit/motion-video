@@ -69,9 +69,11 @@ note what the old focus was and what the new one is (continue, contrast or hard 
 Only rebuild what code can carry; what it cannot (real photos, footage, talking head) is marked NEEDS MEDIA, never faked
 or silently dropped. Never "recreate" by playing the reference itself.
 For long references (>10 min): rewrite the WHOLE script first, split it by the source's chapters into parts (≈2–4 min each, 11–16 shots),
-and build each part as its own composition (`studio/src/videos/OpParts.tsx` `makePart(slug, slides, scenes)`; content in
-`content/<series>-N-<name>/slides.json`, outline in `content/<series>/script.md`). Render parts separately, deliver part by part,
-join with ffmpeg concat at the end; a fix re-renders only the part that has the problem. Never squeeze 30 min into 4.
+and build each part as its own composition in a series folder (see `PROJECTS.md` "Layout": `studio/src/videos/<series>/parts.tsx`
+`makePart('<series>/<n>-<name>', n, slides, scenes)`, scenes in `<series>/scenes/`, registry in `<series>/index.ts`; content in
+`content/<series>/<n>-<name>/slides.json`, outline `content/<series>/script.md`; mp4 in `output/<series>/`). Render parts separately,
+deliver part by part, join with ffmpeg concat at the end (`output/<series>/full-*.mp4`); a fix re-renders only the part that has the problem.
+Never squeeze 30 min into 4.
 For long videos (>2 min), do a rough full cut first (placeholders ok, real timing) and check pacing before polishing details.
 
 Create `studio/content/<new-slug>/slides.json`:

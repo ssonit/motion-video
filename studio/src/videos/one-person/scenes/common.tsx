@@ -1,10 +1,10 @@
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame} from 'remotion';
-import {Sfx, clamp, typed, useAt} from '../../lib/kit';
-import type {P} from '../../lib/kit';
-import {mono} from '../../lib/Art';
-import {Abs, Card, Head, In, Pill, R, RSlide} from './ui';
-import {Bot} from './BotMark';
+import {Sfx, clamp, typed, useAt} from '../../../lib/kit';
+import type {P} from '../../../lib/kit';
+import {mono} from '../../../lib/Art';
+import {Abs, Card, Head, In, Pill, R, RSlide} from '../../real/ui';
+import {Bot} from '../../real/BotMark';
 
 /** Scenes for "one-person-company": 26 shots, every one a different look. */
 

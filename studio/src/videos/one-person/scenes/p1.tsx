@@ -1,11 +1,11 @@
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame} from 'remotion';
-import {Sfx, clamp, typed, useAt} from '../../lib/kit';
-import type {P} from '../../lib/kit';
-import {mono} from '../../lib/Art';
-import {Abs, Card, Head, In, Pill, R, RSlide} from './ui';
-import {Bot} from './BotMark';
-import {RealShot} from './RealShot';
+import {Sfx, clamp, typed, useAt} from '../../../lib/kit';
+import type {P} from '../../../lib/kit';
+import {mono} from '../../../lib/Art';
+import {Abs, Card, Head, In, Pill, R, RSlide} from '../../real/ui';
+import {Bot} from '../../real/BotMark';
+import {RealShot} from '../../real/RealShot';
 
 /** New scenes for part 1 (op-1-problem). The rest reuse ScenesOP. */
 const expo = Easing.out(Easing.exp);

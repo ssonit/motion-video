@@ -14,6 +14,7 @@ Use the `clone-video` skill (`.claude/skills/clone-video/SKILL.md`). Short versi
 5. Only after the preview is accepted: `python tools/render.py <CompId> <output-name>` → `output/<output-name>.mp4`.
 
 ## Folder map
+**Many videos: see `PROJECTS.md`** (series layout: `content/<series>/<n>-<part>`, `src/videos/<series>/`, `output/<series>/`; how to add a series).
 ```
 studio/        Remotion project (npm run dev = preview in browser)
   src/lib/       shared pieces: kit.tsx (Slide, Card, Chip, Sfx, useAt, typed), Art.tsx (windows, phones, icons, beams),
@@ -61,7 +62,7 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
   other projects: repo + own venv + model cache live in `D:\Project\repo\OmniVoice` (override with env `OMNIVOICE_DIR`);
   it needs torch 2.8 cu128 + transformers 5.x, so never install it into the system python. Inline `[laughter]`/`[sigh]`
   tags work in `vo`. 8 GB RTX 4060 is enough. We cannot listen to it: ask the user to judge the voice.
-  **Voice for Grok Bot videos (chosen by the user 2026-11-22): `--clone bot-narrator --speed 1.25`**, an original,
+  **Voice for Grok Bot videos (chosen by the user 2026-11-22): `--clone bot-narrator --speed 0.8`** (1.25 was far too fast, 0.8 chosen 2026-11-22; see PROJECTS.md), an original,
   machine-designed friendly male voice (design "male, young adult, moderate pitch, american accent" frozen as a clone
   prompt) stored in `D:\Project\repo\OmniVoice\voices\bot-narrator\` (`prompt.pt`, shared by all projects).
   `--clone <name>` loads `voices/<name>/prompt.pt` (built from `ref_audio.wav` + `ref_text.txt` on first use).
