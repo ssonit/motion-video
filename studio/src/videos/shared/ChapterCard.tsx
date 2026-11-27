@@ -5,7 +5,7 @@ import {mono} from '../../lib/Art';
 import {Abs, In, RSlide} from '../real/ui';
 import {useCurrentFrame} from 'remotion';
 
-const ACC = '#ff7a1a';
+const ACC = 'var(--op-accent, #ff7a1a)';
 
 /**
  * Big chapter card: drifting faint word in the background, small kicker, huge number, title.

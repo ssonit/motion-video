@@ -432,7 +432,7 @@ export const EaseFB: React.FC<P> = ({vo}) => {
             <Card at={at(0.15) + i * at(0.2)} style={{position: 'absolute', left: 72 + i * 392, top: 200}} box={{width: 350, height: 300}} hl={i === 0 ? R.orange : undefined}>
               <div style={{fontSize: 26, fontWeight: 500, marginBottom: 16}}>{t}</div>
               <svg width="306" height="170" viewBox="-6 -6 112 112" preserveAspectRatio="none">
-                <rect x="0" y="0" width="100" height="100" fill="none" stroke={R.line} />
+                <rect x="0" y="0" width="100" height="100" fill="none" stroke="rgba(255,255,255,0.09)" />
                 <path d={d} fill="none" stroke={R.orange} strokeWidth="3" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - k} />
               </svg>
             </Card>
@@ -456,7 +456,7 @@ export const LoopFB: React.FC<P> = ({vo}) => {
       <Head label="Rounds">Each round climbs</Head>
       <Abs x={140} y={190} style={{width: 300, height: 300}}>
         <svg width="300" height="300" viewBox="0 0 300 300" style={{transform: `rotate(${rot}deg)`}}>
-          <circle cx="150" cy="150" r="110" fill="none" stroke={R.card} strokeWidth="18" />
+          <circle cx="150" cy="150" r="110" fill="none" stroke="#202020" strokeWidth="18" />
           <path d="M150 40 A110 110 0 1 1 40 150" fill="none" stroke={R.orange} strokeWidth="18" strokeLinecap="round" />
           <path d="M20 128 L40 160 L68 134Z" fill={R.orange} />
         </svg>

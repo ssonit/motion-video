@@ -38,3 +38,28 @@ export const LIGHT_THEME = {
   '--op-hw': '800',
   background: '#e8f1ee',
 } as React.CSSProperties;
+
+/** Paper look (user, 2026-11-27: one consistent look, no per-scene colours): one flat paper background for every
+ * scene, white cards with one soft shadow, ink text, one muted orange accent. Used by bot-team (long + short). */
+export const PAPER = '#F7F7F8';
+export const PAPER_ACCENT = '#1E6FE0';
+export const PAPER_THEME = {
+  ...LIGHT_THEME,
+  '--op-bg': PAPER,
+  '--op-bg-solid': PAPER,
+  '--op-shadow': '0 8px 24px rgba(21,21,28,0.07)',
+  '--op-eyebrow': PAPER_ACCENT,
+  '--op-accent': PAPER_ACCENT,
+  // Grok Bot windows (real/ui R tokens) turn light: white window, pale grey panels, ink text
+  '--r-bg': '#ffffff',
+  '--r-panel': '#F7F7F8',
+  '--r-card': '#EEEEF2',
+  '--r-card2': '#F4F4F6',
+  '--r-line': 'rgba(21,21,28,0.09)',
+  '--r-text': '#15151c',
+  '--r-mute': 'rgba(21,21,28,0.7)',
+  '--r-dim': 'rgba(21,21,28,0.45)',
+  '--r-user': PAPER_ACCENT,
+  '--r-shadow': '0 8px 24px rgba(21,21,28,0.07), 0 0 0 1px rgba(21,21,28,0.06)',
+  background: PAPER,
+} as React.CSSProperties;

@@ -49,7 +49,7 @@ export const Colossus: React.FC<{
   const Part: React.FC<{k: PartKey; children: React.ReactNode; ghostEl: React.ReactNode}> = ({k, children, ghostEl}) => {
     const p = pr(k);
     const [dx, dy] = FROM[k];
-    const halo = glow === k ? `drop-shadow(0 0 ${8 + 10 * pulse}px ${k === 'shield' ? SHIELD : M[k as Member['key']]?.color ?? '#fff'})` : 'none';
+    const halo = 'none'; // no glow halos (paper look)
     return (
       <>
         {ghost && p < 0.98 && <g opacity={0.5 * (1 - Math.max(0, p))}>{ghostEl}</g>}
@@ -125,7 +125,7 @@ export const Colossus: React.FC<{
       </g>
       {/* shield */}
       {sp >= 0 && (
-        <g opacity={Math.min(1, sp * 1.5)} transform={`translate(150 200) scale(${0.7 + 0.3 * sp}) translate(-150 -200)`} style={{filter: glow === 'shield' ? `drop-shadow(0 0 ${10 + 10 * pulse}px ${SHIELD})` : 'none'}}>
+        <g opacity={Math.min(1, sp * 1.5)} transform={`translate(150 200) scale(${0.7 + 0.3 * sp}) translate(-150 -200)`}>
           <path
             d="M150 -18 L296 62 L296 300 L150 412 L4 300 L4 62 Z"
             fill={`${SHIELD}14`}

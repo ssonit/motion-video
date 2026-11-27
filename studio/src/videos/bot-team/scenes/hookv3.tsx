@@ -14,7 +14,9 @@ import {Colossus, M, TEAM} from './robot';
 import {GroupChat} from './common';
 
 const F = inter.fontFamily;
-const YEL = '#FFD21F';
+const YEL = '#1E6FE0'; // accent (paper look; name kept)
+const PAPER = '#F7F7F8';
+const INK = '#15151c';
 
 /* ---------- helpers ---------- */
 const usePop = (at: number, damping = 11) => {
@@ -54,23 +56,14 @@ const Slam: React.FC<{at: number; children: React.ReactNode; style?: React.CSSPr
 };
 
 /** Dark textured wall (title card / cut-in backgrounds). */
-const Wall: React.FC<{c?: string}> = ({c = '#1c1c20'}) => (
-  <AbsoluteFill
-    style={{
-      background: c,
-      backgroundImage:
-        'repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 46px), repeating-linear-gradient(90deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 92px), radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.06), transparent 70%)',
-    }}
-  />
-);
+const Wall: React.FC<{c?: string}> = () => <AbsoluteFill style={{background: PAPER}} />;
 
 /** The anchor set: pastel stage + spotlight + Chief Bot. `behind` = giant words behind the Bot. */
 const Anchor: React.FC<{behind?: React.ReactNode; children?: React.ReactNode; chief?: boolean; size?: number}> = ({behind, children, chief = true, size = 300}) => {
   const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg, #E9E4FF 0%, #FFE6DA 62%, #F6D2C4 100%)', overflow: 'hidden'}}>
-      <div style={{position: 'absolute', left: 340, top: -120, width: 600, height: 760, background: 'radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.85), rgba(255,255,255,0) 68%)', filter: 'blur(6px)'}} />
-      <div style={{position: 'absolute', left: 240, top: 560, width: 800, height: 120, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(120,90,160,0.28), transparent 70%)'}} />
+    <AbsoluteFill style={{background: PAPER, overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: 240, top: 560, width: 800, height: 120, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(21,21,28,0.10), transparent 70%)'}} />
       {behind}
       {chief && (
         <div style={{position: 'absolute', left: 640 - size / 2, top: 560 - size, transform: `translateY(${Math.sin(f / 12) * 6}px)`}}>
@@ -92,11 +85,11 @@ export const HookCold: React.FC<P> = () => {
       {others.map((m, i) => (
         <Pop key={m.key} at={at(0.12 + i * 0.13)} sfx={i % 2 ? 'pop2' : 'pop1'} vol={0.22} style={{position: 'absolute', left: xs[i] - 60, top: 330}}>
           <Bot shape={m.shape} color={m.color} size={120} phase={i * 9} />
-          <div style={{marginTop: 8, textAlign: 'center', fontFamily: F, fontWeight: 700, fontSize: 18, color: '#3b3550'}}>{m.name}</div>
+          <div style={{marginTop: 8, textAlign: 'center', fontFamily: F, fontWeight: 700, fontSize: 18, color: INK}}>{m.name}</div>
         </Pop>
       ))}
       <Pop at={at(0.7)} sfx="ding" vol={0.2} style={{position: 'absolute', left: 0, width: 1280, top: 600, display: 'flex', justifyContent: 'center'}}>
-        <div style={{fontFamily: mono.fontFamily, fontSize: 20, letterSpacing: 3, color: '#5a4f78', background: 'rgba(255,255,255,0.7)', padding: '8px 18px', borderRadius: 999}}>
+        <div style={{fontFamily: mono.fontFamily, fontSize: 20, letterSpacing: 3, color: INK, background: '#fff', boxShadow: '0 8px 24px rgba(21,21,28,0.07)', padding: '8px 18px', borderRadius: 999}}>
           WORKING · 3:12 AM
         </div>
       </Pop>
@@ -111,7 +104,7 @@ const TitleLines: React.FC<{at: (x: number) => number; still?: boolean}> = ({at,
     still ? <div style={style}>{children}</div> : <Slam at={t} style={style}>{children}</Slam>;
   return (
     <div style={{position: 'absolute', left: 0, top: 120, width: 1280, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6}}>
-      <W t={at(0.02)} style={{...big, fontSize: 64, color: '#fff', letterSpacing: 4}}>THE 5-BOT</W>
+      <W t={at(0.02)} style={{...big, fontSize: 64, color: INK, letterSpacing: 4}}>THE 5-BOT</W>
       <div style={{display: 'flex', alignItems: 'center', gap: 28}}>
         <W t={at(0.2)} style={{...big, fontSize: 170, color: YEL}}>GROK</W>
         <div style={{display: 'flex', alignItems: 'center'}}>
@@ -122,7 +115,7 @@ const TitleLines: React.FC<{at: (x: number) => number; still?: boolean}> = ({at,
           <W t={at(0.36)} style={{...big, fontSize: 170, color: YEL}}>T</W>
         </div>
       </div>
-      <W t={at(0.66)} style={{...big, fontSize: 120, color: '#fff', letterSpacing: 10}}>TEAM</W>
+      <W t={at(0.66)} style={{...big, fontSize: 120, color: INK, letterSpacing: 10}}>TEAM</W>
     </div>
   );
 };
@@ -148,7 +141,7 @@ const Burst: React.FC<{cx: number; cy: number; p: number}> = ({cx, cy, p}) => {
         const r1 = 900;
         return (
           <line key={i} x1={cx + Math.cos(a) * r0} y1={cy + Math.sin(a) * r0} x2={cx + Math.cos(a) * r1} y2={cy + Math.sin(a) * r1}
-            stroke={YEL} strokeWidth={i % 2 ? 10 : 22} strokeLinecap="round" opacity={i % 2 ? 0.35 : 0.6} />
+            stroke={YEL} strokeWidth={i % 2 ? 10 : 22} strokeLinecap="round" opacity={i % 2 ? 0.12 : 0.22} />
         );
       })}
     </svg>
@@ -170,7 +163,7 @@ export const HookYou: React.FC<P> = () => {
       <div style={{position: 'absolute', left: 420 - 140, top: 360 - 150, transform: `scale(${(0.2 + 0.8 * p) * (1 + zoom * 0.12)})`}}>
         <GrokBotMark shape="drop" color={M.head.color} size={280} />
       </div>
-      <Slam at={at(0.22)} style={{position: 'absolute', left: 640, top: 250, fontFamily: F, fontWeight: 800, fontSize: 150, lineHeight: 0.95, letterSpacing: -4, color: '#fff'}}>
+      <Slam at={at(0.22)} style={{position: 'absolute', left: 640, top: 250, fontFamily: F, fontWeight: 800, fontSize: 150, lineHeight: 0.95, letterSpacing: -4, color: INK}}>
         YES,
         <div style={{color: YEL}}>YOU.</div>
       </Slam>
@@ -197,41 +190,41 @@ export const HookSplit: React.FC<P> = () => {
   const f = useCurrentFrame();
   const box = (c: string, w: number, h: number): React.CSSProperties => ({width: w, height: h, background: c, borderRadius: 8, boxShadow: 'inset 0 -8px 0 rgba(0,0,0,0.12)'});
   const shelves = [
-    ['#F28B5B', '#7FB7E8', '#F6C85F', '#9AD3A0'],
-    ['#C3A6F0', '#F28B5B', '#7FB7E8', '#F6C85F'],
+    ['#D5D9E1', '#1E6FE0', '#C4CAD4', '#E2E5EA'],
+    ['#C4CAD4', '#E2E5EA', '#D5D9E1', '#1E6FE0'],
   ];
   return (
     <AbsoluteFill style={{background: '#fff'}}>
-      <Panel x={0} at={0} bg="linear-gradient(180deg,#FFF3E2,#FFE2C6)" title="ONLINE STORE">
+      <Panel x={0} at={0} bg={PAPER} title="ONLINE STORE">
         {shelves.map((row, r) => (
           <div key={r} style={{position: 'absolute', left: 70, top: 170 + r * 170, width: 500}}>
             <div style={{display: 'flex', gap: 22, alignItems: 'flex-end', height: 120, paddingLeft: 20}}>
               {row.map((c, i) => <div key={i} style={box(c, 88, 70 + ((i + r) % 3) * 22)} />)}
             </div>
-            <div style={{height: 14, background: '#B07A4E', borderRadius: 4}} />
+            <div style={{height: 14, background: '#C9C2B6', borderRadius: 4}} />
           </div>
         ))}
         {[0, 1, 2].map((i) => (
           <Pop key={i} at={at(0.18 + i * 0.12)} sfx={i === 0 ? 'tick1' : 'tick2'} vol={0.18} style={{position: 'absolute', left: 90 + i * 160, top: 560}}>
-            <div style={{background: '#fff', borderRadius: 14, padding: '10px 16px', fontFamily: F, fontWeight: 700, fontSize: 20, color: '#1f8a4c', boxShadow: '0 8px 20px rgba(0,0,0,0.1)'}}>+1 order</div>
+            <div style={{background: '#fff', borderRadius: 14, padding: '10px 16px', fontFamily: F, fontWeight: 700, fontSize: 20, color: '#1f8a4c', boxShadow: '0 8px 24px rgba(21,21,28,0.07)'}}>+1 order</div>
           </Pop>
         ))}
       </Panel>
-      <Panel x={640} at={at(0.42)} bg="linear-gradient(180deg,#E7F0FF,#D6E4FF)" title="SMALL AGENCY">
+      <Panel x={640} at={at(0.42)} bg={PAPER} title="SMALL AGENCY">
         {[0, 1, 2].map((i) => {
           const g = interpolate(f, [at(0.5) + i * 4, at(0.75) + i * 4], [0.2, 1], clamp);
           return (
-            <div key={i} style={{position: 'absolute', left: 60 + i * 180, top: 170, width: 160, height: 330, background: '#fff', borderRadius: 18, boxShadow: '0 12px 30px rgba(40,60,120,0.15)', padding: 16}}>
-              <div style={{width: 46, height: 46, borderRadius: 23, background: ['#7FB7E8', '#F28B5B', '#9AD3A0'][i]}} />
+            <div key={i} style={{position: 'absolute', left: 60 + i * 180, top: 170, width: 160, height: 330, background: '#fff', borderRadius: 18, boxShadow: '0 8px 24px rgba(21,21,28,0.07)', padding: 16}}>
+              <div style={{width: 46, height: 46, borderRadius: 23, background: ['#D5D9E1', '#C4CAD4', '#E2E5EA'][i]}} />
               <div style={{marginTop: 12, height: 10, width: 100, background: '#dfe6f3', borderRadius: 5}} />
               <div style={{position: 'absolute', left: 16, right: 16, bottom: 18, display: 'flex', alignItems: 'flex-end', gap: 10, height: 170}}>
-                {[0.4, 0.6, 0.8, 1].map((h, k) => <div key={k} style={{flex: 1, height: 170 * h * g, background: '#5B8DEF', borderRadius: 6, opacity: 0.5 + k * 0.15}} />)}
+                {[0.4, 0.6, 0.8, 1].map((h, k) => <div key={k} style={{flex: 1, height: 170 * h * g, background: '#1E6FE0', borderRadius: 6, opacity: 0.5 + k * 0.15}} />)}
               </div>
             </div>
           );
         })}
       </Panel>
-      <div style={{position: 'absolute', left: 637, top: 0, width: 6, height: 720, background: '#fff'}} />
+      <div style={{position: 'absolute', left: 637, top: 0, width: 2, height: 720, background: 'rgba(21,21,28,0.10)'}} />
     </AbsoluteFill>
   );
 };
@@ -243,9 +236,9 @@ export const HookCheck: React.FC<P> = () => {
   const slide = interpolate(f, [at(0.25), at(0.45)], [400, 0], {...clamp, easing: Easing.out(Easing.back(1.4))});
   const stamp = usePop(at(0.55), 8);
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg,#E3FAEF,#CDEFE0)'}}>
+    <AbsoluteFill style={{background: PAPER}}>
       <Pop at={at(0.02)} style={{position: 'absolute', left: 250, top: 190}}>
-        <div style={{width: 560, background: '#fff', borderRadius: 26, padding: '28px 32px', boxShadow: '0 22px 60px rgba(20,80,60,0.18)', fontFamily: F}}>
+        <div style={{width: 560, background: '#fff', borderRadius: 26, padding: '28px 32px', boxShadow: '0 8px 24px rgba(21,21,28,0.07)', fontFamily: F}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
             <Bot shape={M.larm.shape} color={M.larm.color} size={56} />
             <div style={{fontSize: 26, fontWeight: 800, color: '#15151c'}}>{M.larm.name}</div>
@@ -283,9 +276,8 @@ export const HookToc1: React.FC<P> = () => {
   ];
   const links: [number, number][] = [[0, 1], [1, 2], [2, 0]];
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg,#F2B632 0%,#E8A21E 70%,#D58E12 100%)'}}>
-      <div style={{position: 'absolute', left: 0, top: 560, width: 1280, height: 160, background: 'rgba(0,0,0,0.08)'}} />
-      <Pop at={at(0.02)} sfx="pop2" style={{position: 'absolute', left: 120, top: 120, fontFamily: F, fontWeight: 800, fontSize: 380, color: '#fff', lineHeight: 1, textShadow: '0 30px 0 rgba(0,0,0,0.12), 0 60px 50px rgba(0,0,0,0.18)'}}>
+    <AbsoluteFill style={{background: PAPER}}>
+      <Pop at={at(0.02)} sfx="pop2" style={{position: 'absolute', left: 120, top: 120, fontFamily: F, fontWeight: 800, fontSize: 380, color: YEL, lineHeight: 1}}>
         ?
       </Pop>
       <svg width={1280} height={720} style={{position: 'absolute', left: 0, top: 0}}>
@@ -297,8 +289,8 @@ export const HookToc1: React.FC<P> = () => {
           const drop = fall * 160;
           return (
             <g key={i} opacity={f < at(0.12) ? 0 : 1 - fall * 0.8}>
-              <line x1={A.x + 100} y1={A.y + 40} x2={mx - 8} y2={my + drop * 0.6} stroke="#fff" strokeWidth={6} strokeDasharray="14 10" />
-              <line x1={mx + 8} y1={my + drop} x2={B.x + 100} y2={B.y + 40} stroke="#fff" strokeWidth={6} strokeDasharray="14 10" />
+              <line x1={A.x + 100} y1={A.y + 40} x2={mx - 8} y2={my + drop * 0.6} stroke={INK} strokeOpacity={0.35} strokeWidth={6} strokeDasharray="14 10" />
+              <line x1={mx + 8} y1={my + drop} x2={B.x + 100} y2={B.y + 40} stroke={INK} strokeOpacity={0.35} strokeWidth={6} strokeDasharray="14 10" />
             </g>
           );
         })}
@@ -306,7 +298,7 @@ export const HookToc1: React.FC<P> = () => {
       <Sfx at={snap} name="tick3" vol={0.35} dur={30} />
       {tiles.map((t, i) => (
         <Pop key={i} at={at(0.06 + i * 0.08)} sfx="tick1" vol={0.18} style={{position: 'absolute', left: t.x, top: t.y, transform: `rotate(${fall * (i - 1) * 9}deg)`}}>
-          <div style={{width: 200, height: 80, background: '#fff', borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: F, fontWeight: 700, fontSize: 22, color: '#3a2c08', boxShadow: '0 14px 30px rgba(0,0,0,0.15)'}}>
+          <div style={{width: 200, height: 80, background: '#fff', borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: F, fontWeight: 700, fontSize: 22, color: INK, boxShadow: '0 8px 24px rgba(21,21,28,0.07)'}}>
             {t.t}
           </div>
         </Pop>
@@ -322,10 +314,7 @@ export const HookToc2: React.FC<P> = () => {
   return (
     <AbsoluteFill
       style={{
-        background: '#2E4A86',
-        backgroundImage:
-          'linear-gradient(135deg, rgba(255,255,255,0.05) 25%, transparent 25%), linear-gradient(225deg, rgba(0,0,0,0.08) 25%, transparent 25%), linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%)',
-        backgroundSize: '220px 220px',
+        background: PAPER,
       }}
     >
       {TEAM.map((m, i) => (
@@ -334,7 +323,7 @@ export const HookToc2: React.FC<P> = () => {
             <Bot shape={m.shape} color={m.color} size={150} phase={i * 6} />
           </Pop>
           <Pop at={at(0.4 + i * 0.06)} sfx="tick2" vol={0.16} style={{position: 'absolute', left: 120 + i * 220 - 10, top: 400, width: 170, display: 'flex', justifyContent: 'center'}}>
-            <div style={{background: '#fff', color: '#1d2b4f', fontFamily: F, fontWeight: 800, fontSize: 26, padding: '10px 20px', borderRadius: 999, boxShadow: '0 10px 24px rgba(0,0,0,0.25)'}}>{jobs[i]}</div>
+            <div style={{background: '#fff', color: INK, fontFamily: F, fontWeight: 800, fontSize: 26, padding: '10px 20px', borderRadius: 999, boxShadow: '0 8px 24px rgba(21,21,28,0.07)'}}>{jobs[i]}</div>
           </Pop>
         </React.Fragment>
       ))}
@@ -350,17 +339,17 @@ export const HookToc3: React.FC<P> = () => {
   const send = at(0.72);
   const fly = interpolate(f, [send, send + 10], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
   return (
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 40%, #2a2a33, #0c0c10 75%)'}}>
+    <AbsoluteFill style={{background: PAPER}}>
       <Sfx at={at(0.04)} name="typing" vol={0.25} dur={Math.max(10, send - at(0.04))} />
       <Sfx at={send} name="whoosh" vol={0.3} dur={30} />
       <div style={{position: 'absolute', left: 190, top: 250, width: 900, transform: `translate(${fly * 700}px, ${-fly * 420}px) scale(${1 - fly * 0.6})`, opacity: 1 - fly}}>
-        <div style={{fontFamily: mono.fontFamily, fontSize: 16, letterSpacing: 3, color: 'rgba(255,255,255,0.5)', marginBottom: 14}}>MESSAGE · STORE BOT</div>
-        <div style={{background: '#202024', border: '1.5px solid rgba(255,255,255,0.12)', borderRadius: 22, padding: '26px 30px', display: 'flex', gap: 20, alignItems: 'flex-end'}}>
-          <div style={{flex: 1, fontFamily: F, fontSize: 32, lineHeight: 1.35, color: '#fff', minHeight: 130}}>
+        <div style={{fontFamily: mono.fontFamily, fontSize: 16, letterSpacing: 3, color: 'rgba(21,21,28,0.5)', marginBottom: 14}}>MESSAGE · STORE BOT</div>
+        <div style={{background: '#fff', boxShadow: '0 8px 24px rgba(21,21,28,0.07)', borderRadius: 22, padding: '26px 30px', display: 'flex', gap: 20, alignItems: 'flex-end'}}>
+          <div style={{flex: 1, fontFamily: F, fontSize: 32, lineHeight: 1.35, color: INK, minHeight: 130}}>
             {typed(msg, f, at(0.04), 70)}
             <span style={{opacity: f % 16 < 8 ? 1 : 0}}>|</span>
           </div>
-          <div style={{width: 58, height: 58, borderRadius: 29, background: '#fff', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, fontWeight: 800}}>↑</div>
+          <div style={{width: 58, height: 58, borderRadius: 29, background: INK, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, fontWeight: 800}}>↑</div>
         </div>
       </div>
     </AbsoluteFill>
@@ -375,24 +364,21 @@ export const HookToc4: React.FC<P> = () => {
   const hours = 3 + 5 * t + 24 * t; // spins round twice, lands on 8:00
   const hourDeg = (hours % 12) * 30;
   const minDeg = (hours % 1) * 360 + Math.floor(hours - 3) * 360 * 0;
-  const C = '#3FE0FF';
+  const C = INK;
   return (
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, #0f2a52, #050b18 75%)'}}>
-      <AbsoluteFill style={{opacity: 0.18, fontFamily: mono.fontFamily, fontSize: 14, color: C, lineHeight: 1.3, overflow: 'hidden', wordBreak: 'break-all'}}>
-        {'01101000 0800 MON TUE WED THU FRI routine.run() 0700 0900 '.repeat(60)}
-      </AbsoluteFill>
+    <AbsoluteFill style={{background: PAPER}}>
       <Sfx at={at(0.6)} name="ding" vol={0.3} dur={40} />
-      <svg width={420} height={420} viewBox="-210 -210 420 420" style={{position: 'absolute', left: 430, top: 120, filter: `drop-shadow(0 0 18px ${C})`}}>
-        <circle r={190} fill="rgba(63,224,255,0.06)" stroke={C} strokeWidth={6} />
+      <svg width={420} height={420} viewBox="-210 -210 420 420" style={{position: 'absolute', left: 430, top: 120, filter: 'drop-shadow(0 8px 24px rgba(21,21,28,0.08))'}}>
+        <circle r={190} fill="#fff" stroke={C} strokeWidth={6} />
         {Array.from({length: 12}).map((_, i) => (
           <line key={i} x1={0} y1={-170} x2={0} y2={i % 3 ? -155 : -140} stroke={C} strokeWidth={i % 3 ? 4 : 8} transform={`rotate(${i * 30})`} />
         ))}
         <line x1={0} y1={0} x2={0} y2={-95} stroke={C} strokeWidth={12} strokeLinecap="round" transform={`rotate(${hourDeg})`} />
-        <line x1={0} y1={0} x2={0} y2={-150} stroke="#fff" strokeWidth={6} strokeLinecap="round" transform={`rotate(${minDeg})`} />
-        <circle r={12} fill="#fff" />
+        <line x1={0} y1={0} x2={0} y2={-150} stroke={YEL} strokeWidth={6} strokeLinecap="round" transform={`rotate(${minDeg})`} />
+        <circle r={12} fill={YEL} />
       </svg>
       <Pop at={at(0.62)} sfx={false} style={{position: 'absolute', left: 0, width: 1280, top: 580, display: 'flex', justifyContent: 'center'}}>
-        <div style={{fontFamily: mono.fontFamily, fontSize: 30, letterSpacing: 4, color: '#04121f', background: C, padding: '10px 26px', borderRadius: 999, fontWeight: 700}}>MON–FRI · 8:00</div>
+        <div style={{fontFamily: mono.fontFamily, fontSize: 30, letterSpacing: 4, color: '#fff', background: C, padding: '10px 26px', borderRadius: 999, fontWeight: 700}}>MON–FRI · 8:00</div>
       </Pop>
     </AbsoluteFill>
   );
@@ -406,21 +392,21 @@ export const HookToc5: React.FC<P> = () => {
   const mix = (a: number[], b: number[]) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * d)).join(',')})`;
   const glow = usePop(at(0.62), 10);
   return (
-    <AbsoluteFill style={{background: mix([24, 26, 52], [255, 236, 214])}}>
+    <AbsoluteFill style={{background: PAPER}}>
       {/* window */}
-      <div style={{position: 'absolute', left: 140, top: 90, width: 520, height: 400, borderRadius: 18, overflow: 'hidden', border: '14px solid #e9e1d6', background: `linear-gradient(180deg, ${mix([10, 14, 40], [120, 170, 240])}, ${mix([40, 40, 90], [255, 190, 140])})`}}>
+      <div style={{position: 'absolute', left: 140, top: 90, width: 520, height: 400, borderRadius: 18, overflow: 'hidden', border: '14px solid #fff', background: `linear-gradient(180deg, ${mix([10, 14, 40], [120, 170, 240])}, ${mix([40, 40, 90], [255, 190, 140])})`}}>
         <div style={{position: 'absolute', left: 340, top: 60 + d * 300, width: 60, height: 60, borderRadius: 30, background: '#F3F0D8', opacity: 1 - d}} />
-        <div style={{position: 'absolute', left: 150, top: 380 - d * 230, width: 110, height: 110, borderRadius: 55, background: '#FFC85A', boxShadow: '0 0 60px #FFB347', opacity: d}} />
+        <div style={{position: 'absolute', left: 150, top: 380 - d * 230, width: 110, height: 110, borderRadius: 55, background: '#FFC85A', opacity: d}} />
         <div style={{position: 'absolute', left: 0, bottom: 0, width: '100%', height: 90, background: mix([20, 22, 40], [120, 150, 110])}} />
-        <div style={{position: 'absolute', left: 246, top: 0, width: 14, height: '100%', background: '#e9e1d6'}} />
+        <div style={{position: 'absolute', left: 246, top: 0, width: 14, height: '100%', background: '#fff'}} />
       </div>
       {/* bed */}
-      <div style={{position: 'absolute', left: 60, top: 540, width: 760, height: 120, borderRadius: 30, background: mix([60, 64, 110], [210, 220, 240])}} />
-      <div style={{position: 'absolute', left: 90, top: 500, width: 200, height: 70, borderRadius: 30, background: mix([90, 96, 140], [250, 250, 255])}} />
+      <div style={{position: 'absolute', left: 60, top: 540, width: 760, height: 120, borderRadius: 30, background: '#E2DCD2'}} />
+      <div style={{position: 'absolute', left: 90, top: 500, width: 200, height: 70, borderRadius: 30, background: '#fff'}} />
       {/* nightstand + phone */}
-      <div style={{position: 'absolute', left: 880, top: 520, width: 260, height: 160, borderRadius: 14, background: mix([70, 50, 50], [196, 150, 110])}} />
+      <div style={{position: 'absolute', left: 880, top: 520, width: 260, height: 160, borderRadius: 14, background: '#D6CABB'}} />
       <Sfx at={at(0.62)} name="ding" vol={0.3} dur={40} />
-      <div style={{position: 'absolute', left: 930, top: 250, width: 170, height: 300, borderRadius: 26, background: '#111', border: '5px solid #2b2b2b', boxShadow: glow > 0 ? `0 0 ${50 * glow}px rgba(255,210,120,0.8)` : 'none', overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: 930, top: 250, width: 170, height: 300, borderRadius: 26, background: '#111', border: '5px solid #2b2b2b', overflow: 'hidden'}}>
         <div style={{position: 'absolute', inset: 0, background: `rgba(40,40,60,${glow})`}} />
         <div style={{position: 'absolute', left: 10, right: 10, top: 40, transform: `translateY(${(1 - glow) * -60}px)`, opacity: glow, background: '#fff', borderRadius: 14, padding: 10, fontFamily: F}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 6}}>
@@ -441,7 +427,7 @@ export const HookAnchor: React.FC<P> = () => {
     <Anchor
       size={190}
       behind={
-        <Slam at={at(0.25)} sfx="whoosh" style={{position: 'absolute', left: 0, top: 70, width: 1280, textAlign: 'center', fontFamily: F, fontWeight: 800, fontSize: 270, letterSpacing: -10, lineHeight: 1, color: YEL, textShadow: `0 0 40px ${YEL}, 0 0 90px rgba(255,180,0,0.8)`}}>
+        <Slam at={at(0.25)} sfx="whoosh" style={{position: 'absolute', left: 0, top: 70, width: 1280, textAlign: 'center', fontFamily: F, fontWeight: 800, fontSize: 270, letterSpacing: -10, lineHeight: 1, color: YEL}}>
           NO CODE
         </Slam>
       }
@@ -456,7 +442,7 @@ export const HookNoCode: React.FC<P> = () => {
   const needle = interpolate(f, [at(0.08), at(0.5)], [70, -70], {...clamp, easing: Easing.out(Easing.back(1.6))});
   const out = interpolate(f, [at(0.72), at(0.95)], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
   return (
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 40%, #fafafa, #d9d9de 80%)'}}>
+    <AbsoluteFill style={{background: PAPER}}>
       <Sfx at={at(0.08)} name="tick3" vol={0.3} dur={20} />
       <Sfx at={at(0.72)} name="whoosh" vol={0.3} dur={30} />
       <div style={{position: 'absolute', left: 340, top: 70, transform: `rotate(${out * 220}deg) scale(${1 + out * 0.6})`, filter: `blur(${out * 14}px)`, opacity: 1 - out * 0.9}}>
@@ -482,7 +468,7 @@ export const HookTeam: React.FC<P> = () => {
   const at = useAt();
   const t = [0.06, 0.2, 0.34, 0.48, 0.62].map(at);
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg,#CFE0FF,#B9D0FA)', fontFamily: F}}>
+    <AbsoluteFill style={{background: PAPER, fontFamily: F}}>
       {t.map((x, i) => <Sfx key={i} at={x} name={i % 2 ? 'pop2' : 'pop1'} vol={0.22} dur={20} />)}
       <GroupChat
         x={150}
@@ -525,7 +511,7 @@ export const HookHandoff: React.FC<P> = () => {
     <AbsoluteFill>
       <Wall c="#18181d" />
       <svg width={1280} height={720} style={{position: 'absolute', left: 0, top: 0}}>
-        <polyline points={pts.map(([x, y]) => `${x},${y}`).join(' ')} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth={4} strokeDasharray="8 10" strokeDashoffset={-f * 2} />
+        <polyline points={pts.map(([x, y]) => `${x},${y}`).join(' ')} fill="none" stroke="rgba(21,21,28,0.22)" strokeWidth={4} strokeDasharray="8 10" strokeDashoffset={-f * 2} />
       </svg>
       {[1, 2, 3, 4].map((i) => <Sfx key={i} at={at(0.08) + ((at(0.8) - at(0.08)) * i) / 4} name="tick2" vol={0.2} dur={20} />)}
       {TEAM.map((m, i) => (
@@ -533,7 +519,7 @@ export const HookHandoff: React.FC<P> = () => {
           <Bot shape={m.shape} color={m.color} size={140} phase={i * 8} />
         </div>
       ))}
-      <div style={{position: 'absolute', left: cx - 70, top: cy - 140, width: 140, background: '#fff', borderRadius: 12, padding: '10px 12px', fontFamily: F, boxShadow: '0 16px 30px rgba(0,0,0,0.4)', transform: `rotate(${Math.sin(u * Math.PI) * -8}deg)`}}>
+      <div style={{position: 'absolute', left: cx - 70, top: cy - 140, width: 140, background: '#fff', borderRadius: 12, padding: '10px 12px', fontFamily: F, boxShadow: '0 8px 24px rgba(21,21,28,0.07)', transform: `rotate(${Math.sin(u * Math.PI) * -8}deg)`}}>
         <div style={{fontSize: 12, fontWeight: 700, color: '#888', letterSpacing: 1}}>TASK</div>
         <div style={{height: 8, background: '#e5e5ea', borderRadius: 4, marginTop: 6}} />
         <div style={{height: 8, width: '70%', background: '#e5e5ea', borderRadius: 4, marginTop: 6}} />
@@ -546,7 +532,7 @@ export const HookHandoff: React.FC<P> = () => {
 export const HookCatch: React.FC<P> = () => {
   const at = useAt();
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg,#FFE3EC,#F9CFE0)', fontFamily: F}}>
+    <AbsoluteFill style={{background: PAPER, fontFamily: F}}>
       <Sfx at={at(0.1)} name="pop1" vol={0.25} dur={20} />
       <Sfx at={at(0.45)} name="ding" vol={0.3} dur={40} />
       <GroupChat
@@ -570,7 +556,7 @@ export const HookLoop3: React.FC<P> = () => {
   const f = useCurrentFrame();
   const flip = at(0.62);
   const on = interpolate(f, [flip, flip + 5], [0, 1], clamp);
-  const flash = interpolate(f, [flip + 4, flip + 8, flip + 26], [0, 0.55, 0], clamp);
+  const flash = interpolate(f, [flip + 4, flip + 8, flip + 26], [0, 0.3, 0], clamp);
   const crack = interpolate(f, [flip + 4, flip + 14], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
   const shake = f >= flip + 4 && f < flip + 16 ? Math.sin(f * 2.7) * 9 : 0;
   const lockWobble = f > at(0.2) && f < at(0.32) ? Math.sin(f * 1.6) * 10 : 0;
@@ -579,24 +565,24 @@ export const HookLoop3: React.FC<P> = () => {
       <Wall />
       {[0, 1].map((i) => (
         <Pop key={i} at={at(0.02 + i * 0.06)} sfx="tick1" vol={0.16} style={{position: 'absolute', left: 110 + i * 210, top: 230, opacity: 0.45}}>
-          <div style={{width: 170, height: 220, borderRadius: 20, background: '#2a2a31', border: '2px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, fontFamily: F, color: '#fff'}}>
+          <div style={{width: 170, height: 220, borderRadius: 20, background: '#fff', boxShadow: '0 8px 24px rgba(21,21,28,0.07)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, fontFamily: F, color: INK}}>
             <div style={{fontSize: 18, letterSpacing: 3, opacity: 0.7}}>TIP</div>
             <div style={{fontSize: 70, fontWeight: 800}}>{i + 1}</div>
-            <div style={{fontSize: 30, color: '#3ddc84'}}>✓</div>
+            <div style={{fontSize: 30, color: '#2E9E62'}}>✓</div>
           </div>
         </Pop>
       ))}
       <Pop at={at(0.12)} sfx="pop2" style={{position: 'absolute', left: 560, top: 130}}>
-        <div style={{width: 600, height: 430, borderRadius: 28, background: '#24242b', border: `3px solid ${YEL}`, boxShadow: `0 0 50px rgba(255,210,31,0.25)`, padding: '30px 40px', fontFamily: F, color: '#fff', position: 'relative', overflow: 'hidden'}}>
+        <div style={{width: 600, height: 430, borderRadius: 28, background: '#fff', boxShadow: '0 8px 24px rgba(21,21,28,0.07)', padding: '30px 40px', fontFamily: F, color: INK, position: 'relative', overflow: 'hidden'}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 18}}>
             <div style={{fontSize: 24, letterSpacing: 4, color: YEL, fontWeight: 700}}>TIP 3 · THE ONE THAT BREAKS IT</div>
           </div>
           <div style={{marginTop: 26, display: 'flex', flexDirection: 'column', gap: 14, filter: 'blur(7px)'}}>
-            {[0.9, 0.75, 0.82].map((w, i) => <div key={i} style={{height: 22, width: `${w * 100}%`, background: 'rgba(255,255,255,0.35)', borderRadius: 11}} />)}
+            {[0.9, 0.75, 0.82].map((w, i) => <div key={i} style={{height: 22, width: `${w * 100}%`, background: 'rgba(21,21,28,0.1)', borderRadius: 11}} />)}
           </div>
           {/* the mystery switch */}
           <div style={{position: 'absolute', left: 40, bottom: 40, display: 'flex', alignItems: 'center', gap: 20}}>
-            <div style={{width: 120, height: 62, borderRadius: 31, background: on > 0.5 ? '#E5484D' : '#3a3a44', position: 'relative', transition: 'none'}}>
+            <div style={{width: 120, height: 62, borderRadius: 31, background: on > 0.5 ? '#C9524C' : 'rgba(21,21,28,0.15)', position: 'relative', transition: 'none'}}>
               <div style={{position: 'absolute', top: 6, left: 6 + on * 58, width: 50, height: 50, borderRadius: 25, background: '#fff'}} />
             </div>
             <div style={{fontSize: 26, fontWeight: 700, filter: 'blur(6px)'}}>Something on day one</div>
@@ -606,7 +592,7 @@ export const HookLoop3: React.FC<P> = () => {
             <svg width={120} height={150} viewBox="0 0 120 150">
               <path d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke={YEL} strokeWidth={12} strokeLinecap="round" />
               <rect x={12} y={66} width={96} height={78} rx={16} fill={YEL} />
-              <text x={60} y={124} textAnchor="middle" fontFamily={F} fontWeight={800} fontSize={48} fill="#24242b">?</text>
+              <text x={60} y={124} textAnchor="middle" fontFamily={F} fontWeight={800} fontSize={48} fill="#fff">?</text>
             </svg>
           </div>
         </div>
@@ -616,7 +602,7 @@ export const HookLoop3: React.FC<P> = () => {
       <Sfx at={flip + 4} name="whoosh" vol={0.35} dur={30} />
       {/* crack across the screen */}
       <svg width={1280} height={720} style={{position: 'absolute', left: 0, top: 0}}>
-        <polyline points="560,120 700,260 660,330 820,420 790,480 980,600 1180,700" fill="none" stroke="#fff" strokeWidth={6}
+        <polyline points="560,120 700,260 660,330 820,420 790,480 980,600 1180,700" fill="none" stroke={INK} strokeWidth={5}
           strokeDasharray={1400} strokeDashoffset={1400 * (1 - crack)} strokeLinejoin="round" />
       </svg>
       <AbsoluteFill style={{background: '#E5484D', opacity: flash, mixBlendMode: 'screen'}} />

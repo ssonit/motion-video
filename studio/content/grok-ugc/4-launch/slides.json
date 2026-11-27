@@ -1,0 +1,117 @@
+[
+  {
+    "id": "mgr-why",
+    "vo": "Making ads is half the job. Running them is the other half, and that's a different skill.",
+    "frames": 150
+  },
+  {
+    "id": "mgr-channel",
+    "vo": "Create one more channel called Management, and add your studio Bot to it.",
+    "frames": 150
+  },
+  {
+    "id": "mgr-bot",
+    "vo": "Then create a second Bot, Ads Manager. Its title: launches and watches our ad campaigns.",
+    "frames": 150
+  },
+  {
+    "id": "mgr-team",
+    "vo": "Now one room has two teammates: one that makes the ads, and one that runs them.",
+    "frames": 150
+  },
+  {
+    "id": "launch-msg",
+    "vo": "In the Management channel, write one message: launch my three new cold brew ads on Meta.",
+    "frames": 150
+  },
+  {
+    "id": "launch-handoff",
+    "vo": "The studio Bot hands over the files. The Ads Manager picks them up and asks one question back.",
+    "frames": 150
+  },
+  {
+    "id": "launch-yes",
+    "vo": "Put all three in one ad set, same budget, so they compete fairly? Yes.",
+    "frames": 150
+  },
+  {
+    "id": "launch-blocker",
+    "vo": "If something is missing, like a Facebook page that isn't connected yet, it tells you instead of guessing.",
+    "frames": 150
+  },
+  {
+    "id": "launch-form",
+    "vo": "Then it fills in the campaign: platform Meta, objective sales, a test budget of twenty-five dollars a day.",
+    "frames": 150
+  },
+  {
+    "id": "launch-approve",
+    "vo": "It still waits for your OK before anything goes live. You stay the one who spends the money.",
+    "frames": 150
+  },
+  {
+    "id": "launch-cap",
+    "vo": "Set a hard limit in the request too: never spend more than twenty-five dollars a day without asking me. Bots follow written boundaries.",
+    "frames": 150
+  },
+  {
+    "id": "launch-watch",
+    "vo": "After launch, the two Bots keep talking: which ad is winning, which hook to try next.",
+    "frames": 150
+  },
+  {
+    "id": "watch-metrics",
+    "vo": "The three numbers to watch: how many people stop scrolling, how many click, and what each sale costs you.",
+    "frames": 150
+  },
+  {
+    "id": "watch-rule",
+    "vo": "Give the Ads Manager a simple rule: after three days, pause the weakest ad and move its budget to the best one.",
+    "frames": 150
+  },
+  {
+    "id": "watch-routine",
+    "vo": "Then turn it into a routine. Every morning at nine, the Ads Manager posts a short report, and the Studio Bot makes two new versions of the winner.",
+    "frames": 150
+  },
+  {
+    "id": "watch-loop",
+    "vo": "That's the loop: make, test, keep the winner, make more like it. The Bots run it; you read one message a day.",
+    "frames": 150
+  },
+  {
+    "id": "loop-reveal",
+    "vo": "Now, the mistake I promised. It's letting the AI say things your product can't back up.",
+    "frames": 150
+  },
+  {
+    "id": "rule-ftc",
+    "vo": "In the US, the FTC banned fake reviews and testimonials, and it named AI-generated ones on purpose.",
+    "frames": 150
+  },
+  {
+    "id": "rule-meta",
+    "vo": "And Meta reviews every ad against its advertising standards. Break them often enough and your ad account gets restricted.",
+    "frames": 150
+  },
+  {
+    "id": "rule-three",
+    "vo": "So three rules: no made-up results, no fake 'I've used this for years' stories, and label AI content where the platform asks.",
+    "frames": 150
+  },
+  {
+    "id": "rule-safe",
+    "vo": "Write the lines as a scene, not a testimony. 'Here's my morning with it' is honest. 'It cured my tiredness' is not.",
+    "frames": 150
+  },
+  {
+    "id": "recap",
+    "vo": "That's the full factory: find a winner, break it down, recreate it, make three, and launch with a second Bot.",
+    "frames": 150
+  },
+  {
+    "id": "outro-start",
+    "vo": "Start small. One Bot, one reference ad, one product photo. You can have your first ad before lunch.",
+    "frames": 150
+  }
+]

@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Sfx, clamp, useAt} from '../../lib/kit';
+import {MUSIC_ON, Sfx, clamp, useAt} from '../../lib/kit';
 import slidesJson from '../../../content/one-person/short-ladder/slides.json';
 
 /** Vertical 1080x1920 short: "The Agent Ladder in 45 seconds" (storyboard: content/one-person/short-ladder/storyboard.md). */
@@ -354,7 +354,7 @@ export const ShortLadder: React.FC = () => {
   const total = SHORT_LADDER_FRAMES;
   return (
     <AbsoluteFill style={{background: '#121214'}}>
-      <Audio src={staticFile('shared/sfx/bed.wav')} loop volume={(f) => 0.1 * interpolate(f, [0, 20, total - 60, total], [0, 1, 1, 0], clamp)} />
+      {MUSIC_ON && <Audio src={staticFile('shared/sfx/bed.wav')} loop volume={(f) => 0.1 * interpolate(f, [0, 20, total - 60, total], [0, 1, 1, 0], clamp)} />}
       {slides.map((s, i) => {
         const Scene = SCENES[s.id];
         const start = from;

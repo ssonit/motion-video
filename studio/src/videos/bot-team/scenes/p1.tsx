@@ -313,21 +313,21 @@ export const Create: React.FC<P> = ({vo}) => {
       <Sfx at={at(0.82)} name="ding" vol={0.25} dur={40} />
       <Head label="Piece 1 · step 1">Create the *Chief Brain*</Head>
       <In at={at(0.03)} tick={false} style={{position: 'absolute', left: 290, top: 150}}>
-        <div style={{width: 700, height: 390, borderRadius: 18, background: '#0d0d0d', boxShadow: '0 28px 70px rgba(20,25,60,0.35)', position: 'relative', overflow: 'hidden'}}>
+        <div style={{width: 700, height: 390, borderRadius: 18, background: '#ffffff', boxShadow: '0 28px 70px rgba(20,25,60,0.35)', position: 'relative', overflow: 'hidden'}}>
           <div style={{position: 'absolute', inset: 0, opacity: 0.35, display: 'flex'}}>
-            <div style={{width: 180, background: '#111', padding: 12}}>
-              {TEAM.slice(1).map((t) => <div key={t.key} style={{display: 'flex', gap: 8, alignItems: 'center', padding: '7px 0'}}><Bot shape={t.shape} color={t.color} size={22} bob={0} /><div style={{width: 80, height: 10, borderRadius: 5, background: '#333'}} /></div>)}
+            <div style={{width: 180, background: '#F7F7F8', padding: 12}}>
+              {TEAM.slice(1).map((t) => <div key={t.key} style={{display: 'flex', gap: 8, alignItems: 'center', padding: '7px 0'}}><Bot shape={t.shape} color={t.color} size={22} bob={0} /><div style={{width: 80, height: 10, borderRadius: 5, background: '#E4E4EA'}} /></div>)}
             </div>
           </div>
-          <div style={{position: 'absolute', left: 190, top: 16, width: 360, height: 358, borderRadius: 16, background: '#1a1a1a', border: '1px solid rgba(255,255,255,0.12)', padding: '12px 18px', color: '#fff'}}>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'rgba(255,255,255,0.6)'}}><span>Create New Bot</span><span>✕</span></div>
+          <div style={{position: 'absolute', left: 190, top: 16, width: 360, height: 358, borderRadius: 16, background: '#F1F1F4', border: '1px solid rgba(21,21,28,0.12)', padding: '12px 18px', color: '#15151c'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'rgba(21,21,28,0.6)'}}><span>Create New Bot</span><span>✕</span></div>
             <div style={{display: 'flex', justifyContent: 'center', marginTop: 6}}><Bot shape={SH[pick % 4]} color={DOTS[colorI]} size={74} bob={3} /></div>
-            <div style={{margin: '8px auto', width: 260, height: 34, borderRadius: 9, background: '#111', border: '1px solid rgba(255,255,255,0.12)', textAlign: 'center', lineHeight: '34px', fontSize: 16, fontWeight: 700, color: f > at(0.6) ? '#fff' : 'rgba(255,255,255,0.35)'}}>
+            <div style={{margin: '8px auto', width: 260, height: 34, borderRadius: 9, background: '#F7F7F8', border: '1px solid rgba(21,21,28,0.12)', textAlign: 'center', lineHeight: '34px', fontSize: 16, fontWeight: 700, color: f > at(0.6) ? '#15151c' : 'rgba(21,21,28,0.35)'}}>
               {f > at(0.6) ? typed('Chief Brain', f, at(0.6), 14) : 'Name your Bot'}
             </div>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 5, justifyItems: 'center'}}>
               {Array.from({length: 12}).map((_, i) => (
-                <div key={i} style={{width: 40, height: 40, borderRadius: 10, background: i === pick ? '#2a2a2a' : 'transparent', border: i === pick ? `2px solid ${DOTS[colorI]}` : '2px solid transparent', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div key={i} style={{width: 40, height: 40, borderRadius: 10, background: i === pick ? '#E9E9EE' : 'transparent', border: i === pick ? `2px solid ${DOTS[colorI]}` : '2px solid transparent', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   <Bot shape={SH[i % 4]} color={i === pick ? DOTS[colorI] : '#9a9aa6'} size={26} bob={0} />
                 </div>
               ))}
@@ -336,8 +336,8 @@ export const Create: React.FC<P> = ({vo}) => {
               {DOTS.map((c, i) => <div key={c} style={{width: 18, height: 18, borderRadius: 9, background: c, outline: i === colorI ? '2px solid #fff' : 'none', outlineOffset: 2}} />)}
             </div>
             <div style={{display: 'flex', justifyContent: 'flex-end', gap: 10}}>
-              <span style={{fontSize: 14, padding: '7px 16px', color: 'rgba(255,255,255,0.7)'}}>Cancel</span>
-              <span style={{fontSize: 14, fontWeight: 700, padding: '7px 18px', borderRadius: 9999, background: ready ? '#fff' : '#2a2a2a', color: ready ? '#0a0a0a' : 'rgba(255,255,255,0.4)'}}>Create</span>
+              <span style={{fontSize: 14, padding: '7px 16px', color: 'rgba(21,21,28,0.7)'}}>Cancel</span>
+              <span style={{fontSize: 14, fontWeight: 700, padding: '7px 18px', borderRadius: 9999, background: ready ? '#15151c' : '#E9E9EE', color: ready ? '#0a0a0a' : 'rgba(21,21,28,0.4)'}}>Create</span>
             </div>
           </div>
         </div>
@@ -349,7 +349,7 @@ export const Create: React.FC<P> = ({vo}) => {
       ].map((s, i) => (
         <In key={s.t} at={at(s.a)} style={{position: 'absolute', left: 1020, top: 220 + i * 80}}>
           <div style={{display: 'inline-flex', alignItems: 'center', gap: 10, background: '#fff', borderRadius: 14, padding: '9px 16px', boxShadow: 'var(--op-shadow)', fontSize: 21, fontWeight: 700}}>
-            <span style={{background: ACC, color: '#fff', width: 28, height: 28, borderRadius: 14, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 16}}>{i + 1}</span>
+            <span style={{background: ACC, color: '#15151c', width: 28, height: 28, borderRadius: 14, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 16}}>{i + 1}</span>
             {s.t}
           </div>
         </In>
@@ -406,17 +406,17 @@ export const Board: React.FC<P> = ({vo}) => {
     <RSlide vo={vo}>
       <Head label="What Chief Brain builds">A *command board*</Head>
       <In at={at(0.04)} tick={false} style={{position: 'absolute', left: 72, top: 150}}>
-        <div style={{width: 1136, height: 395, borderRadius: 20, background: '#11131c', boxShadow: '0 28px 70px rgba(20,25,60,0.35)', padding: '18px 24px', color: '#fff', boxSizing: 'border-box'}}>
+        <div style={{width: 1136, height: 395, borderRadius: 20, background: '#ffffff', boxShadow: '0 28px 70px rgba(20,25,60,0.35)', padding: '18px 24px', color: '#15151c', boxSizing: 'border-box'}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 12}}>
-            <div style={{fontFamily: mono.fontFamily, fontSize: 13, letterSpacing: 2, color: 'rgba(255,255,255,0.5)'}}>TEAM BOARD · SAMPLE DATA</div>
+            <div style={{fontFamily: mono.fontFamily, fontSize: 13, letterSpacing: 2, color: 'rgba(21,21,28,0.5)'}}>TEAM BOARD · SAMPLE DATA</div>
             <div style={{flex: 1}} />
             {[
               {t: 'Driftwood Supply', s: 'online gear store', a: 0.62},
               {t: 'Brightlane', s: 'marketing agency', a: 0.72},
             ].map((b) => (
               <In key={b.t} at={at(b.a)}>
-                <div style={{background: 'rgba(255,255,255,0.08)', borderRadius: 9999, padding: '6px 14px', fontSize: 15}}>
-                  <b>{b.t}</b> <span style={{color: 'rgba(255,255,255,0.55)'}}>· {b.s}</span>
+                <div style={{background: 'rgba(21,21,28,0.08)', borderRadius: 9999, padding: '6px 14px', fontSize: 15}}>
+                  <b>{b.t}</b> <span style={{color: 'rgba(21,21,28,0.55)'}}>· {b.s}</span>
                 </div>
               </In>
             ))}
@@ -427,10 +427,10 @@ export const Board: React.FC<P> = ({vo}) => {
               <div style={{flex: 1}}>
                 <div style={{fontSize: 13, letterSpacing: 2, fontFamily: mono.fontFamily, color: M.head.color}}>HEAD BOT</div>
                 <div style={{fontSize: 26, fontWeight: 800}}>Chief Brain</div>
-                <div style={{fontSize: 15, color: 'rgba(255,255,255,0.6)'}}>Reads every report, writes the morning brief</div>
+                <div style={{fontSize: 15, color: 'rgba(21,21,28,0.6)'}}>Reads every report, writes the morning brief</div>
               </div>
               <div style={{textAlign: 'right'}}>
-                <div style={{fontSize: 13, color: 'rgba(255,255,255,0.5)', fontFamily: mono.fontFamily}}>ROUTINE</div>
+                <div style={{fontSize: 13, color: 'rgba(21,21,28,0.5)', fontFamily: mono.fontFamily}}>ROUTINE</div>
                 <div style={{fontSize: 26, fontWeight: 800}}>8:00 AM · Mon–Fri</div>
               </div>
             </div>
@@ -438,12 +438,12 @@ export const Board: React.FC<P> = ({vo}) => {
           <div style={{display: 'flex', gap: 14, marginTop: 16}}>
             {cards.map((c, i) => (
               <In key={c.m.key} at={at(0.26) + i * at(0.08)} style={{flex: 1}}>
-                <div style={{background: 'rgba(255,255,255,0.05)', borderTop: `4px solid ${c.m.color}`, borderRadius: 14, padding: '12px 14px', height: 150, boxSizing: 'border-box'}}>
+                <div style={{background: 'rgba(21,21,28,0.05)', borderTop: `4px solid ${c.m.color}`, borderRadius: 14, padding: '12px 14px', height: 150, boxSizing: 'border-box'}}>
                   <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
                     <Bot shape={c.m.shape} color={c.m.color} size={30} bob={1} />
                     <div style={{fontSize: 19, fontWeight: 800}}>{c.m.name}</div>
                   </div>
-                  <div style={{fontSize: 15, color: 'rgba(255,255,255,0.62)', margin: '8px 0 14px'}}>{c.m.job}</div>
+                  <div style={{fontSize: 15, color: 'rgba(21,21,28,0.62)', margin: '8px 0 14px'}}>{c.m.job}</div>
                   <div style={{fontFamily: mono.fontFamily, fontSize: 14, color: c.m.color === BOT_COLORS.blue ? '#5aa2f0' : c.m.color}}>⏱ {c.time}</div>
                 </div>
               </In>

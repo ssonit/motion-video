@@ -386,7 +386,7 @@ export const CadenceOP: React.FC<P> = ({vo}) => {
       <Head label="Rung 1 · Schedule + Signal">Twice a day, with a heads-up</Head>
       <Abs x={140} y={190} style={{width: 300, height: 300}}>
         <svg width="300" height="300" viewBox="0 0 300 300">
-          <circle cx="150" cy="150" r="130" fill={CARD2} stroke={R.line} strokeWidth="3" />
+          <circle cx="150" cy="150" r="130" fill={CARD2} stroke="rgba(255,255,255,0.09)" strokeWidth="3" />
           {Array.from({length: 12}).map((_, i) => (
             <line key={i} x1="150" y1="28" x2="150" y2="40" stroke={DIM} strokeWidth="3" transform={`rotate(${i * 30} 150 150)`} />
           ))}
@@ -680,7 +680,7 @@ export const WinrateOP: React.FC<P> = ({vo}) => {
       <Head label="Rung 4 · Signal">Win rate and clean records</Head>
       <Abs x={130} y={210}>
         <svg width="500" height="220" viewBox="-10 -10 510 220">
-          <path d="M0 200H490" stroke={R.line} strokeWidth="2" />
+          <path d="M0 200H490" stroke="rgba(255,255,255,0.09)" strokeWidth="2" />
           <path d={path} fill="none" stroke={R.green} strokeWidth="6" strokeLinejoin="round" strokeLinecap="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - k} />
         </svg>
         <div style={{fontSize: 20, color: DIM, marginTop: 6}}>Win rate, week by week</div>
@@ -709,7 +709,7 @@ export const BrainOP: React.FC<P> = ({vo}) => {
       <Head label="The final step">One shared brain</Head>
       <Abs x={0} y={190} style={{width: 1280, height: 330}}>
         <svg width="1280" height="330" style={{position: 'absolute', inset: 0}}>
-          {src.map((_, i) => <line key={i} x1="640" y1="165" x2={90 + i * 60} y2={30 + i * 66} stroke={R.line} strokeWidth="3" />)}
+          {src.map((_, i) => <line key={i} x1="640" y1="165" x2={90 + i * 60} y2={30 + i * 66} stroke="rgba(255,255,255,0.09)" strokeWidth="3" />)}
           {bots.map((_, i) => <line key={i} x1="640" y1="165" x2="1100" y2={25 + i * 90} stroke={COLS[i]} strokeWidth="3" opacity={f > at(0.5) ? 1 : 0.2} />)}
         </svg>
         {src.map((s, i) => (

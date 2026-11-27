@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
-import {clamp} from '../../lib/kit';
+import {MUSIC_ON, clamp} from '../../lib/kit';
 import type {P} from '../../lib/kit';
 import {FooterCtx} from '../real/ui';
 
@@ -36,11 +36,11 @@ export const makePart = (opts: {
     return (
       <AbsoluteFill style={{background: '#121214', ...theme}}>
         <FooterCtx.Provider value={`${label} · PART ${n} OF ${total}`}>
-          <Audio
+          {MUSIC_ON && <Audio
             src={staticFile('shared/sfx/bed.wav')}
             loop
             volume={(f) => 0.09 * interpolate(f, [0, 30, frames - 90, frames], [0, 1, 1, 0], clamp)}
-          />
+          />}
           {slides.map((s) => {
             const Scene = scenes[s.id];
             const start = from;

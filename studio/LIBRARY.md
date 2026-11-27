@@ -18,7 +18,7 @@ Register shots in a `SCENES: Record<id, React.FC<P>>` map and loop over slides.j
 | `Mascot.tsx` | `Mascot` (`color,size,phase,satellite,acc: glasses\|headphones\|cap\|crown\|tie\|none`) | the orb character (no human photos) |
 | `Pop.tsx` | `Pop` | spring entrance for any element |
 
-Sound: `Sfx name=` `tick1-3`, `pop1/2`, `whoosh`, `ding`, `typing`, `bed` (music, in the root composition at volume ≈0.09).
+Sound: `Sfx name=` `tick1-3`, `pop1/2`, `whoosh`, `ding`, `typing`, `bed` (music; OFF by default since 2026-11-27, `MUSIC_ON` in kit.tsx).
 Layout rule: keep content above y≈545 (captions occupy ≈560–660).
 
 ## 2. Full-bleed illustrations (`videos/rich/Illustrations.tsx`) — use `<Slide bare>`
@@ -130,7 +130,7 @@ Run `python tools/sfx.py` once (files already exist). Played with `<Sfx at={fram
 | `typing` | run of mechanical key clicks | whenever text is typed (`typed()` helper) |
 | `bed` | 112 BPM loop: plucks + kick/hat/clap, upbeat | one `<Audio loop volume=0.09>` in the root composition with 1 s fade in, 3 s fade out; keep it quiet under the voice |
 
-Rules: whoosh at each shot start, tick on every card/chip, typing on typed text, ding on payoff, quiet bed. Don't stack more than
+Rules: whoosh at each shot start, tick on every card/chip, typing on typed text, ding on payoff, no music bed unless the user asks (`MUSIC_ON`). Don't stack more than
 ~3 effects at the same frame. Final pass is always `loudnorm I=-16, TP=-1.5` (render.py). We cannot listen — only check levels
 (`ffmpeg -af volumedetect`) and say so. New sound? add a generator in `tools/sfx.py`, rerun, add a row here.
 

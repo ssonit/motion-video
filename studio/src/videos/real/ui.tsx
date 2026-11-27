@@ -13,15 +13,15 @@ import {Bot} from './BotMark';
  * white primary button, GrokBotMark avatars. Fan-made, all text invented.
  */
 export const R = {
-  bg: '#0A0A0A',
-  panel: '#111111',
-  card: '#202020',
-  card2: '#171717',
-  line: 'rgba(255,255,255,0.09)',
-  text: '#FFFFFF',
-  mute: 'rgba(255,255,255,0.7)',
-  dim: 'rgba(255,255,255,0.42)',
-  user: '#E0398E',
+  bg: 'var(--r-bg, #0A0A0A)',
+  panel: 'var(--r-panel, #111111)',
+  card: 'var(--r-card, #202020)',
+  card2: 'var(--r-card2, #171717)',
+  line: 'var(--r-line, rgba(255,255,255,0.09))',
+  text: 'var(--r-text, #FFFFFF)',
+  mute: 'var(--r-mute, rgba(255,255,255,0.7))',
+  dim: 'var(--r-dim, rgba(255,255,255,0.42))',
+  user: 'var(--r-user, #E0398E)',
   ...BOT_COLORS,
 };
 
@@ -298,14 +298,14 @@ export const AppWindow: React.FC<{
         borderRadius: 18,
         background: R.bg,
         border: `1.5px solid ${R.line}`,
-        boxShadow: '0 30px 90px rgba(0,0,0,0.7), 0 0 0 1px #000',
+        boxShadow: 'var(--r-shadow, 0 30px 90px rgba(0,0,0,0.7), 0 0 0 1px #000)',
         display: 'flex',
         overflow: 'hidden',
         position: 'relative',
       }}
     >
       {rail && (
-        <div style={{width: railW, background: '#0D0D0D', borderRight: `1px solid ${R.line}`, padding: '14px 12px', display: 'flex', flexDirection: 'column'}}>
+        <div style={{width: railW, background: 'var(--r-panel, #0D0D0D)', borderRight: `1px solid ${R.line}`, padding: '14px 12px', display: 'flex', flexDirection: 'column'}}>
           <div style={{display: 'flex', justifyContent: 'flex-end', gap: 8}}>
             {[<IconSearch key="s" s={15} />, <IconPlus key="p" s={15} />].map((ic, i) => (
               <div key={i} style={{width: 30, height: 30, borderRadius: '50%', background: R.card, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -363,7 +363,7 @@ export const AppWindow: React.FC<{
                 {m.who === 'me' ? (
                   <div style={{background: R.user, borderRadius: 9999, padding: '9px 18px', fontSize: fs, fontWeight: 500, maxWidth: 400}}>{m.text}</div>
                 ) : (
-                  <div style={{background: '#161616', border: `1px solid ${R.line}`, borderRadius: 16, padding: '12px 16px', fontSize: fs, lineHeight: 1.4, color: 'rgba(255,255,255,0.92)'}}>{m.text}</div>
+                  <div style={{background: 'var(--r-card2, #161616)', border: `1px solid ${R.line}`, borderRadius: 16, padding: '12px 16px', fontSize: fs, lineHeight: 1.4, color: 'var(--r-text, rgba(255,255,255,0.92))'}}>{m.text}</div>
                 )}
               </In>
             ))}
@@ -371,13 +371,13 @@ export const AppWindow: React.FC<{
         {input && <InputPill text={input.text} placeholder={input.placeholder ?? `Message ${bot.name}`} color={bot.color === R.white ? R.pink : bot.color} w={Math.min(560, w - railW - panelW - 60)} cursor={input.cursor} size={15} />}
       </div>
       {panel && (
-        <div style={{width: panelW, borderLeft: `1px solid ${R.line}`, background: '#0D0D0D', padding: '16px 14px', display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
+        <div style={{width: panelW, borderLeft: `1px solid ${R.line}`, background: 'var(--r-panel, #0D0D0D)', padding: '16px 14px', display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Bot shape={bot.shape} color={bot.color} size={72} bob={3} />
             <div style={{fontSize: 18, fontWeight: 500, marginTop: 6}}>{bot.name}</div>
             <div style={{display: 'flex', gap: 6, marginTop: 10, fontSize: 13}}>
-              <span style={{background: tab === 'Activity' ? R.card : 'transparent', color: tab === 'Activity' ? '#fff' : R.dim, borderRadius: 9999, padding: '4px 12px'}}>Activity</span>
-              <span style={{background: tab === 'Library' ? R.card : 'transparent', color: tab === 'Library' ? '#fff' : R.dim, borderRadius: 9999, padding: '4px 12px'}}>Library</span>
+              <span style={{background: tab === 'Activity' ? R.card : 'transparent', color: tab === 'Activity' ? 'var(--r-text, #fff)' : R.dim, borderRadius: 9999, padding: '4px 12px'}}>Activity</span>
+              <span style={{background: tab === 'Library' ? R.card : 'transparent', color: tab === 'Library' ? 'var(--r-text, #fff)' : R.dim, borderRadius: 9999, padding: '4px 12px'}}>Library</span>
             </div>
           </div>
           <div style={{marginTop: 14}}>{panel}</div>

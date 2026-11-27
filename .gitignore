@@ -46,4 +46,4 @@ footage/**
 
 # browser tool logs, yt-dlp metadata dumps (~11 MB each)
 .playwright-mcp/
-references/yt-*/source.info.json
+references/*/source.info.json

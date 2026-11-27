@@ -1,0 +1,42 @@
+[
+  {
+    "id": "hook",
+    "vo": "Five AI Bots run my store and my agency while I sleep. And they check each other's work.",
+    "frames": 152
+  },
+  {
+    "id": "glue",
+    "vo": "Most people use AI as separate chats, and end up as the glue between them.",
+    "frames": 128
+  },
+  {
+    "id": "head",
+    "vo": "The fix: build a head first. One Chief Bot that every other Bot reports to.",
+    "frames": 132
+  },
+  {
+    "id": "body",
+    "vo": "Then one job per Bot. Store. Clients. Content. Leads.",
+    "frames": 101
+  },
+  {
+    "id": "shield",
+    "vo": "Add a shield: nothing reaches a customer without your OK.",
+    "frames": 106
+  },
+  {
+    "id": "catch",
+    "vo": "Now put them in one group chat. Store Bot says packs are running low, and Content Bot holds the pack video on its own.",
+    "frames": 186
+  },
+  {
+    "id": "morning",
+    "vo": "At eight, the plan is waiting. You just say yes.",
+    "frames": 89
+  },
+  {
+    "id": "loop",
+    "vo": "But one switch breaks all of it. It's tip three in the full video.",
+    "frames": 110
+  }
+]

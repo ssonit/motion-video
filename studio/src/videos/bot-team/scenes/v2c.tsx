@@ -67,22 +67,22 @@ export const Morning: React.FC<P> = ({vo}) => {
     <RSlide vo={vo}>
       <Sfx at={at(0.45)} name="pop2" vol={0.26} dur={20} />
       <Sfx at={at(0.75)} name="ding" vol={0.24} dur={40} />
-      <div style={{position: 'absolute', left: 80, top: 80, width: 620, height: 465, borderRadius: 28, overflow: 'hidden', background: `linear-gradient(180deg, ${mix([20, 24, 60], [255, 196, 140])}, ${mix([46, 40, 90], [255, 236, 210])})`, boxShadow: 'var(--op-shadow)'}}>
+      <div style={{position: 'absolute', left: 80, top: 80, width: 620, height: 465, borderRadius: 28, overflow: 'hidden', background: mix([222, 226, 236], [234, 241, 252]), boxShadow: 'var(--op-shadow)'}}>
         {[...Array(14)].map((_, i) => (
-          <div key={i} style={{position: 'absolute', left: (i * 97) % 600, top: 20 + ((i * 53) % 180), width: 3, height: 3, borderRadius: 2, background: '#fff', opacity: (1 - sun) * 0.9}} />
+          <div key={i} style={{position: 'absolute', left: (i * 97) % 600, top: 20 + ((i * 53) % 180), width: 3, height: 3, borderRadius: 2, background: '#15151c', opacity: (1 - sun) * 0.25}} />
         ))}
-        <div style={{position: 'absolute', left: 250, top: 390 - sun * 200, width: 120, height: 120, borderRadius: 60, background: sun > 0.2 ? '#ffb347' : '#f4f1de', boxShadow: `0 0 ${60 * sun + 20}px ${sun > 0.2 ? '#ffb347' : '#f4f1de'}`}} />
+        <div style={{position: 'absolute', left: 250, top: 390 - sun * 200, width: 120, height: 120, borderRadius: 60, background: sun > 0.2 ? '#F2C14E' : '#ffffff'}} />
         <svg width={620} height={465} style={{position: 'absolute', left: 0, top: 0}}>
-          <path d="M0 360 Q 150 300 300 350 T 620 330 V465 H0Z" fill={mix([30, 30, 70], [120, 170, 120])} />
-          <path d="M0 400 Q 200 360 380 395 T 620 380 V465 H0Z" fill={mix([20, 20, 50], [80, 140, 95])} />
+          <path d="M0 360 Q 150 300 300 350 T 620 330 V465 H0Z" fill="#D3DAE5" />
+          <path d="M0 400 Q 200 360 380 395 T 620 380 V465 H0Z" fill="#C3CCDA" />
         </svg>
-        <div style={{position: 'absolute', left: 30, top: 26, fontFamily: mono.fontFamily, fontSize: 64, fontWeight: 700, color: sun > 0.5 ? '#2b1d10' : '#fff'}}>
+        <div style={{position: 'absolute', left: 30, top: 26, fontFamily: mono.fontFamily, fontSize: 64, fontWeight: 700, color: '#15151c'}}>
           {String(hh).padStart(2, '0')}:{String(mm).padStart(2, '0')}
         </div>
-        <div style={{position: 'absolute', left: 34, top: 108, fontSize: 20, fontWeight: 700, color: sun > 0.5 ? '#5a3d20' : 'rgba(255,255,255,0.7)'}}>{sun < 0.5 ? 'you’re asleep · the team is working' : 'good morning'}</div>
+        <div style={{position: 'absolute', left: 34, top: 108, fontSize: 20, fontWeight: 700, color: 'rgba(21,21,28,0.6)'}}>{sun < 0.5 ? 'you’re asleep · the team is working' : 'good morning'}</div>
       </div>
       <div style={{position: 'absolute', left: 780, top: 90, width: 300, height: 450, borderRadius: 44, background: '#111', padding: 12, boxSizing: 'border-box', boxShadow: '0 24px 60px rgba(20,25,60,0.35)'}}>
-        <div style={{width: '100%', height: '100%', borderRadius: 34, background: 'linear-gradient(180deg, #ffe2c4, #ffd0a8)', padding: '40px 14px', boxSizing: 'border-box', position: 'relative'}}>
+        <div style={{width: '100%', height: '100%', borderRadius: 34, background: '#F7F7F8', padding: '40px 14px', boxSizing: 'border-box', position: 'relative'}}>
           <div style={{textAlign: 'center', fontSize: 52, fontWeight: 300, color: '#3a2a1a'}}>8:00</div>
           <div style={{transform: `translateY(${(1 - note) * -80}px)`, opacity: Math.min(1, note * 2), marginTop: 26, background: 'rgba(255,255,255,0.92)', borderRadius: 20, padding: '12px 14px', boxShadow: '0 10px 30px rgba(0,0,0,0.15)'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: 8}}>

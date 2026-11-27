@@ -41,8 +41,15 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
 ```
 
 ## Conventions (learned from the user's feedback)
-- 1280x720, 30 fps. Dark-orange "ember" look is the default (one-person series); Grok Bot videos use the BotGuideReal look (see below); other palettes per scene are welcome.
-- **Every scene must look different** (illustration, app window, phone, chart, before/after, org chart…).
+- 1280x720, 30 fps.
+- **One calm colour system per video (user, 2026-11-27): default for every new video = `PAPER_THEME`**
+  (`studio/src/videos/shared/themes.ts`, style ref `references/yt-EH0a_0k8-GY`): the same near-white background
+  `#F7F7F8` in EVERY scene, white cards with one soft shadow, ink text, ONE accent (blue `#1E6FE0`); Grok Bot app
+  windows light too (`--r-*` vars). No `sceneTheme` / per-scene background colours, no gradients, no glow halos, no dark
+  "night"/"warning" walls, no coloured keyword text; Bot marks keep their own colours. Rejected three times on bot-team
+  as "looks AI" / "patchwork, as if each page was made by a different person". Older looks (ember = one-person,
+  rotating pastels = lazy-agency, dark BotGuideReal) stay only for re-renders of those existing videos.
+- **Every scene must look different, by layout and subject, never by colour** (illustration, app window, phone, chart, before/after, org chart…).
   One repeated card template was rejected twice as boring ("only one form of scene"). The reference videos cut
   every ~5–8 s between: full-bleed 3D-style illustrations (desk at night, team at desks, devices ring, beach, sunset
   fortress, water cooler…), app screen recordings, phone walkthroughs with callouts, neon panels, big chapter cards,
@@ -81,7 +88,8 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
   Fallback / default: edge-tts (`--voice`), never the offline Windows voices (too flat). Default en-US-GuyNeural;
   female en-US-AriaNeural. Vietnamese: vi-VN-HoaiMyNeural / vi-VN-NamMinhNeural.
 - **Sound design matters**: whoosh at each scene start, tick on every card/chip, typing sound on typed text,
-  ding on key moments, quiet beat music bed. Always finish with loudnorm (render.py does it).
+  ding on key moments. **No background music (user, 2026-11-27):** `MUSIC_ON = false` in `studio/src/lib/kit.tsx`
+  turns the bed off for every video (makePart + shorts); only voice + sfx. Turn it on only if the user asks. Always finish with loudnorm (render.py does it).
 - **No on-screen subtitles (user, 2026-11-26).** `CAPTIONS_ON = false` in `studio/src/lib/kit.tsx` turns them off for every
   video; only turn it on if the user asks. Scenes may now use the full height (the old y≈545 limit was for captions).
 - Fonts: Inter + JetBrains Mono (English). For Vietnamese text use Be Vietnam Pro (JetBrains Mono has no Vietnamese).
@@ -108,6 +116,7 @@ archive/       older experiments (demo, grok3min) — keep, do not delete
   and leftover `%LOCALAPPDATA%\Temp\remotion-*` folders. Write scratch images to `.tmp/`, not C:.
 - **APPROVED (2026-11-19): `BotGuideReal` (output/grok-bot/bot-guide-real-en_female-aria.mp4) is the standard look for Grok Bot videos.**
   For any new Grok Bot video, copy `src/videos/grok-bot/BotGuideReal.tsx` + reuse `src/videos/real/` (ui.tsx, ScenesA/B, BotMark) and LIBRARY.md §9b; never go back to the orb Mascot or generic windows.
+  Colours: since 2026-11-27 render those components under `PAPER_THEME` (light windows), not the dark BotGuideReal palette.
 - **Want a UI to look exact? Capture the real interface first** (screenshots/screen recording of each needed screen, saved in
   `references/<ui-name>/`) and rebuild from them; without captures we only make a loose, generic version.
 - Grok Bot visuals: the real UI is only a loose reference (user said "không cần quá sát"); keep our own look, borrow layout/colours/mark from `references/grok-bot-ui/`.

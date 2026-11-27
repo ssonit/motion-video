@@ -1,0 +1,107 @@
+[
+  {
+    "id": "hook-cold",
+    "vo": "If you sell anything online, these three video ads were made without a camera, a creator, or an editor.",
+    "frames": 150
+  },
+  {
+    "id": "hook-claim",
+    "vo": "One team of Grok Bots wrote them, made them, and launched them.",
+    "frames": 150
+  },
+  {
+    "id": "hook-factory",
+    "vo": "I call it an ad factory, and today I'll build the whole thing in front of you.",
+    "frames": 150
+  },
+  {
+    "id": "hook-toc1",
+    "vo": "By the end, you'll know how to find an ad that already works,",
+    "frames": 150
+  },
+  {
+    "id": "hook-toc2",
+    "vo": "how to make a Bot break it down shot by shot,",
+    "frames": 150
+  },
+  {
+    "id": "hook-toc3",
+    "vo": "how to swap in your own product,",
+    "frames": 150
+  },
+  {
+    "id": "hook-toc4",
+    "vo": "turn one ad into three,",
+    "frames": 150
+  },
+  {
+    "id": "hook-toc5",
+    "vo": "and hand it all to a second Bot that launches the campaign.",
+    "frames": 150
+  },
+  {
+    "id": "hook-loop",
+    "vo": "Stay to the end, because there's one mistake in this setup that can get your ad account shut down.",
+    "frames": 150
+  },
+  {
+    "id": "proof-intro",
+    "vo": "Before the setup, let me show you what comes out the other end, so you know it's worth the next ten minutes.",
+    "frames": 150
+  },
+  {
+    "id": "proof-list",
+    "vo": "Ad one is a list format: three reasons I switched to cold brew, number one, no more two p.m. crash. Lists keep people watching to the end.",
+    "frames": 150
+  },
+  {
+    "id": "proof-story",
+    "vo": "Ad two is a story: a tiny problem, a discovery, a payoff, and an offer. It runs thirty seconds and still feels like a friend talking.",
+    "frames": 150
+  },
+  {
+    "id": "proof-demo",
+    "vo": "Ad three is a plain product demo: pour, sip, react. Short, almost boring, and these often have the cheapest clicks.",
+    "frames": 150
+  },
+  {
+    "id": "proof-same",
+    "vo": "All three came from the same Bot, the same product photo, and about one paragraph of instructions each.",
+    "frames": 150
+  },
+  {
+    "id": "why-ugc",
+    "vo": "First, why this matters. UGC means user-generated content: a normal-looking person, holding a phone, talking about a product.",
+    "frames": 150
+  },
+  {
+    "id": "why-cost",
+    "vo": "Those ads usually win on social feeds, but every one of them costs a creator, a shoot, and a few days of waiting.",
+    "frames": 150
+  },
+  {
+    "id": "why-test",
+    "vo": "And you never need one ad. You need ten, so you can test which hook actually sells.",
+    "frames": 150
+  },
+  {
+    "id": "why-model",
+    "vo": "What changed is the video models. Seedance 2.5 can now generate thirty seconds of a person talking, holding your product, in one go.",
+    "frames": 150
+  },
+  {
+    "id": "why-bot",
+    "vo": "And Grok Bot gives you AI teammates with their own computer, that can use tools like that for you.",
+    "frames": 150
+  },
+  {
+    "id": "why-need",
+    "vo": "What you need: the Grok Bot app, an account with a video model, a Meta ad account, and one good photo of your product. That's the whole kit.",
+    "frames": 150
+  },
+  {
+    "id": "why-map",
+    "vo": "Put them together and you get a five-step line: find, break down, recreate, multiply, launch.",
+    "frames": 150
+  }
+]

@@ -32,13 +32,13 @@ export const Test: React.FC<P> = ({vo}) => {
       <Sfx at={at(0.78)} name="ding" vol={0.24} dur={40} />
       <Head label="Test before you go on">Ask the Chief: *who does what?*</Head>
       <In at={at(0.04)} style={{position: 'absolute', left: 90, top: 175}}>
-        <div style={{width: 640, background: '#0A0A0A', color: '#fff', borderRadius: 18, padding: '16px 20px', boxShadow: '0 24px 60px rgba(20,25,60,0.35)'}}>
+        <div style={{width: 640, background: '#ffffff', color: '#15151c', borderRadius: 18, padding: '16px 20px', boxShadow: '0 24px 60px rgba(20,25,60,0.35)'}}>
           <div style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div style={{background: R.user, borderRadius: 9999, padding: '8px 16px', fontSize: 17, fontWeight: 600}}>What does each Bot do?</div>
           </div>
           <div style={{display: 'flex', gap: 10, marginTop: 12}}>
             <Bot shape={M.head.shape} color={M.head.color} size={32} bob={1} />
-            <div style={{flex: 1, background: '#161616', borderRadius: 14, padding: '8px 12px', border: `1px solid ${R.line}`}}>
+            <div style={{flex: 1, background: '#F1F1F4', borderRadius: 14, padding: '8px 12px', border: `1px solid ${R.line}`}}>
               {rows.map((r, i) => (
                 <In key={i} at={at(0.14) + i * 7} tick={false} style={{display: 'flex', alignItems: 'center', gap: 8, padding: '6px 0', color: r.bad && wrong && !fixed ? '#ff7b7f' : '#fff', fontSize: 17}}>
                   <Bot shape={r.m.shape} color={r.m.color} size={20} bob={0} />
@@ -57,7 +57,7 @@ export const Test: React.FC<P> = ({vo}) => {
         </div>
       </In>
       <In at={at(0.66)} style={{position: 'absolute', left: 780, top: 340}}>
-        <div style={{width: 400, background: 'rgba(255,255,255,0.55)', borderRadius: 22, padding: '18px 22px', border: '2px dashed rgba(21,21,28,0.2)'}}>
+        <div style={{width: 400, background: 'rgba(21,21,28,0.55)', borderRadius: 22, padding: '18px 22px', border: '2px dashed rgba(21,21,28,0.2)'}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 10, fontSize: 24, fontWeight: 800, color: DIM}}><Ico n="x" s={26} c={RED} /> Patch the board</div>
           <div style={{fontSize: 18, color: DIM, marginTop: 6}}>breaks again tomorrow</div>
         </div>
@@ -197,8 +197,8 @@ export const ContentMsg: React.FC<P> = ({vo}) => {
       <Sfx at={send} name="whoosh" vol={0.2} dur={20} />
       <Head label="Content Bot · the exact message">Feed it the *team’s findings*</Head>
       <In at={at(0.02)} tick={false} style={{position: 'absolute', left: 140, top: 150}}>
-        <div style={{width: 280, height: 390, borderRadius: 40, background: '#111', padding: 12, boxShadow: '0 24px 60px rgba(20,25,60,0.35)'}}>
-          <div style={{width: '100%', height: '100%', borderRadius: 30, background: '#0A0A0A', color: '#fff', padding: '30px 14px 14px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column'}}>
+        <div style={{width: 280, height: 390, borderRadius: 40, background: '#F7F7F8', padding: 12, boxShadow: '0 24px 60px rgba(20,25,60,0.35)'}}>
+          <div style={{width: '100%', height: '100%', borderRadius: 30, background: '#ffffff', color: '#15151c', padding: '30px 14px 14px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center', marginBottom: 12}}>
               <Bot shape={M.chest.shape} color={M.chest.color} size={26} bob={0} />
               <span style={{fontSize: 15, fontWeight: 700}}>Content Bot</span>
@@ -211,7 +211,7 @@ export const ContentMsg: React.FC<P> = ({vo}) => {
               )}
               {f >= send + 20 && <In at={send + 20}><div style={{background: '#1c1c1c', borderRadius: 16, padding: '8px 12px', fontSize: 14}}>Reading Store + Client reports…</div></In>}
             </div>
-            <div style={{height: 34, borderRadius: 17, background: '#1a1a1a', marginTop: 10, fontSize: 12, padding: '0 12px', lineHeight: '34px', color: f < send ? '#fff' : 'rgba(255,255,255,0.4)', whiteSpace: 'nowrap', overflow: 'hidden'}}>
+            <div style={{height: 34, borderRadius: 17, background: '#F1F1F4', marginTop: 10, fontSize: 12, padding: '0 12px', lineHeight: '34px', color: f < send ? '#15151c' : 'rgba(21,21,28,0.4)', whiteSpace: 'nowrap', overflow: 'hidden'}}>
               {f < send ? typed(CONTENT_MSG, f, at(0.06), 40).slice(-30) : 'Message'}
             </div>
           </div>
@@ -255,10 +255,10 @@ export const LeadMsg: React.FC<P> = ({vo}) => {
       <Sfx at={at(0.06)} name="typing" vol={0.15} dur={110} />
       <Head label="Lead Bot · the exact message">Hunt for the *biggest gap*</Head>
       <In at={at(0.02)} tick={false} style={{position: 'absolute', left: 90, top: 165}}>
-        <div style={{width: 1100, background: '#10201e', color: '#d8fff7', borderRadius: 18, boxShadow: '0 24px 60px rgba(10,40,40,0.35)', overflow: 'hidden'}}>
-          <div style={{height: 38, background: '#0b1716', display: 'flex', alignItems: 'center', gap: 8, padding: '0 14px'}}>
+        <div style={{width: 1100, background: '#ffffff', color: '#15151c', borderRadius: 18, boxShadow: '0 24px 60px rgba(10,40,40,0.35)', overflow: 'hidden'}}>
+          <div style={{height: 38, background: '#F7F7F8', display: 'flex', alignItems: 'center', gap: 8, padding: '0 14px'}}>
             {['#ff5f57', '#febc2e', '#28c840'].map((c) => <div key={c} style={{width: 11, height: 11, borderRadius: 6, background: c}} />)}
-            <span style={{marginLeft: 10, fontFamily: mono.fontFamily, fontSize: 14, color: 'rgba(216,255,247,0.6)'}}>lead-bot · brief.txt</span>
+            <span style={{marginLeft: 10, fontFamily: mono.fontFamily, fontSize: 14, color: 'rgba(21,21,28,0.6)'}}>lead-bot · brief.txt</span>
           </div>
           <div style={{padding: '22px 28px', fontFamily: mono.fontFamily, fontSize: 27, lineHeight: 1.65, whiteSpace: 'pre-wrap', minHeight: 230}}>
             {LEAD_MSG.map((s, i) => {
@@ -266,7 +266,7 @@ export const LeadMsg: React.FC<P> = ({vo}) => {
               used += s.t.length;
               if (!take) return null;
               const txt = s.t.slice(0, take);
-              return s.k ? <span key={i} style={{color: '#fff', borderBottom: `4px solid ${M.legs.color}`, fontWeight: 700}}>{txt}</span> : <span key={i}>{txt}</span>;
+              return s.k ? <span key={i} style={{color: '#15151c', borderBottom: `4px solid ${M.legs.color}`, fontWeight: 700}}>{txt}</span> : <span key={i}>{txt}</span>;
             })}
             <span style={{opacity: f % 20 < 10 ? 1 : 0}}>█</span>
           </div>
@@ -282,9 +282,9 @@ export const Sellers: React.FC<P> = ({vo}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const pod = [
-    {n: 'Wool socks', h: 150, c: '#d4a017', r: 1},
-    {n: 'Water bottle', h: 115, c: '#9aa4b2', r: 2},
-    {n: 'Camp mug', h: 90, c: '#c07a45', r: 3},
+    {n: 'Wool socks', h: 150, c: '#1E6FE0', r: 1},
+    {n: 'Water bottle', h: 115, c: '#A9AFBA', r: 2},
+    {n: 'Camp mug', h: 90, c: '#C3C8D0', r: 3},
   ];
   const order = [1, 0, 2];
   const slow = [
@@ -390,7 +390,7 @@ export const Ideas: React.FC<P> = ({vo}) => {
           <div key={it.t} style={{position: 'absolute', left: x, top: 200 + Math.abs(i - 2) * 18 * s, transform: `rotate(${ang}deg)`, transformOrigin: 'center 160%', opacity: Math.min(1, s * 2)}}>
             {i === 0 && <Sfx at={at(0.04)} name="whoosh" vol={0.18} dur={20} />}
             <div style={{width: 210, height: 290, background: '#fff', borderRadius: 22, boxShadow: 'var(--op-shadow)', padding: 14, boxSizing: 'border-box', display: 'flex', flexDirection: 'column'}}>
-              <div style={{height: 110, borderRadius: 14, background: `linear-gradient(135deg, ${M.chest.color}, #ff9a5a)`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{height: 110, borderRadius: 14, background: M.chest.color, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{width: 0, height: 0, borderLeft: '26px solid #fff', borderTop: '16px solid transparent', borderBottom: '16px solid transparent', marginLeft: 6}} />
               </div>
               <div style={{fontSize: 18, fontWeight: 800, marginTop: 10}}>{it.t}</div>

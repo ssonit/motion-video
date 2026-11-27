@@ -1,0 +1,132 @@
+[
+  {
+    "id": "sop-why",
+    "vo": "Before it copies anything, the Bot needs to know how to watch an ad. That's what a breakdown guide is for.",
+    "frames": 150
+  },
+  {
+    "id": "sop-list",
+    "vo": "Mine asks for five things: the hook in the first two seconds, every cut, what's on screen, the exact words, and the call to action.",
+    "frames": 150
+  },
+  {
+    "id": "sop-send",
+    "vo": "Attach the guide and write: read this, then break down the full video.",
+    "frames": 150
+  },
+  {
+    "id": "breakdown",
+    "vo": "The Bot measures the cuts, writes the script word for word, and lists every scene with its timing.",
+    "frames": 150
+  },
+  {
+    "id": "breakdown-sheet",
+    "vo": "It even builds a contact sheet, a grid of frames, and saves the whole thing as a file you can reuse.",
+    "frames": 150
+  },
+  {
+    "id": "breakdown-hook",
+    "vo": "Look at what it found: the hook isn't the product. It's the tired face. The product only shows up at second four.",
+    "frames": 150
+  },
+  {
+    "id": "breakdown-words",
+    "vo": "It also counts the words. This ad says about seventy words in twenty-three seconds, so your new script has to fit the same length.",
+    "frames": 150
+  },
+  {
+    "id": "breakdown-save",
+    "vo": "Tell it to save this method as a skill. Next time you just say: break this one down, the same way.",
+    "frames": 150
+  },
+  {
+    "id": "product-upload",
+    "vo": "Now swap in your product. Upload one clean photo, front-facing, on a plain background.",
+    "frames": 150
+  },
+  {
+    "id": "product-prompt",
+    "vo": "Then one prompt: recreate this ad with my product, use Seedance 2.5, keep the structure, and rewrite the lines for cold brew.",
+    "frames": 150
+  },
+  {
+    "id": "script-new",
+    "vo": "Before it renders, ask to see the new script. It keeps the same beats: tired at two p.m., found this, here's how it tastes, will you try it?",
+    "frames": 150
+  },
+  {
+    "id": "script-edit",
+    "vo": "Change any line you don't like now. Editing a sentence costs nothing; re-rendering a video costs credits and minutes.",
+    "frames": 150
+  },
+  {
+    "id": "voice-pick",
+    "vo": "Pick the creator and the voice in plain words too: late twenties, friendly, a little sleepy, kitchen in morning light.",
+    "frames": 150
+  },
+  {
+    "id": "render-steps",
+    "vo": "The Bot maps the old structure onto your can, rewrites the script, writes the video prompt, and sends it to the model.",
+    "frames": 150
+  },
+  {
+    "id": "render-wait",
+    "vo": "A thirty-second clip takes a few minutes. The Bot checks the job and pings you when it's ready.",
+    "frames": 150
+  },
+  {
+    "id": "result",
+    "vo": "And here's the result: same rhythm, same hook, new product, new words.",
+    "frames": 150
+  },
+  {
+    "id": "result-compare",
+    "vo": "Side by side with the original, the beats line up almost frame for frame.",
+    "frames": 150
+  },
+  {
+    "id": "result-check",
+    "vo": "Before you use it, watch it once yourself. Check the product looks right and every claim is true.",
+    "frames": 150
+  },
+  {
+    "id": "fix-bad",
+    "vo": "Sometimes a take comes out wrong: an extra finger, a label that melts, a can that changes colour halfway.",
+    "frames": 150
+  },
+  {
+    "id": "fix-prompt",
+    "vo": "Don't start over. Tell the Bot exactly what's wrong and which seconds: at second six the label is blurry, redo only that part.",
+    "frames": 150
+  },
+  {
+    "id": "vari-why",
+    "vo": "Next, one ad is a guess. Three ads are a test.",
+    "frames": 150
+  },
+  {
+    "id": "vari-prompt",
+    "vo": "Ask: make three variations of this ad with different creators, and keep the script the same.",
+    "frames": 150
+  },
+  {
+    "id": "vari-who",
+    "vo": "Each version speaks to a different viewer: a student before class, a nurse after a night shift, a dad at six a.m.",
+    "frames": 150
+  },
+  {
+    "id": "vari-grid",
+    "vo": "The Bot renders all three at once and shows them side by side.",
+    "frames": 150
+  },
+  {
+    "id": "vari-hooks",
+    "vo": "You can vary the first line too. Same product, three different hooks.",
+    "frames": 150
+  },
+  {
+    "id": "vari-drive",
+    "vo": "Everything lands in your Drive folder, named and ready.",
+    "frames": 150
+  }
+]

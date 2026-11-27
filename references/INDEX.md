@@ -12,6 +12,7 @@ Read this first; open `analysis.md` of a folder, not `sheets/`, `rea/`, wav, vtt
 | `savetik-7695` | "Overnight studio with 5 bots" (3:47) | none recorded | unused | unknown (SaveTik mp4 sent by user) |
 | `yt-jnKCqLEINSs` | 12-min source | none | unused, not analysed | https://www.youtube.com/watch?v=jnKCqLEINSs (inferred from the `yt-` slug, not confirmed) |
 | `yt-C2llc614D2M` | "Grok Bot Just Got Its Own AI Agent OS" (8:20): 5-bot team + approval shield; `assets/` = real x.ai/bot + docs captures | `bot-team` (2 parts) | canonical, storyboard stage | https://youtu.be/C2llc614D2M |
+| `grok-bot-ugc-ads` | Miko "Seedance 2.5 + Grok Bot = 50 Viral AI UGC Ads a Day" (13:20): screen-recorded tutorial, find → break down → recreate → variations → launch via 2 bots; `assets/` = Seedance, Meta, FTC captures | `grok-ugc` (4 parts) | canonical, storyboard stage | https://www.youtube.com/watch?v=mcY7ReDNrd0 |
 | `grok-bot-ui` | real Grok Bot UI screenshots + tokens | `studio/src/videos/real/` (BotGuideReal) | asset | screenshots by us + user (see its README) |
 | `mascot` | orb mascot v1/v2 | `lib/Mascot.tsx` | asset | our own drawing |
 | `_external` | cloned repos, git-ignored; only `rea-video` (CLI in its own `.venv`, used for yt-q1IwR88mhaA) | none | ignore | cloned repos (git-ignored) |

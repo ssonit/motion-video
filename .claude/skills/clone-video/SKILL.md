@@ -41,7 +41,7 @@ type scale/character, background layers and pacing, and must not look darker, fl
 Mirror craft, not branding (see CLAUDE.md).
 
 ## 3. Decide the brief (ask once, in one batch)
-Default: English, no presenter, 2–2.5 min, our mascot, hand-drawn scenes, neural voice + sfx + music.
+Default: English, no presenter, 2–2.5 min, our mascot, hand-drawn scenes, neural voice + sfx, no music bed (`MUSIC_ON = false`, user 2026-11-27).
 If something only the user can supply is missing (brand/product facts, footage, language, length, voice), ask **all of it
 in a single message** and offer "you decide" for each item. If nothing is missing, don't ask: state the assumptions at delivery.
 **Accurate UI = real screenshots.** If the video must show a real app/site/product UI faithfully (layout, text, colours, icons),
@@ -154,7 +154,8 @@ Copy the structure of `src/videos/grok-bot/BotGuideFull.tsx` (new scenes + reuse
 - give each scene its own composition from `src/lib/Art.tsx` (AppWindow, Phone, Laptop, IconCard, Beams, Glow, Float)
   and `Mascot` (accessories: glasses, headphones, cap, crown, tie; `satellite`)
 - timing inside a scene uses fractions of its length (`useAt()`), so it adapts to the voice length
-- vary layouts and backgrounds (`ember`, `night`, `screen`, `dusk`); never reuse one card template for every scene
+- vary layouts and subjects, NOT colours: one `PAPER_THEME` for the whole video (same near-white bg, white cards, ink, one
+  accent; see CLAUDE.md "One calm colour system"); never reuse one card template for every scene either
 - typed text → add a `typing` Sfx; success moments → `ding`; a hand-off/arrival → `pop1`/`pop2`
 Register it in `studio/src/Root.tsx` with `durationInFrames = sum(frames)`.
 

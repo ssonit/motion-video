@@ -1,0 +1,107 @@
+[
+  {
+    "id": "install",
+    "vo": "Step one: install Grok Bot. Go to x dot a i slash bot, download the desktop app, and finish the short onboarding.",
+    "frames": 150
+  },
+  {
+    "id": "app-tour",
+    "vo": "On the left are your channels and Bots. A channel is a room; Bots are the teammates you put in it.",
+    "frames": 150
+  },
+  {
+    "id": "new-channel",
+    "vo": "Create a new channel for this project. I'll call it Ad Factory.",
+    "frames": 150
+  },
+  {
+    "id": "new-bot",
+    "vo": "Now press New Bot. Give it a name, AI UGC Studio, and a one-line title: makes video ads from a reference.",
+    "frames": 150
+  },
+  {
+    "id": "bot-desc",
+    "vo": "The description is optional, but one sentence about your brand helps every answer that follows.",
+    "frames": 150
+  },
+  {
+    "id": "bot-computer",
+    "vo": "Every Bot works on its own computer in the cloud, so it can download files and run tools while your laptop is closed.",
+    "frames": 150
+  },
+  {
+    "id": "plugins-open",
+    "vo": "Next, plugins. These give the Bot extra powers, and this setup needs four of them.",
+    "frames": 150
+  },
+  {
+    "id": "plugins-search",
+    "vo": "Use the search box at the top of the dialog. Type a name, and press Add on the result.",
+    "frames": 150
+  },
+  {
+    "id": "plug-video",
+    "vo": "One: a video generation connector, so the Bot can call a model like Seedance directly. This is the engine.",
+    "frames": 150
+  },
+  {
+    "id": "plug-drive",
+    "vo": "Two: Google Drive, so every finished video lands in a folder you can share.",
+    "frames": 150
+  },
+  {
+    "id": "plug-x",
+    "vo": "Three: an X research plugin. X is where marketers post what's working right now, so it's high-signal research.",
+    "frames": 150
+  },
+  {
+    "id": "plug-ads",
+    "vo": "Four: an ads connector, so a Bot can create campaigns on Meta without you clicking through Ads Manager.",
+    "frames": 150
+  },
+  {
+    "id": "plug-check",
+    "vo": "Quick check: ask the Bot, what tools do you have? It should list all four. If one is missing, add it again before you go on.",
+    "frames": 150
+  },
+  {
+    "id": "find-where",
+    "vo": "Now the first real job: find an ad that already works. Don't invent a format, borrow a proven one.",
+    "frames": 150
+  },
+  {
+    "id": "find-library",
+    "vo": "The Meta Ad Library is free. Search your product type and filter to active video ads.",
+    "frames": 150
+  },
+  {
+    "id": "find-signal",
+    "vo": "Look for ads that have been running for weeks, with several versions. Nobody keeps paying for an ad that loses.",
+    "frames": 150
+  },
+  {
+    "id": "find-comments",
+    "vo": "Open the comments too. If people ask where to buy, or argue about it, the ad is doing its job.",
+    "frames": 150
+  },
+  {
+    "id": "find-length",
+    "vo": "And prefer short, simple ads for your first build: one person, one room, under thirty seconds. They copy cleanly.",
+    "frames": 150
+  },
+  {
+    "id": "find-pick",
+    "vo": "I found a simple one: a person wakes up tired, discovers the product, shows it, and asks a question at the end.",
+    "frames": 150
+  },
+  {
+    "id": "download",
+    "vo": "Copy the link, paste it into the Bot's chat, and say: download this video and tell me when it's done.",
+    "frames": 150
+  },
+  {
+    "id": "download-done",
+    "vo": "Seconds later, the video is sitting in the chat. Nothing to install, no downloader site.",
+    "frames": 150
+  }
+]

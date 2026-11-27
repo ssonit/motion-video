@@ -5,12 +5,13 @@ import type {P} from '../../../lib/kit';
 import {mono} from '../../../lib/Art';
 import {Abs, In, Pill, R, RSlide} from '../../real/ui';
 import {Bot} from '../../real/BotMark';
-import {ACC, DIM, Real} from '../../lazy-agency/scenes/common';
+import {DIM, Real} from '../../lazy-agency/scenes/common';
 import type {ShotSpec} from '../../lazy-agency/scenes/common';
 import {Colossus, M, TEAM} from './robot';
 import type {Member, PartKey} from './robot';
 
-export {ACC, DIM};
+export {DIM};
+export const ACC = '#1E6FE0'; // = PAPER_ACCENT (shared/themes)
 
 /* ---------- real Grok Bot captures (references/yt-C2llc614D2M/assets, 1440x900) ---------- */
 const S = (f: string) => ({src: `bot-team/assets/${f}`, sw: 1440, sh: 900});
@@ -107,8 +108,8 @@ export const GroupChat: React.FC<{
   const typedText = input && f < input.sendAt ? typed(input.text, f, input.typeAt, 60) : '';
   const dots = typingAt !== undefined && f > typingAt && shown.filter((m) => !m.me).length === 0;
   return (
-    <div style={{position: 'absolute', left: x, top: y, width: w, height: h, borderRadius: 18, background: R.bg, border: `1.5px solid ${R.line}`, boxShadow: '0 28px 80px rgba(20,25,60,0.45)', display: 'flex', overflow: 'hidden', color: '#fff'}}>
-      <div style={{width: 210, background: '#0D0D0D', borderRight: `1px solid ${R.line}`, padding: '14px 12px'}}>
+    <div style={{position: 'absolute', left: x, top: y, width: w, height: h, borderRadius: 18, background: R.bg, border: `1.5px solid ${R.line}`, boxShadow: 'var(--r-shadow, 0 28px 80px rgba(20,25,60,0.45))', display: 'flex', overflow: 'hidden', color: R.text}}>
+      <div style={{width: 210, background: R.panel, borderRight: `1px solid ${R.line}`, padding: '14px 12px'}}>
         <div style={{display: 'flex', gap: 7, marginBottom: 14}}>
           {['#ff5f57', '#febc2e', '#28c840'].map((c) => <div key={c} style={{width: 11, height: 11, borderRadius: 6, background: c}} />)}
         </div>
@@ -128,7 +129,7 @@ export const GroupChat: React.FC<{
           <span style={{fontSize: 13, color: R.dim}}>group chat · 5 Bots</span>
           <div style={{flex: 1}} />
           {TEAM.map((t, i) => (
-            <div key={t.key} style={{marginLeft: -6, width: 28, height: 28, borderRadius: 14, background: '#1a1a1a', border: '2px solid #0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div key={t.key} style={{marginLeft: -6, width: 28, height: 28, borderRadius: 14, background: R.card2, border: `2px solid ${R.bg}`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
               <Bot shape={t.shape} color={t.color} size={18} bob={0} phase={i} />
             </div>
           ))}
@@ -151,9 +152,9 @@ export const GroupChat: React.FC<{
               <In key={i} at={m.at} style={{alignSelf: 'stretch'}}>
                 <div style={{display: 'flex', gap: 10, alignItems: 'flex-start'}}>
                   <Bot shape={m.m!.shape} color={m.m!.color} size={30} bob={1} />
-                  <div style={{flex: 1, background: m.tone === 'warn' ? 'rgba(255,170,40,0.12)' : m.tone === 'fix' ? 'rgba(224,42,136,0.14)' : '#161616', border: `1px solid ${m.tone === 'warn' ? '#ffaa28' : m.tone === 'fix' ? R.pink : R.line}`, borderRadius: 14, padding: '7px 13px', boxShadow: m.tone ? `0 0 26px ${m.tone === 'warn' ? '#ffaa2855' : '#E02A8855'}` : 'none'}}>
+                  <div style={{flex: 1, background: m.tone === 'warn' ? 'rgba(255,170,40,0.12)' : m.tone === 'fix' ? 'rgba(224,42,136,0.14)' : R.card2, border: `1px solid ${m.tone === 'warn' ? '#ffaa28' : m.tone === 'fix' ? R.pink : R.line}`, borderRadius: 14, padding: '7px 13px'}}>
                     <div style={{fontSize: 13, fontWeight: 700, color: m.m!.color === R.blue ? '#5aa2f0' : m.m!.color}}>{m.m!.name}</div>
-                    <div style={{fontSize: fs, lineHeight: 1.35, color: 'rgba(255,255,255,0.92)'}}>{m.text}</div>
+                    <div style={{fontSize: fs, lineHeight: 1.35, color: R.text}}>{m.text}</div>
                   </div>
                 </div>
               </In>
@@ -162,9 +163,9 @@ export const GroupChat: React.FC<{
           {dots && (
             <div style={{display: 'flex', gap: 14, paddingLeft: 4}}>
               {TEAM.map((t, i) => (
-                <div key={t.key} style={{display: 'flex', alignItems: 'center', gap: 4, background: '#161616', borderRadius: 12, padding: '6px 9px'}}>
+                <div key={t.key} style={{display: 'flex', alignItems: 'center', gap: 4, background: R.card2, borderRadius: 12, padding: '6px 9px'}}>
                   <Bot shape={t.shape} color={t.color} size={16} bob={0} />
-                  {[0, 1, 2].map((k) => <div key={k} style={{width: 5, height: 5, borderRadius: 3, background: '#fff', opacity: 0.3 + 0.7 * Math.max(0, Math.sin((f - i * 3 - k * 4) / 4))}} />)}
+                  {[0, 1, 2].map((k) => <div key={k} style={{width: 5, height: 5, borderRadius: 3, background: R.text, opacity: 0.3 + 0.7 * Math.max(0, Math.sin((f - i * 3 - k * 4) / 4))}} />)}
                 </div>
               ))}
             </div>
@@ -172,7 +173,7 @@ export const GroupChat: React.FC<{
         </div>
         <div style={{height: 42, borderRadius: 9999, background: R.card2, border: `1.5px solid ${R.line}`, display: 'flex', alignItems: 'center', padding: '0 8px 0 16px', gap: 10, fontSize: 15}}>
           <span style={{color: R.dim, fontSize: 20}}>+</span>
-          <span style={{flex: 1, color: typedText ? '#fff' : R.dim, whiteSpace: 'nowrap', overflow: 'hidden'}}>
+          <span style={{flex: 1, color: typedText ? R.text : R.dim, whiteSpace: 'nowrap', overflow: 'hidden'}}>
             {typedText ? (typedText.length > 72 ? '…' + typedText.slice(-72) : typedText) : `Message #${name}`}
             {input && f < input.sendAt && <span style={{opacity: f % 20 < 10 ? 1 : 0}}>▌</span>}
           </span>

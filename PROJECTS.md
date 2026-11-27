@@ -15,7 +15,7 @@ Shared pieces live outside the series folders; reuse them, do not copy them:
 - `studio/src/videos/shared/`: `makePart` (slides + narration + sfx bed + footer -> one composition), `themes.ts` (EMBER_THEME CSS vars),
   `ChapterCard.tsx` (`mkChapter({kicker, num, title, bgWord})`), `mkPrompt.tsx` (typed-prompt scene with check chips).
 - `studio/src/videos/real/`: Bot UI kit (ui.tsx, BotMark, RealShot, ScenesA/B/C); `rich/`: illustrations and templates.
-- `studio/public/shared/`: sfx, music bed, cropped real screenshots. `references/`: analysed sources (index: `references/INDEX.md`; look: ember = one-person, BotGuideReal = grok-bot).
+- `studio/public/shared/`: sfx, music bed, cropped real screenshots. `references/`: analysed sources (index: `references/INDEX.md`; look: `PAPER_THEME` for every new video and bot-team; legacy: ember = one-person, BotGuideReal = grok-bot).
 
 ## Add a new series
 1. `references/<src>/analysis.md` (clone-video skill), outline `studio/content/<series>/script.md`.
@@ -28,6 +28,7 @@ Shared pieces live outside the series folders; reuse them, do not copy them:
 | Series | Folder | Status | Voice | Compositions |
 |---|---|---|---|---|
 | One person, a crew of Bots (from YouTube YD8uRumP8cM) | `one-person` | 6 parts + 4:17 overview, delivered 2026-11-22 | `bot-narrator`, speed 0.8 (overview: Aria) | `OpPart1`..`OpPart6`, `OnePersonCompany` |
+| Grok Bot + UGC ad factory (from YouTube mcY7ReDNrd0) | `grok-ugc` | storyboard done; waiting for user footage + real product (2026-11-27) | `bot-narrator`, speed 0.8 | not built yet |
 | Grok Bot guides | `grok-bot` | 6 videos; `BotGuideReal` = approved standard look | Aria / Guy (edge-tts) | `BotGuide`, `BotGuideFull`, `BotGuideRich`, `BotGuideReal`, `BotFeedbackLoop`, `BotBasics` |
 | Experiments | `experiments` | one-offs, not part of the workflow | mixed | `Explainer30`, `NightStudio`, `TemplateDemo` (+ voice tests `tts-test`, `tts-voice-check`) |
 

@@ -14,11 +14,11 @@ import * as C from './scenes/v2c';
 import {mkStatement} from '../lazy-agency/scenes/common';
 import {makePart as mk} from '../shared/makePart';
 import type {Slide} from '../shared/makePart';
-import {LIGHT_THEME, lightTone} from '../shared/themes';
+import {PAPER_THEME} from '../shared/themes';
 
 /** "Build a Grok Bot team that checks its own work" (ref: references/yt-C2llc614D2M). Light look, 3 parts. */
 const makePart = (slug: string, n: number, slides: Slide[], scenes: Record<string, React.FC<P>>) =>
-  mk({slug, n, total: 3, label: 'THE BOT TEAM', slides, scenes, theme: LIGHT_THEME, sceneTheme: lightTone});
+  mk({slug, n, total: 3, label: 'THE BOT TEAM', slides, scenes, theme: PAPER_THEME});
 
 /** Placeholder for v2 shots not built yet (storyboard v2): shows the shot id. */
 const todo = (id: string) => mkStatement({label: 'TODO · v2 shot', lines: [id]});
@@ -62,7 +62,7 @@ export const BOT_TEAM3_FRAMES = p3.frames;
 
 /* Hook v3: test of the TOC-montage hook pattern (references/yt-q1IwR88mhaA §8). */
 const ph = mk({
-  slug: 'bot-team/hook-v3', n: 1, total: 1, label: 'THE BOT TEAM', slides: slidesHook as Slide[], theme: LIGHT_THEME,
+  slug: 'bot-team/hook-v3', n: 1, total: 1, label: 'THE BOT TEAM', slides: slidesHook as Slide[], theme: PAPER_THEME,
   scenes: HOOK_V3,
 });
 export const BotTeamHook = ph.Comp;

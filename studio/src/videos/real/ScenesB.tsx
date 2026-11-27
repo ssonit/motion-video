@@ -268,7 +268,7 @@ export const ReqR: React.FC<P> = ({vo}) => {
         <svg width={170} height={230} viewBox="0 0 170 230" style={{position: 'absolute', right: 40, top: 40}}>
           <rect x={22} y={6} width={126} height={218} rx={26} fill="#161616" stroke="#fff" strokeWidth={3} />
           <rect x={10} y={56} width={8} height={36} rx={4} fill={R.orange} opacity={0.6 + 0.4 * Math.sin(f / 5)} />
-          <rect x={34} y={20} width={102} height={190} rx={16} fill={R.bg} />
+          <rect x={34} y={20} width={102} height={190} rx={16} fill="#0A0A0A" />
         </svg>
         <Abs x={30} y={225}>
           <Pill kind="white" size={19}>
