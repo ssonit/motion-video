@@ -32,7 +32,8 @@
   {
     "id": "goal",
     "vo": "The goal isn't to get better at tasks. It's to stop doing the tasks that technology can already do for you. Today, that's nearly all of them.",
-    "frames": 243
+    "frames": 243,
+    "cut": true
   },
   {
     "id": "data",
@@ -47,7 +48,8 @@
   {
     "id": "interview",
     "vo": "Or let it interview you. One question at a time, about how you deliver from the moment a client pays to their first win. Then list every step, and mark which ones really need you.",
-    "frames": 301
+    "frames": 301,
+    "cut": true
   },
   {
     "id": "flow",

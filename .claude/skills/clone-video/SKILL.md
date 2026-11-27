@@ -57,7 +57,31 @@ posts, charts, logos, UI. Save to `references/<slug>/assets/` + `sources.md` (ur
 Use them as framed "screenshot" shots (browser/phone frame, source label, a callout or highlight animating on the key line),
 mixed between the motion shots. Skip people's photos. Downloading files: say what/where from in the delivery note.
 
+### 3c. The user's own footage (videos/photos they filmed)
+The user films b-roll / screen or phone recordings **without speaking**: the narration is always our TTS from the script.
+1. Files go in `footage/<slug>/raw/` (or pass a folder). `python tools/ingest.py scan <slug> [folder]` → `footage/<slug>/clips.json`,
+   `clips.md` (skeleton) and labelled sheets in `footage/<slug>/sheets/` (`<id>-shots-NN` = one thumb per detected shot,
+   `<id>-time-NN` = timecode frames; `images-NN` = photos). Ids v01../i01.. stay stable on re-scan.
+2. READ every sheet, fill `clips.md` (what is seen per shot, usable? shaky/blurry/private info on screen?).
+3. In the storyboard, tag every shot **[FOOTAGE vNN 0:12–0:18]** or **[AI: look]**. Footage for what only reality shows
+   (real app use, product, workspace, results, places); motion graphics for concepts, numbers, comparisons, chapter cards,
+   and any line with no matching footage. List shots the user could still film to replace AI shots.
+4. After OK: `python tools/ingest.py cut <slug> vNN <start> <end> --name <shot-id> [--to <series>/<part>/clips] [--speed 2] [--crop W:H:X:Y]`
+   (re-encoded, 30 fps, muted, ≤1080p; photos: `cut <slug> iNN --name x`). Use the clip via `<Slot src>` / `footage.json` /
+   `OffthreadVideo`; portrait phone clips go in `phoneRec` or a blurred-fill frame, never stretched. Keep a clip shorter than its
+   narration line, or slow it (`--speed 0.8`) rather than freezing.
+
 ## 4. Script
+**Length = the reference's content length** (user, 2026-11-26: an 8:20 reference came back as 3:51 and was rejected).
+Measure the reference minus promo/ads/outro, aim for that ±10 %, and check it after tts.py (sum of `frames` / 30).
+If the voice comes out short, add shots (deeper per-step detail, exact messages, examples), never slow padding.
+
+**Hook (mandatory, enforced in code).** Part 1's first slide id must be `hook` or `hook-…`: `makePart` throws and
+`tools/tts.py` refuses otherwise (`--no-hook` only for later parts / legacy videos). A hook is the first 15–30 s and is
+NOT a title card or "in this video": 1) show the payoff first (the finished result working, fast cuts), 2) one bold,
+concrete claim, 3) an open loop that pays off at the end ("stay for the mistake that breaks it"). Split it into
+`hook-…` slides of one sentence each so every cut is visible. Mirror the reference's own opening seconds when it has one.
+
 For each shot first write one line: "what the viewer will go through" (the change they SEE, not what the text announces).
 Self-check: can the viewer see the change, or only learn it from the title? Without the decoration, is there still a concrete
 development over time? If not, change the shot's look or its content, don't just tune easing.

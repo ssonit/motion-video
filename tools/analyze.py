@@ -43,10 +43,17 @@ def fetch(src: str, dest_dir: pathlib.Path) -> pathlib.Path:
         cmd = [
             sys.executable, "-m", "yt_dlp", "-f", "bv*[height<=720]+ba/b[height<=720]/b",
             "--merge-output-format", "mp4", "-o", str(dest_dir / "source.%(ext)s"),
-            "--write-info-json", "--write-subs", "--write-auto-subs", "--sub-langs", "all,-live_chat",
-            "-P", f"subtitle:{dest_dir / 'subs'}", src,
+            "--write-info-json", src,
+        ]
+        # captions in a separate, non-fatal call: YouTube often answers 429 for subtitles
+        subs_cmd = [
+            sys.executable, "-m", "yt_dlp", "--skip-download", "--write-subs", "--write-auto-subs",
+            "--sub-langs", "en,en-orig", "--sleep-subtitles", "2",
+            "-o", str(dest_dir / "subs" / "source.%(ext)s"), src,
         ]
         r = subprocess.run(cmd)
+        if dest.exists() and subprocess.run(subs_cmd).returncode:
+            print("(captions not fetched; continuing without them)")
         if r.returncode or not dest.exists():
             if not any(dest_dir.iterdir()):
                 dest_dir.rmdir()  # don't leave an empty reference folder behind

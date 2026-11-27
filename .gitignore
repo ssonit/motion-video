@@ -37,3 +37,13 @@ references/**/*.wav
 .venv-rea/
 .rea-models/
 references/*/rea/
+
+# user's own footage: raw files and sheets stay local, the catalogue is tracked
+footage/**
+!footage/*/
+!footage/*/clips.json
+!footage/*/clips.md
+
+# browser tool logs, yt-dlp metadata dumps (~11 MB each)
+.playwright-mcp/
+references/yt-*/source.info.json

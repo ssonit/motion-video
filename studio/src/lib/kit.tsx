@@ -118,7 +118,11 @@ export const Arrow: React.FC<{at: number}> = ({at}) => (
   </Pop>
 );
 
-export const Captions: React.FC<{text: string}> = ({text}) => {
+/** On-screen subtitles. OFF by default (user, 2026-11-26: "không cần phụ đề"); set true only if a video asks for them. */
+export const CAPTIONS_ON = false;
+export const Captions: React.FC<{text: string}> = ({text}) => (CAPTIONS_ON ? <CaptionsInner text={text} /> : null);
+
+const CaptionsInner: React.FC<{text: string}> = ({text}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
   const parts = text.split(/(?<=[.!?])\s+/);

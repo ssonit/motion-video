@@ -1,0 +1,42 @@
+[
+  {
+    "id": "hook",
+    "vo": "One person. Twenty-person output. No team. Here's the whole system in forty-five seconds.",
+    "frames": 135
+  },
+  {
+    "id": "painkiller",
+    "vo": "Step zero: sell a painkiller, not a vitamin. Find a problem people already pay to fix.",
+    "frames": 135
+  },
+  {
+    "id": "inbox",
+    "vo": "Rung one, the inbox Bot. It learns your rules, drafts every reply in your voice, and gives you your mornings back.",
+    "frames": 172
+  },
+  {
+    "id": "delivery",
+    "vo": "Rung two, delivery. The moment someone pays, onboarding runs itself.",
+    "frames": 113
+  },
+  {
+    "id": "marketing",
+    "vo": "Rung three, marketing. Every morning, ten new leads land in your inbox.",
+    "frames": 117
+  },
+  {
+    "id": "sales",
+    "vo": "Rung four, sales. A voice Bot calls every lead first, and coaches you for the rest.",
+    "frames": 131
+  },
+  {
+    "id": "brain",
+    "vo": "Then connect them all to one shared brain, so every Bot learns from every other.",
+    "frames": 122
+  },
+  {
+    "id": "close",
+    "vo": "The Bots do the work. You bring the vision. One person, and a whole lot of agents.",
+    "frames": 127
+  }
+]

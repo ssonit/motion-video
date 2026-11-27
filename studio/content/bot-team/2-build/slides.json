@@ -1,0 +1,162 @@
+[
+  {
+    "id": "head",
+    "vo": "Piece one: the head. A Chief Brain.",
+    "frames": 92
+  },
+  {
+    "id": "create",
+    "vo": "Create a new Bot, pick a face, and name it Chief Brain.",
+    "frames": 112
+  },
+  {
+    "id": "message",
+    "vo": "Then send it one clear message. You are the head of my team. Four Bots will report to you. Build a board that shows each Bot, its job, and its routine.",
+    "frames": 256
+  },
+  {
+    "id": "board",
+    "vo": "It builds a command board for two sample businesses: Driftwood Supply, a small online gear store, and Brightlane, a tiny marketing agency.",
+    "frames": 249
+  },
+  {
+    "id": "test",
+    "vo": "Before you move on, test it. Ask the Chief what each Bot does. If the board is wrong, fix the message, not the board.",
+    "frames": 212
+  },
+  {
+    "id": "brief",
+    "vo": "Every weekday at eight, it reads the newest report from each Bot and writes a one-page morning brief.",
+    "frames": 181
+  },
+  {
+    "id": "chief-check",
+    "vo": "And if one Bot goes quiet, the Chief notices. A missing report gets a question, not a silent gap in your morning.",
+    "frames": 202
+  },
+  {
+    "id": "leftarm",
+    "vo": "Piece two: the left arm. The Store Bot.",
+    "frames": 89
+  },
+  {
+    "id": "store-msg",
+    "vo": "Store Bot gets its own clear message: you look after Driftwood Supply. Track every product, how much is left, and how fast it sells.",
+    "frames": 231
+  },
+  {
+    "id": "store",
+    "vo": "It tracks twelve products: how much stock is left, how many sell each week, and anything that runs out in under two weeks is flagged in red.",
+    "frames": 248
+  },
+  {
+    "id": "sellers",
+    "vo": "It also shows the top three sellers, and writes fresh descriptions for the three slowest products, so they get a second chance.",
+    "frames": 231
+  },
+  {
+    "id": "storeroutine",
+    "vo": "Every morning at seven it refreshes the page and leaves a short summary for the Chief.",
+    "frames": 158
+  },
+  {
+    "id": "system",
+    "vo": "And this is the shift. You are not building a helper. You are building a system.",
+    "frames": 148
+  },
+  {
+    "id": "rightarm",
+    "vo": "Piece three: the right arm. The Client Bot, for agencies.",
+    "frames": 115
+  },
+  {
+    "id": "client-msg",
+    "vo": "Its message: you are the Client Bot for Brightlane. List our six clients, the keywords we track, and where each one ranks this week and last week.",
+    "frames": 251
+  },
+  {
+    "id": "keywords",
+    "vo": "Now you see the movement at a glance. Up is green, down is red, and nobody spends a Sunday evening building spreadsheets.",
+    "frames": 215
+  },
+  {
+    "id": "cards",
+    "vo": "It keeps a report card for six clients: what went up, what went down, and the next three jobs, in plain English. Every Monday at nine.",
+    "frames": 235
+  },
+  {
+    "id": "chest",
+    "vo": "Piece four: the chest. The Content Bot, because everything feeds into it.",
+    "frames": 145
+  },
+  {
+    "id": "content-msg",
+    "vo": "Its message: plan content for both businesses, using what the other Bots found this week. Real problems make the best posts.",
+    "frames": 226
+  },
+  {
+    "id": "plan",
+    "vo": "Every Sunday evening it plans next week for both businesses: five short video ideas with hooks, three carousel outlines, and one blog post.",
+    "frames": 251
+  },
+  {
+    "id": "ideas",
+    "vo": "Every video idea comes with a hook already written, so you never start from a blank page again.",
+    "frames": 166
+  },
+  {
+    "id": "nopost",
+    "vo": "It saves the plan for the Chief. It never posts anything on its own.",
+    "frames": 126
+  },
+  {
+    "id": "legs",
+    "vo": "Piece five: the legs. The Lead Bot.",
+    "frames": 91
+  },
+  {
+    "id": "lead-msg",
+    "vo": "Its message: find ten small businesses that could use Brightlane, and look for the biggest gap in what they show online.",
+    "frames": 218
+  },
+  {
+    "id": "leads",
+    "vo": "It builds a list of ten leads, scores each one hot, warm or cold, and writes a short first message for the hottest ones.",
+    "frames": 215
+  },
+  {
+    "id": "pipeline",
+    "vo": "Hot leads go to the top of a simple pipeline, warm ones get a follow-up date, and cold ones simply wait.",
+    "frames": 185
+  },
+  {
+    "id": "drafts",
+    "vo": "Drafts only. Nothing leaves without you.",
+    "frames": 87
+  },
+  {
+    "id": "shield",
+    "vo": "Which brings us to piece six: the shield.",
+    "frames": 87
+  },
+  {
+    "id": "approve",
+    "vo": "Grok Bot has approvals built in. A Bot proposes the action, and anything sensitive waits for your OK.",
+    "frames": 188
+  },
+  {
+    "id": "rule",
+    "vo": "So write the boundary in plain words: always ask me before anything goes to a customer.",
+    "frames": 162
+  },
+  {
+    "id": "rules",
+    "vo": "Add two more while you're there: never spend money, and never delete anything, without asking you first.",
+    "frames": 184
+  },
+  {
+    "id": "built",
+    "vo": "That's the whole body built: six pieces, five Bots, and one set of rules. Now let's switch it on, and watch the team actually work together.",
+    "frames": 252
+  }
+]

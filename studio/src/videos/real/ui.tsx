@@ -38,7 +38,7 @@ export const RSlide: React.FC<{
   const {durationInFrames} = useVideoConfig();
   const o = interpolate(frame, [0, 8, durationInFrames - 8, durationInFrames], [0, 1, 1, 0], clamp);
   return (
-    <AbsoluteFill style={{opacity: o, background: bg === R.bg ? `var(--op-bg, ${R.bg})` : bg, fontFamily: inter.fontFamily, color: R.text}}>
+    <AbsoluteFill style={{opacity: o, background: bg === R.bg ? `var(--op-bg, ${R.bg})` : bg, fontFamily: inter.fontFamily, color: `var(--op-text, ${R.text})`}}>
       <Sfx at={0} name="whoosh" vol={0.3} dur={30} />
       {children}
       <Footer />
@@ -64,7 +64,7 @@ export const In: React.FC<{at: number; tick?: boolean; style?: React.CSSProperti
   children,
 }) => (
   <>
-    {tick && <Sfx at={at} name={`tick${(Math.round(at) % 3) + 1}`} vol={0.16} />}
+    {tick && at >= 0 && <Sfx at={at} name={`tick${(((Math.round(at) % 3) + 3) % 3) + 1}`} vol={0.16} />}
     <Pop at={at} style={style}>
       {children}
     </Pop>
@@ -80,8 +80,8 @@ export const Pill: React.FC<{
   const k = {
     white: {background: '#fff', color: R.bg},
     active: {background: '#fff', color: R.bg},
-    dark: {background: `var(--op-card, ${R.card})`, color: '#fff'},
-    ghost: {background: 'transparent', color: R.mute, border: `1.5px solid ${R.line}`},
+    dark: {background: `var(--op-pill, var(--op-card, ${R.card}))`, color: 'var(--op-pill-fg, #fff)'},
+    ghost: {background: 'transparent', color: `var(--op-mute, ${R.mute})`, border: `1.5px solid var(--op-line, ${R.line})`},
   }[kind];
   return (
     <div
@@ -126,7 +126,7 @@ export const FooterCtx = React.createContext('');
 const Footer: React.FC = () => {
   const t = React.useContext(FooterCtx);
   return t ? (
-    <div style={{position: 'absolute', left: 44, bottom: 30, fontFamily: mono.fontFamily, fontSize: 13, letterSpacing: 2, color: 'rgba(255,255,255,0.35)'}}>{t}</div>
+    <div style={{position: 'absolute', left: 44, bottom: 30, fontFamily: mono.fontFamily, fontSize: 13, letterSpacing: 2, color: 'var(--op-foot, rgba(255,255,255,0.35))'}}>{t}</div>
   ) : null;
 };
 
@@ -152,11 +152,11 @@ export const Card: React.FC<{
   <In at={at} style={style}>
     <div
       style={{
-        background: R.card,
+        background: `var(--op-card, ${R.card})`,
         borderRadius: 22,
         padding: '18px 22px',
-        border: hl ? `2px solid ${hl}` : `1px solid ${R.line}`,
-        boxShadow: hl ? `0 0 44px ${hl}33` : 'none',
+        border: hl ? `2px solid ${hl}` : `1px solid var(--op-line, ${R.line})`,
+        boxShadow: hl ? `0 0 44px ${hl}33` : 'var(--op-shadow, none)',
         ...box,
       }}
     >

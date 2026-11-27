@@ -27,7 +27,8 @@
   {
     "id": "practice",
     "vo": "Not sure how to sell? Make the Bot call you and play the buyer. You practice, and after the call it rates you and gives you tips for next time.",
-    "frames": 249
+    "frames": 249,
+    "cut": true
   },
   {
     "id": "past",
@@ -52,7 +53,8 @@
   {
     "id": "after",
     "vo": "The schedule is simple: review after every call, fast enough that you get a tweak before the next one, and try it right away.",
-    "frames": 230
+    "frames": 230,
+    "cut": true
   },
   {
     "id": "signal",

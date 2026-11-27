@@ -7,7 +7,8 @@
   {
     "id": "room",
     "vo": "Even in a room of a thousand people learning AI, most hadn't connected their inbox and calendar to a Bot. They still sorted every email and managed every meeting by hand, because letting go felt risky.",
-    "frames": 349
+    "frames": 349,
+    "cut": true
   },
   {
     "id": "story",
@@ -27,7 +28,8 @@
   {
     "id": "edge",
     "vo": "Every company uses AI now, so AI alone is no edge. Your data is. The way you work, your templates, your past customers, your scripts. Your sent mail is the data for your inbox Bot.",
-    "frames": 313
+    "frames": 313,
+    "cut": true
   },
   {
     "id": "prompt1",

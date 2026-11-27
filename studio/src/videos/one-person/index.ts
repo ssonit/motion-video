@@ -1,5 +1,6 @@
 import type {Comp} from '../types';
 import {OnePersonCompany, ONE_PERSON_FRAMES} from './overview';
+import {ShortLadder, SHORT_LADDER_FRAMES} from './short';
 import {OpPart1, OP_PART1_FRAMES, OpPart2, OP_PART2_FRAMES, OpPart3, OP_PART3_FRAMES, OpPart4, OP_PART4_FRAMES, OpPart5, OP_PART5_FRAMES, OpPart6, OP_PART6_FRAMES} from './parts';
 
 /** "One person, a crew of Bots": 6 parts + the 4-minute overview. Add new parts here. */
@@ -11,4 +12,5 @@ export const onePersonCompositions: Comp[] = [
   {id: 'OpPart4', component: OpPart4, frames: OP_PART4_FRAMES},
   {id: 'OpPart5', component: OpPart5, frames: OP_PART5_FRAMES},
   {id: 'OpPart6', component: OpPart6, frames: OP_PART6_FRAMES},
+  {id: 'OpShortLadder', component: ShortLadder, frames: SHORT_LADDER_FRAMES, width: 1080, height: 1920},
 ];

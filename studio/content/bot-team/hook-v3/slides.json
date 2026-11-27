@@ -1,0 +1,82 @@
+[
+  {
+    "id": "hook-cold",
+    "vo": "If you want five AI bots running your business while you sleep,",
+    "frames": 99
+  },
+  {
+    "id": "hook-title",
+    "vo": "this is the only guide you need.",
+    "frames": 75
+  },
+  {
+    "id": "hook-you",
+    "vo": "Yes, you.",
+    "frames": 30
+  },
+  {
+    "id": "hook-split",
+    "vo": "I run an online store and a small agency on one team of Grok Bots,",
+    "frames": 110
+  },
+  {
+    "id": "hook-check",
+    "vo": "and that team checks its own work.",
+    "frames": 62
+  },
+  {
+    "id": "hook-toc1",
+    "vo": "By the end, you'll know why separate AI helpers fail,",
+    "frames": 89
+  },
+  {
+    "id": "hook-toc2",
+    "vo": "how to give each Bot one clear job,",
+    "frames": 75
+  },
+  {
+    "id": "hook-toc3",
+    "vo": "the exact message to send each one,",
+    "frames": 68
+  },
+  {
+    "id": "hook-toc4",
+    "vo": "how to put them on a schedule,",
+    "frames": 66
+  },
+  {
+    "id": "hook-toc5",
+    "vo": "so the work is done before you wake up.",
+    "frames": 67
+  },
+  {
+    "id": "hook-anchor",
+    "vo": "And it's way easier than it sounds.",
+    "frames": 72
+  },
+  {
+    "id": "hook-nocode",
+    "vo": "No code. No setup headaches.",
+    "frames": 67
+  },
+  {
+    "id": "hook-team",
+    "vo": "It feels like a real team in one group chat.",
+    "frames": 74
+  },
+  {
+    "id": "hook-handoff",
+    "vo": "They hand work to each other,",
+    "frames": 54
+  },
+  {
+    "id": "hook-catch",
+    "vo": "and they even catch each other's mistakes.",
+    "frames": 71
+  },
+  {
+    "id": "hook-go",
+    "vo": "Let's build it.",
+    "frames": 66
+  }
+]

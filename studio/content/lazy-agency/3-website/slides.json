@@ -1,0 +1,67 @@
+[
+  {
+    "id": "hook",
+    "vo": "The website play. It is the simplest version of everything we just said, and you can run it in a single week.",
+    "frames": 174
+  },
+  {
+    "id": "scrape",
+    "vo": "Step one. Ask a Grok Bot agent to scrape the local businesses in your area that have no website at all. Say you end up with a list of five or six hundred companies.",
+    "frames": 290
+  },
+  {
+    "id": "filter",
+    "vo": "Make that list smarter. Keep the businesses that clearly exist and clearly work: a phone number, a few reviews, opening hours, and still no website. They are busy, they are real, and they are the easiest to help.",
+    "frames": 365
+  },
+  {
+    "id": "choice",
+    "vo": "You could phone every one of them, and that would take about two days. Or you can email them all in a single day. A smaller list, say four or five hundred? You can send the messages yourself. Or let a Bot send them for you.",
+    "frames": 377
+  },
+  {
+    "id": "email",
+    "vo": "Step two. The email is short and friendly. I have built you a website. Take a look. If you like it, it is four hundred and ninety nine dollars. If not, no hard feelings.",
+    "frames": 293
+  },
+  {
+    "id": "trick",
+    "vo": "Here is the trick. You have not built it yet. You only build the site once someone replies. Maybe a shop owner writes back and says, yes, I meant to get a website last year, but I was too busy.",
+    "frames": 330
+  },
+  {
+    "id": "reply",
+    "vo": "When a reply arrives, answer quickly and keep it simple. Ask what they care about, which services they offer, and a couple of photos. A few lines from them is enough for the Bot to build a first draft.",
+    "frames": 338
+  },
+  {
+    "id": "build",
+    "vo": "Now you spend the time. Grok Bot builds a very simple landing page for that one business. You send it over and hope for a yes.",
+    "frames": 228
+  },
+  {
+    "id": "fear",
+    "vo": "People hear this and panic. I am not going to build five hundred websites. I will burn through all my credits. And you do not have to. The Bot only builds for people who answered.",
+    "frames": 318
+  },
+  {
+    "id": "math",
+    "vo": "Do the math, with example numbers. Five hundred emails. Maybe forty or fifty replies. Perhaps twenty of those people like the site and buy. Twenty times five hundred dollars. That is ten thousand dollars you did not have before.",
+    "frames": 404
+  },
+  {
+    "id": "work",
+    "vo": "Yes, it costs credits, and the first round takes real work. But you can repeat it in every town you can reach.",
+    "frames": 191
+  },
+  {
+    "id": "saturated",
+    "vo": "A fair warning. Websites are a crowded market. Plenty of people sell them, and you may hear a lot of no. Treat each no as data, and keep sending.",
+    "frames": 254
+  },
+  {
+    "id": "goal",
+    "vo": "Your goal is not to sell five hundred. It is to sell twenty or thirty in your own area. That is when things start to open up.",
+    "frames": 216
+  }
+]

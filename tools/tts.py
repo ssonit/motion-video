@@ -50,12 +50,25 @@ async def main() -> None:
     ap.add_argument("--clone", default=None,
                     help="omnivoice: saved voice name in <OmniVoice>/voices/<name>/ (ref_audio.wav + ref_text.txt; "
                          "encoded once to prompt.pt, reused by every project)")
+    ap.add_argument("--no-hook", action="store_true",
+                    help="skip the opening-hook check (only for later parts / legacy videos)")
     a = ap.parse_args()
 
     slides_file = ROOT / "studio" / "content" / a.slug / "slides.json"
     out = ROOT / "studio" / "public" / a.slug / "vo"
     out.mkdir(parents=True, exist_ok=True)
     slides = json.loads(slides_file.read_text(encoding="utf-8"))
+
+    # Every video opens with a hook (user rule 2026-11-26). Part folders are "<n>-<name>"; only part 1 needs it.
+    part = a.slug.rstrip("/").split("/")[-1]
+    first_part = not (part[:1].isdigit() and not part.startswith("1-"))
+    first = next((s for s in slides if not s.get("cut")), {})
+    if first_part and not a.no_hook and not str(first.get("id", "")).startswith("hook"):
+        raise SystemExit(
+            f"{a.slug}: the first slide must be the opening hook (id 'hook' or 'hook-...'), got '{first.get('id')}'. "
+            "Write one (payoff shown first, bold claim, open loop; see clone-video SKILL.md section 4 'Hook') "
+            "or pass --no-hook for a legacy video."
+        )
 
     if a.engine == "omnivoice":
         omni = pathlib.Path(os.environ.get("OMNIVOICE_DIR", r"D:\Project\repo\OmniVoice"))

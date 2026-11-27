@@ -1,0 +1,144 @@
+[
+  {
+    "id": "hook-cold",
+    "vo": "If you want five AI bots running your business while you sleep,",
+    "frames": 99
+  },
+  {
+    "id": "hook-title",
+    "vo": "this is the only guide you need.",
+    "frames": 75
+  },
+  {
+    "id": "hook-you",
+    "vo": "Yes, you.",
+    "frames": 30
+  },
+  {
+    "id": "hook-split",
+    "vo": "I run an online store and a small agency on one team of Grok Bots,",
+    "frames": 110
+  },
+  {
+    "id": "hook-check",
+    "vo": "and that team checks its own work.",
+    "frames": 62
+  },
+  {
+    "id": "hook-toc1",
+    "vo": "By the end, you'll know why separate AI helpers fail,",
+    "frames": 89
+  },
+  {
+    "id": "hook-toc2",
+    "vo": "how to give each Bot one clear job,",
+    "frames": 75
+  },
+  {
+    "id": "hook-toc3",
+    "vo": "the exact message to send each one,",
+    "frames": 68
+  },
+  {
+    "id": "hook-toc4",
+    "vo": "how to put them on a schedule,",
+    "frames": 66
+  },
+  {
+    "id": "hook-toc5",
+    "vo": "so the work is done before you wake up.",
+    "frames": 67
+  },
+  {
+    "id": "hook-anchor",
+    "vo": "And it's way easier than it sounds.",
+    "frames": 72
+  },
+  {
+    "id": "hook-nocode",
+    "vo": "No code. No setup headaches.",
+    "frames": 67
+  },
+  {
+    "id": "hook-team",
+    "vo": "It feels like a real team in one group chat.",
+    "frames": 74
+  },
+  {
+    "id": "hook-handoff",
+    "vo": "They hand work to each other,",
+    "frames": 54
+  },
+  {
+    "id": "hook-catch",
+    "vo": "and they even catch each other's mistakes.",
+    "frames": 71
+  },
+  {
+    "id": "hook-loop3",
+    "vo": "And stay for tip three at the end. It's one switch most people flip on day one, and it breaks everything.",
+    "frames": 175
+  },
+  {
+    "id": "hook-go",
+    "vo": "Let's build it.",
+    "frames": 66
+  },
+  {
+    "id": "team",
+    "vo": "One plans the day. One watches the store. One looks after clients. One plans content. One hunts for leads. And all of them report to one chief.",
+    "frames": 249,
+    "cut": true
+  },
+  {
+    "id": "promise",
+    "vo": "In this video I'll build that whole team with you, piece by piece, with no code. I call it the Colossus.",
+    "frames": 186,
+    "cut": true
+  },
+  {
+    "id": "problem",
+    "vo": "Most people use AI as separate helpers. A store helper here, a content helper there, and neither one has any idea what the other is doing.",
+    "frames": 247
+  },
+  {
+    "id": "glue",
+    "vo": "So you become the glue. Every morning you copy answers from one chat into the next.",
+    "frames": 152
+  },
+  {
+    "id": "glue-cost",
+    "vo": "Five minutes per chat, five chats, every single morning. That's almost two hours a week of you being a messenger between your own tools.",
+    "frames": 245
+  },
+  {
+    "id": "computer",
+    "vo": "Grok Bot is built differently. Every Bot has its own computer, signs in to your tools, and keeps working while your laptop is closed.",
+    "frames": 231
+  },
+  {
+    "id": "talk",
+    "vo": "And Bots talk to each other. One Bot can tag another, hand over a task, and your team sees every step.",
+    "frames": 181
+  },
+  {
+    "id": "memory",
+    "vo": "They also get smarter over time. Bots keep context from past conversations, so you don't have to explain your business again every morning.",
+    "frames": 241
+  },
+  {
+    "id": "jobs",
+    "vo": "The official site puts it simply: give each Bot one job, and add another when the work grows.",
+    "frames": 174
+  },
+  {
+    "id": "teach",
+    "vo": "And if a job is hard to explain, just show it once. Grok Bot can watch you do a workflow, remember the steps, and repeat them on its own.",
+    "frames": 238
+  },
+  {
+    "id": "order",
+    "vo": "The order matters. First the head. Then two arms, the chest, the legs, and finally a shield around everything.",
+    "frames": 207
+  }
+]

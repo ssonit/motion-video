@@ -57,7 +57,8 @@
   {
     "id": "existing",
     "vo": "Already have a business? Then you know your customer. Run the same search anyway, to sharpen your message around the pain you solve.",
-    "frames": 231
+    "frames": 231,
+    "cut": true
   },
   {
     "id": "pile",

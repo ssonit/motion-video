@@ -1,0 +1,87 @@
+[
+  {
+    "id": "moment",
+    "vo": "Now the fun part. Start a new group chat and add all five Bots.",
+    "frames": 125
+  },
+  {
+    "id": "onemsg",
+    "vo": "Send one message: everyone post your most important finding, then turn it into one plan with today's top five moves.",
+    "frames": 211
+  },
+  {
+    "id": "replies",
+    "vo": "The replies come in. The Store Bot reports that hiking packs are running low.",
+    "frames": 144
+  },
+  {
+    "id": "correct",
+    "vo": "And the Content Bot answers on its own: hold the hiking pack video until the restock is confirmed.",
+    "frames": 179
+  },
+  {
+    "id": "why",
+    "vo": "Nobody told it to. It simply saw the store report in the same thread.",
+    "frames": 128
+  },
+  {
+    "id": "chief-plan",
+    "vo": "Then the Chief joins everything into one plan: five moves, in order, with the hiking pack video safely on hold.",
+    "frames": 201
+  },
+  {
+    "id": "morning",
+    "vo": "And tomorrow you don't even send a message. At eight, the plan is simply there, waiting for your yes.",
+    "frames": 175
+  },
+  {
+    "id": "week",
+    "vo": "By Friday the team has checked the store every morning, written six report cards, planned a week of content and scored a list of leads. You approved each one in seconds.",
+    "frames": 296
+  },
+  {
+    "id": "oldnew",
+    "vo": "The old way: five tools every morning, stock checked by hand, evenings lost to client reports. The new way: one plan, waiting in one chat.",
+    "frames": 251
+  },
+  {
+    "id": "hours",
+    "vo": "Add it up, and that's hours back every week, spent on the work only you can do.",
+    "frames": 140
+  },
+  {
+    "id": "boss",
+    "vo": "You stop being the glue. You become the boss who says yes or no.",
+    "frames": 114
+  },
+  {
+    "id": "tips",
+    "vo": "Three tips before you build.",
+    "frames": 81
+  },
+  {
+    "id": "tip1",
+    "vo": "One. Build the head first. Without a chief, five Bots are just five more chats.",
+    "frames": 154
+  },
+  {
+    "id": "tip2",
+    "vo": "Two. Give every Bot one job and one schedule. Small and clear beats big and vague.",
+    "frames": 157
+  },
+  {
+    "id": "tip3",
+    "vo": "Three, and this is the one that breaks everything: never switch on real sending on day one. Start with sample data and drafts only, and go live after a week of good results.",
+    "frames": 306
+  },
+  {
+    "id": "outro",
+    "vo": "Head, two arms, chest, legs, and a shield. Build it one piece at a time, and let your Bots check each other's work.",
+    "frames": 208
+  },
+  {
+    "id": "cta",
+    "vo": "So start with the head today. One Bot, one message, and tomorrow morning you'll read your first brief.",
+    "frames": 177
+  }
+]
